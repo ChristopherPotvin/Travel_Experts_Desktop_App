@@ -32,6 +32,11 @@ namespace Travel_Experts
             suppliersControl1.BringToFront();
         }
 
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void picBoxFB_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.facebook.com/");
