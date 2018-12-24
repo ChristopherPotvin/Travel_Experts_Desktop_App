@@ -71,80 +71,94 @@
             // btnUnallocated
             // 
             this.btnUnallocated.BackColor = System.Drawing.Color.Transparent;
+            this.btnUnallocated.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUnallocated.FlatAppearance.BorderSize = 0;
             this.btnUnallocated.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnallocated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnallocated.ForeColor = System.Drawing.Color.White;
+            this.btnUnallocated.ForeColor = System.Drawing.Color.Black;
+            this.btnUnallocated.Image = ((System.Drawing.Image)(resources.GetObject("btnUnallocated.Image")));
+            this.btnUnallocated.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnallocated.Location = new System.Drawing.Point(3, 312);
             this.btnUnallocated.Name = "btnUnallocated";
             this.btnUnallocated.Size = new System.Drawing.Size(158, 52);
             this.btnUnallocated.TabIndex = 2;
-            this.btnUnallocated.Text = "Extra Button w. Icon";
+            this.btnUnallocated.Text = "Print ";
             this.btnUnallocated.UseVisualStyleBackColor = false;
             // 
             // btnSuppliers
             // 
             this.btnSuppliers.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuppliers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSuppliers.FlatAppearance.BorderSize = 0;
             this.btnSuppliers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuppliers.ForeColor = System.Drawing.Color.White;
+            this.btnSuppliers.ForeColor = System.Drawing.Color.Black;
+            this.btnSuppliers.Image = ((System.Drawing.Image)(resources.GetObject("btnSuppliers.Image")));
+            this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSuppliers.Location = new System.Drawing.Point(3, 254);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(158, 52);
             this.btnSuppliers.TabIndex = 2;
-            this.btnSuppliers.Text = "Suppliers w. Icon";
+            this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = false;
             this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
             // btnProducts
             // 
             this.btnProducts.BackColor = System.Drawing.Color.Transparent;
+            this.btnProducts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducts.FlatAppearance.BorderSize = 0;
             this.btnProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducts.ForeColor = System.Drawing.Color.White;
+            this.btnProducts.ForeColor = System.Drawing.Color.Black;
+            this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
+            this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducts.Location = new System.Drawing.Point(3, 196);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(158, 52);
             this.btnProducts.TabIndex = 2;
-            this.btnProducts.Text = "Products w. Icon";
-            this.btnProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducts.Text = "Products ";
             this.btnProducts.UseVisualStyleBackColor = false;
             this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnPackages
             // 
             this.btnPackages.BackColor = System.Drawing.Color.Transparent;
+            this.btnPackages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPackages.FlatAppearance.BorderSize = 0;
             this.btnPackages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPackages.ForeColor = System.Drawing.Color.White;
+            this.btnPackages.ForeColor = System.Drawing.Color.Black;
+            this.btnPackages.Image = ((System.Drawing.Image)(resources.GetObject("btnPackages.Image")));
+            this.btnPackages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPackages.Location = new System.Drawing.Point(3, 138);
             this.btnPackages.Name = "btnPackages";
             this.btnPackages.Size = new System.Drawing.Size(158, 52);
             this.btnPackages.TabIndex = 2;
-            this.btnPackages.Text = "Packages w. Icon";
+            this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
             // 
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.ForeColor = System.Drawing.Color.Black;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(3, 80);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(158, 52);
             this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "Home w. Icon";
+            this.btnHome.Text = "Home ";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gold;
+            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -166,12 +180,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(227, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 20);
+            this.label1.Size = new System.Drawing.Size(172, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Travel Experts w. Logo";
+            this.label1.Text = "Travel Experts ";
             // 
             // picBoxFB
             // 
