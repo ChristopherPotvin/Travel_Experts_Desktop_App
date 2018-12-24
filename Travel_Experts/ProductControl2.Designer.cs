@@ -55,7 +55,7 @@
             // 
             // btnProdApply
             // 
-            this.btnProdApply.Location = new System.Drawing.Point(301, 278);
+            this.btnProdApply.Location = new System.Drawing.Point(280, 277);
             this.btnProdApply.Name = "btnProdApply";
             this.btnProdApply.Size = new System.Drawing.Size(75, 23);
             this.btnProdApply.TabIndex = 30;
@@ -64,7 +64,7 @@
             // 
             // btnProdClear
             // 
-            this.btnProdClear.Location = new System.Drawing.Point(409, 318);
+            this.btnProdClear.Location = new System.Drawing.Point(388, 317);
             this.btnProdClear.Name = "btnProdClear";
             this.btnProdClear.Size = new System.Drawing.Size(75, 23);
             this.btnProdClear.TabIndex = 29;
@@ -73,7 +73,7 @@
             // 
             // btnProdSearch
             // 
-            this.btnProdSearch.Location = new System.Drawing.Point(201, 278);
+            this.btnProdSearch.Location = new System.Drawing.Point(180, 277);
             this.btnProdSearch.Name = "btnProdSearch";
             this.btnProdSearch.Size = new System.Drawing.Size(75, 23);
             this.btnProdSearch.TabIndex = 28;
@@ -82,14 +82,14 @@
             // 
             // textProdID
             // 
-            this.textProdID.Location = new System.Drawing.Point(251, 237);
+            this.textProdID.Location = new System.Drawing.Point(239, 238);
             this.textProdID.Name = "textProdID";
             this.textProdID.Size = new System.Drawing.Size(125, 20);
             this.textProdID.TabIndex = 27;
             // 
             // textProdName
             // 
-            this.textProdName.Location = new System.Drawing.Point(251, 211);
+            this.textProdName.Location = new System.Drawing.Point(239, 212);
             this.textProdName.Name = "textProdName";
             this.textProdName.Size = new System.Drawing.Size(125, 20);
             this.textProdName.TabIndex = 26;
@@ -97,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 244);
+            this.label1.Location = new System.Drawing.Point(150, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 25;
@@ -106,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 214);
+            this.label2.Location = new System.Drawing.Point(150, 215);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 24;
@@ -117,7 +117,7 @@
             this.groupBox1.Controls.Add(this.radioButtonProdDelete);
             this.groupBox1.Controls.Add(this.radioButtonProdUpdate);
             this.groupBox1.Controls.Add(this.radioButtonProdAdd);
-            this.groupBox1.Location = new System.Drawing.Point(183, 103);
+            this.groupBox1.Location = new System.Drawing.Point(162, 102);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(193, 85);
             this.groupBox1.TabIndex = 23;
@@ -160,10 +160,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(178, 60);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(157, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(198, 25);
+            this.label4.Size = new System.Drawing.Size(217, 25);
             this.label4.TabIndex = 22;
             this.label4.Text = "Product Information";
             // 

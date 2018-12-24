@@ -34,7 +34,7 @@ namespace Travel_Experts
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            
+            productControl21.BringToFront();
         }
 
         private void picBoxFB_Click(object sender, EventArgs e)

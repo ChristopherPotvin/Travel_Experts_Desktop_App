@@ -44,6 +44,7 @@
             this.pictureBoxTwitt = new System.Windows.Forms.PictureBox();
             this.homeControl1 = new Travel_Experts.HomeControl();
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
+            this.productControl21 = new Travel_Experts.ProductControl2();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -235,12 +236,20 @@
             this.suppliersControl1.Size = new System.Drawing.Size(557, 350);
             this.suppliersControl1.TabIndex = 2;
             // 
+            // productControl21
+            // 
+            this.productControl21.Location = new System.Drawing.Point(194, 70);
+            this.productControl21.Name = "productControl21";
+            this.productControl21.Size = new System.Drawing.Size(546, 378);
+            this.productControl21.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 499);
+            this.Controls.Add(this.productControl21);
             this.Controls.Add(this.pictureBoxTwitt);
             this.Controls.Add(this.pictureBoxTwitter);
             this.Controls.Add(this.pictureBoxInsta);
@@ -284,6 +293,7 @@
         private System.Windows.Forms.PictureBox pictureBoxTwitt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ProductControl2 productControl21;
     }
 }
 
