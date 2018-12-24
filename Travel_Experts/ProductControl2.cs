@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Travel_Experts
 {
-    public partial class ProductsControl1 : UserControl
+    public partial class ProductControl2 : UserControl
     {
-        public ProductsControl1()
+        public ProductControl2()
         {
             InitializeComponent();
         }
