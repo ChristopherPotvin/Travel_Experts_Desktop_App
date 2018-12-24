@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUnallocated = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
@@ -36,10 +37,18 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.suppliersControl1 = new Travel_Experts.SuppliersControl();
+            this.picBoxFB = new System.Windows.Forms.PictureBox();
+            this.pictureBoxInsta = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTwitter = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTwitt = new System.Windows.Forms.PictureBox();
             this.homeControl1 = new Travel_Experts.HomeControl();
+            this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxFB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -149,6 +158,61 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Travel Experts w. Logo";
             // 
+            // picBoxFB
+            // 
+            this.picBoxFB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBoxFB.Image = ((System.Drawing.Image)(resources.GetObject("picBoxFB.Image")));
+            this.picBoxFB.Location = new System.Drawing.Point(609, 451);
+            this.picBoxFB.Name = "picBoxFB";
+            this.picBoxFB.Size = new System.Drawing.Size(36, 36);
+            this.picBoxFB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBoxFB.TabIndex = 1;
+            this.picBoxFB.TabStop = false;
+            this.picBoxFB.Click += new System.EventHandler(this.picBoxFB_Click);
+            // 
+            // pictureBoxInsta
+            // 
+            this.pictureBoxInsta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxInsta.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInsta.Image")));
+            this.pictureBoxInsta.Location = new System.Drawing.Point(651, 451);
+            this.pictureBoxInsta.Name = "pictureBoxInsta";
+            this.pictureBoxInsta.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxInsta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxInsta.TabIndex = 4;
+            this.pictureBoxInsta.TabStop = false;
+            this.pictureBoxInsta.Click += new System.EventHandler(this.pictureBoxInsta_Click);
+            // 
+            // pictureBoxTwitter
+            // 
+            this.pictureBoxTwitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxTwitter.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTwitter.Image")));
+            this.pictureBoxTwitter.Location = new System.Drawing.Point(693, 451);
+            this.pictureBoxTwitter.Name = "pictureBoxTwitter";
+            this.pictureBoxTwitter.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxTwitter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxTwitter.TabIndex = 5;
+            this.pictureBoxTwitter.TabStop = false;
+            this.pictureBoxTwitter.Click += new System.EventHandler(this.pictureBoxTwitter_Click);
+            // 
+            // pictureBoxTwitt
+            // 
+            this.pictureBoxTwitt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxTwitt.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTwitt.Image")));
+            this.pictureBoxTwitt.Location = new System.Drawing.Point(735, 451);
+            this.pictureBoxTwitt.Name = "pictureBoxTwitt";
+            this.pictureBoxTwitt.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxTwitt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxTwitt.TabIndex = 6;
+            this.pictureBoxTwitt.TabStop = false;
+            this.pictureBoxTwitt.Click += new System.EventHandler(this.pictureBoxTwitt_Click);
+            // 
+            // homeControl1
+            // 
+            this.homeControl1.Location = new System.Drawing.Point(185, 70);
+            this.homeControl1.Name = "homeControl1";
+            this.homeControl1.Size = new System.Drawing.Size(544, 375);
+            this.homeControl1.TabIndex = 3;
+            // 
             // suppliersControl1
             // 
             this.suppliersControl1.BackColor = System.Drawing.Color.White;
@@ -157,19 +221,16 @@
             this.suppliersControl1.Size = new System.Drawing.Size(561, 363);
             this.suppliersControl1.TabIndex = 2;
             // 
-            // homeControl1
-            // 
-            this.homeControl1.Location = new System.Drawing.Point(185, 70);
-            this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(577, 404);
-            this.homeControl1.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 499);
+            this.Controls.Add(this.pictureBoxTwitt);
+            this.Controls.Add(this.pictureBoxTwitter);
+            this.Controls.Add(this.pictureBoxInsta);
+            this.Controls.Add(this.picBoxFB);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.suppliersControl1);
             this.Controls.Add(this.panel2);
@@ -182,7 +243,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxFB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitt)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -198,6 +264,10 @@
         private System.Windows.Forms.Label label1;
         private SuppliersControl suppliersControl1;
         private HomeControl homeControl1;
+        private System.Windows.Forms.PictureBox picBoxFB;
+        private System.Windows.Forms.PictureBox pictureBoxInsta;
+        private System.Windows.Forms.PictureBox pictureBoxTwitter;
+        private System.Windows.Forms.PictureBox pictureBoxTwitt;
     }
 }
 

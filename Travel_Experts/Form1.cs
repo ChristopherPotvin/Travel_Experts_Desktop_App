@@ -31,5 +31,26 @@ namespace Travel_Experts
         {
             suppliersControl1.BringToFront();
         }
+
+        private void picBoxFB_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.facebook.com/");
+        }
+
+        private void pictureBoxInsta_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.instagram.com/");
+        }
+
+        private void pictureBoxTwitter_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.twitter.com/");
+        }
+
+        private void pictureBoxTwitt_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.linkedin.com/");
+
+        }
     }
 }
