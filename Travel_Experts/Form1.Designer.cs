@@ -36,19 +36,21 @@
             this.btnPackages = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.picBoxFB = new System.Windows.Forms.PictureBox();
             this.pictureBoxInsta = new System.Windows.Forms.PictureBox();
             this.pictureBoxTwitter = new System.Windows.Forms.PictureBox();
             this.pictureBoxTwitt = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.homeControl1 = new Travel_Experts.HomeControl();
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,22 +143,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gold;
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(164, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(626, 64);
             this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Travel Experts w. Logo";
             // 
             // picBoxFB
             // 
@@ -206,6 +199,16 @@
             this.pictureBoxTwitt.TabStop = false;
             this.pictureBoxTwitt.Click += new System.EventHandler(this.pictureBoxTwitt_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Travel Experts w. Logo";
+            // 
             // homeControl1
             // 
             this.homeControl1.Location = new System.Drawing.Point(185, 70);
@@ -220,6 +223,16 @@
             this.suppliersControl1.Name = "suppliersControl1";
             this.suppliersControl1.Size = new System.Drawing.Size(561, 363);
             this.suppliersControl1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(562, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -247,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,13 +275,14 @@
         private System.Windows.Forms.Button btnPackages;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private SuppliersControl suppliersControl1;
         private HomeControl homeControl1;
         private System.Windows.Forms.PictureBox picBoxFB;
         private System.Windows.Forms.PictureBox pictureBoxInsta;
         private System.Windows.Forms.PictureBox pictureBoxTwitter;
         private System.Windows.Forms.PictureBox pictureBoxTwitt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
