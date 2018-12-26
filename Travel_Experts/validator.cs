@@ -7,12 +7,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace electricityBill
+namespace Travel_Experts
 {
-    /*Create class that will validate user input in the form
-    * Author: Mo Sagnia
-    * Date: 02 Jan 19
-    */
+    //Create class that will validate user input in the form
     public static class Validator
     {
         //method used in the validations to display user friendly error message in the form
@@ -31,140 +28,144 @@ namespace electricityBill
             }
             
         }
-        //test if a text box is a valid email address
-        public static bool IsEmail(TextBox textBoxName, string name, Label labelName)
+
+        //test if input is a valid email address
+        public static bool IsEmail(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
-            if (!Regex.IsMatch(textBoxName.Text, @"^[a-zA-Z][a-zA-Z0-9.!#$%&'*+\/=?^_`{-]+@([a-zA-Z][a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}$"))
+            if (!Regex.IsMatch(txtBoxName.Text, @"^[a-zA-Z][a-zA-Z0-9.!#$%&'*+\/=?^_`{-]+@([a-zA-Z][a-zA-Z0-9-]+\.)+[a-zA-Z]{2,6}$"))
             {
                 result = false;
             }
-            FormFormat(result, textBoxName, labelName);
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        //test if a text box is a valid phone number
-        public static bool IsPhoneNo(TextBox tb, string name)
+        //test if input is a valid phone number
+        public static bool IsPhoneNo(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
-            if(!Regex.IsMatch(tb.Text, @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"))
+            if(!Regex.IsMatch(txtBoxName.Text, @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"))
             {
                 result = false;
-                MessageBox.Show(name + " has to be valid");
-                tb.Focus();
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        //test if a textbox is a valid postal code
-        public static bool IsPostalCode(TextBox tb, string name)
+        //test if input is a valid postal code
+        public static bool IsPostalCode(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
-            if (!Regex.IsMatch(tb.Text, @"^([A-Za-z]\d[A-Za-z][- ]?\d[A-Za-z]\d)+$"))
+            if (!Regex.IsMatch(txtBoxName.Text, @"^([A-Za-z]\d[A-Za-z][- ]?\d[A-Za-z]\d)+$"))
             {
                 result = false;
-                MessageBox.Show(name + " has to be valid");
-                tb.Focus();
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        // tests if a text box is not empty (required fields)
-        public static bool IsProvided(TextBox tb, string name)
+        // tests if input is not empty (required fields)
+        public static bool IsProvided(TextBox txtBoxName, Label lblName)
         {
             bool result = true; //innocent until proven guilty
-            if(tb.Text == "") //empty textbox
+            if(txtBoxName.Text == "") //empty textbox
             {
                 result = false;
-                MessageBox.Show(name + " is required", "Data entry error");
-                tb.Focus();
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        //tests if a text box is a string
-        public static bool IsString(TextBox tb, string name)
+        //tests if input is a string
+        public static bool IsString(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
-            if(!Regex.IsMatch(tb.Text,"^[a-zA-Z -'.]+$"))
+            if(!Regex.IsMatch(txtBoxName.Text,"^[a-zA-Z -'.]+$"))
             {
                 result = false;
-                MessageBox.Show(name + " has to be a name with no numbers", "Data entry error");
-                tb.Focus();
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
         //test if input is a non-negative integer
-        public static bool IsNonNegativeInt(TextBox tb, string name)
+        public static bool IsNonNegativeInt(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
             int num; // parsed number
-            if(!Int32.TryParse(tb.Text, out num)) // if not integer
+            if(!Int32.TryParse(txtBoxName.Text, out num)) // if not integer
             {
                 result = false;
-                MessageBox.Show(name + " has to be non-negative integer", "Data entry error");
-                tb.SelectAll(); // select all text to facilitate change
-                tb.Focus();
             }
             else // an int value; check if non-negative
             {
                 if(num < 0)
                 {
                     result = false;
-                    MessageBox.Show(name + " needs to be positive or zero", "Data entry error");
-                    tb.SelectAll(); // select all text to facilitate change
-                    tb.Focus();
                 }
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        public static bool IsNonNegativeDouble(TextBox tb, string name)
+        //test if input is a positive integer & not equal to 0
+        public static bool IsNonZeroPositiveInt(TextBox txtBoxName, Label lblName)
+        {
+            bool result = true;
+            int num; // parsed number
+            if (!Int32.TryParse(txtBoxName.Text, out num)) // if not integer
+            {
+                result = false;
+            }
+            else // an int value; check if non-negative or equal to 0
+            {
+                if (num <= 0)
+                {
+                    result = false;
+                }
+            }
+            FormFormat(result, txtBoxName, lblName);
+            return result;
+        }
+
+        //test if input is a positive double
+        public static bool IsNonNegativeDouble(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
             double num; // parsed number
-            if (!Double.TryParse(tb.Text, out num)) // if not integer
+            if (!Double.TryParse(txtBoxName.Text, out num)) // if not double
             {
                 result = false;
-                MessageBox.Show(name + " has to be a floating point number", "Data entry error");
-                tb.SelectAll(); // select all text to facilitate change
-                tb.Focus();
             }
-            else // an int value; check if non-negative
+            else // a double value; check if non-negative
             {
                 if (num < 0)
                 {
                     result = false;
-                    MessageBox.Show(name + " needs to be positive or zero", "Data entry error");
-                    tb.SelectAll(); // select all text to facilitate change
-                    tb.Focus();
                 }
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
 
-        public static bool IsNonNegativeDecimal(TextBox tb, string name)
+        //test if input is a positive decimal
+        public static bool IsNonNegativeDecimal(TextBox txtBoxName, Label lblName)
         {
             bool result = true;
             decimal num; // parsed number
-            if (!Decimal.TryParse(tb.Text, out num)) // if not integer
+            if (!Decimal.TryParse(txtBoxName.Text, out num)) // if not decimal
             {
                 result = false;
-                MessageBox.Show(name + " has to be a decimal number", "Data entry error");
-                tb.SelectAll(); // select all text to facilitate change
-                tb.Focus();
             }
-            else // an int value; check if non-negative
+            else // a decimal value; check if non-negative
             {
                 if (num < 0)
                 {
                     result = false;
-                    MessageBox.Show(name + " needs to be positive or zero", "Data entry error");
-                    tb.SelectAll(); // select all text to facilitate change
-                    tb.Focus();
                 }
             }
+            FormFormat(result, txtBoxName, lblName);
             return result;
         }
     }
