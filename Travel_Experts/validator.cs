@@ -12,19 +12,33 @@ namespace Travel_Experts
     //Create class that will validate user input in the form
     public static class Validator
     {
+        //test if input date is not in the past
+        public static bool IsDate(DateTimePicker dtPicker, Label lblName)
+        {
+            lblName.Visible = false;
+            bool result = true;
+            if (DateTime.Now.Date > dtPicker.Value.Date)
+            {
+                result = false;
+                lblName.Visible = true;
+                dtPicker.Focus();
+
+            }
+            return result;
+        }
         //method used in the validations to display user friendly error message in the form
-        private static void FormFormat(bool ValidationResult, TextBox textBoxName, Label labelName)
+        private static void FormFormat(bool ValidationResult, TextBox txtBoxName, Label lblName)
         {
             if (ValidationResult)
             {
-                labelName.Visible = false;
-                textBoxName.BackColor = Color.White;
+                lblName.Visible = false;
+                txtBoxName.BackColor = Color.White;
             }
             else
             {
-                labelName.Visible = true;
-                textBoxName.Focus();
-                textBoxName.BackColor = Color.Pink;
+                lblName.Visible = true;
+                txtBoxName.Focus();
+                txtBoxName.BackColor = Color.Pink;
             }
             
         }
