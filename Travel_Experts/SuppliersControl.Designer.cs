@@ -34,10 +34,10 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearchSupplier = new System.Windows.Forms.Label();
+            this.lblSupplierId = new System.Windows.Forms.Label();
+            this.lblSupplierName = new System.Windows.Forms.Label();
             this.txtSupId = new System.Windows.Forms.TextBox();
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
@@ -109,40 +109,41 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // tbSearch
+            // txtSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(166, 183);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(146, 20);
-            this.tbSearch.TabIndex = 3;
+            this.txtSearch.Location = new System.Drawing.Point(166, 183);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(146, 20);
+            this.txtSearch.TabIndex = 3;
             // 
-            // label2
+            // lblSearchSupplier
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 186);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Search Supplier";
+            this.lblSearchSupplier.AutoSize = true;
+            this.lblSearchSupplier.Location = new System.Drawing.Point(67, 186);
+            this.lblSearchSupplier.Name = "lblSearchSupplier";
+            this.lblSearchSupplier.Size = new System.Drawing.Size(82, 13);
+            this.lblSearchSupplier.TabIndex = 4;
+            this.lblSearchSupplier.Text = "Search Supplier";
             // 
-            // label3
+            // lblSupplierId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 244);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Supplier Id";
+            this.lblSupplierId.AutoSize = true;
+            this.lblSupplierId.Location = new System.Drawing.Point(86, 244);
+            this.lblSupplierId.Name = "lblSupplierId";
+            this.lblSupplierId.Size = new System.Drawing.Size(57, 13);
+            this.lblSupplierId.TabIndex = 4;
+            this.lblSupplierId.Text = "Supplier Id";
             // 
-            // label4
+            // lblSupplierName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Supplier Name";
+            this.lblSupplierName.AutoSize = true;
+            this.lblSupplierName.Location = new System.Drawing.Point(236, 244);
+            this.lblSupplierName.Name = "lblSupplierName";
+            this.lblSupplierName.Size = new System.Drawing.Size(76, 13);
+            this.lblSupplierName.TabIndex = 4;
+            this.lblSupplierName.Text = "Supplier Name";
             // 
             // txtSupId
             // 
@@ -166,6 +167,7 @@
             this.btnApply.TabIndex = 2;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // lblSupId
             // 
@@ -196,12 +198,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblSupId);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblSupplierName);
+            this.Controls.Add(this.lblSupplierId);
+            this.Controls.Add(this.lblSearchSupplier);
             this.Controls.Add(this.txtSupName);
             this.Controls.Add(this.txtSupId);
-            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox1);
@@ -223,10 +225,10 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearchSupplier;
+        private System.Windows.Forms.Label lblSupplierId;
+        private System.Windows.Forms.Label lblSupplierName;
         private System.Windows.Forms.TextBox txtSupId;
         private System.Windows.Forms.TextBox txtSupName;
         private System.Windows.Forms.Button btnApply;
