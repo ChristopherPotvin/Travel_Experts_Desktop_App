@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +41,8 @@
             this.txtSupId = new System.Windows.Forms.TextBox();
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
+            this.lblSupId = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +68,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(207, 19);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(56, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Delete";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -87,17 +100,6 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Update";
             this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(207, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(56, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Delete";
-            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
@@ -165,11 +167,35 @@
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
             // 
+            // lblSupId
+            // 
+            this.lblSupId.AutoSize = true;
+            this.lblSupId.ForeColor = System.Drawing.Color.Red;
+            this.lblSupId.Location = new System.Drawing.Point(40, 296);
+            this.lblSupId.Name = "lblSupId";
+            this.lblSupId.Size = new System.Drawing.Size(155, 13);
+            this.lblSupId.TabIndex = 5;
+            this.lblSupId.Text = "Enter a valid supplier Id number";
+            this.lblSupId.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(225, 296);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Enter a valid supplier name";
+            this.label5.Visible = false;
+            // 
             // SuppliersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblSupId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -204,5 +230,7 @@
         private System.Windows.Forms.TextBox txtSupId;
         private System.Windows.Forms.TextBox txtSupName;
         private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Label lblSupId;
+        private System.Windows.Forms.Label label5;
     }
 }

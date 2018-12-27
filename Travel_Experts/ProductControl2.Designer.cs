@@ -41,6 +41,8 @@
             this.radioButtonProdUpdate = new System.Windows.Forms.RadioButton();
             this.radioButtonProdAdd = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblProdId = new System.Windows.Forms.Label();
+            this.lblProdName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,10 +169,34 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "Product Information";
             // 
+            // lblProdId
+            // 
+            this.lblProdId.AutoSize = true;
+            this.lblProdId.ForeColor = System.Drawing.Color.Red;
+            this.lblProdId.Location = new System.Drawing.Point(370, 241);
+            this.lblProdId.Name = "lblProdId";
+            this.lblProdId.Size = new System.Drawing.Size(155, 13);
+            this.lblProdId.TabIndex = 31;
+            this.lblProdId.Text = "Enter a valid product Id number";
+            this.lblProdId.Visible = false;
+            // 
+            // lblProdName
+            // 
+            this.lblProdName.AutoSize = true;
+            this.lblProdName.ForeColor = System.Drawing.Color.Red;
+            this.lblProdName.Location = new System.Drawing.Point(370, 215);
+            this.lblProdName.Name = "lblProdName";
+            this.lblProdName.Size = new System.Drawing.Size(134, 13);
+            this.lblProdName.TabIndex = 32;
+            this.lblProdName.Text = "Enter a valid product name";
+            this.lblProdName.Visible = false;
+            // 
             // ProductControl2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblProdName);
+            this.Controls.Add(this.lblProdId);
             this.Controls.Add(this.btnProdApply);
             this.Controls.Add(this.btnProdClear);
             this.Controls.Add(this.btnProdSearch);
@@ -204,5 +230,7 @@
         private System.Windows.Forms.RadioButton radioButtonProdUpdate;
         private System.Windows.Forms.RadioButton radioButtonProdAdd;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblProdId;
+        private System.Windows.Forms.Label lblProdName;
     }
 }
