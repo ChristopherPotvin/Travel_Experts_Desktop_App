@@ -37,6 +37,16 @@ namespace Travel_Experts
             productControl21.BringToFront();
         }
 
+        private void btnPackages_Click(object sender, EventArgs e)
+        {
+            packages1.BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            administratorControl1.BringToFront();
+        }
+
         private void picBoxFB_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.facebook.com/");
@@ -57,5 +67,6 @@ namespace Travel_Experts
             System.Diagnostics.Process.Start("https://www.linkedin.com/");
 
         }
+
     }
 }

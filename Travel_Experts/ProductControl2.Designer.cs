@@ -57,7 +57,7 @@
             // 
             // btnProdApply
             // 
-            this.btnProdApply.Location = new System.Drawing.Point(280, 277);
+            this.btnProdApply.Location = new System.Drawing.Point(299, 277);
             this.btnProdApply.Name = "btnProdApply";
             this.btnProdApply.Size = new System.Drawing.Size(75, 23);
             this.btnProdApply.TabIndex = 30;
@@ -75,7 +75,7 @@
             // 
             // btnProdSearch
             // 
-            this.btnProdSearch.Location = new System.Drawing.Point(180, 277);
+            this.btnProdSearch.Location = new System.Drawing.Point(199, 277);
             this.btnProdSearch.Name = "btnProdSearch";
             this.btnProdSearch.Size = new System.Drawing.Size(75, 23);
             this.btnProdSearch.TabIndex = 28;

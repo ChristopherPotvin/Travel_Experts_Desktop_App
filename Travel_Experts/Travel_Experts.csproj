@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministratorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdministratorControl.Designer.cs">
+      <DependentUpon>AdministratorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="HomeControl.Designer.cs">
       <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackagesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PackagesControl.Designer.cs">
+      <DependentUpon>PackagesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductControl2.cs">
       <SubType>UserControl</SubType>
@@ -73,11 +85,17 @@
       <DependentUpon>SuppliersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Validator.cs" />
+    <EmbeddedResource Include="AdministratorControl.resx">
+      <DependentUpon>AdministratorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeControl.resx">
       <DependentUpon>HomeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackagesControl.resx">
+      <DependentUpon>PackagesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductControl2.resx">
       <DependentUpon>ProductControl2.cs</DependentUpon>
