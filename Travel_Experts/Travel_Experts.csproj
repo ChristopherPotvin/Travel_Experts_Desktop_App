@@ -70,6 +70,12 @@
     <Compile Include="PackagesControl.Designer.cs">
       <DependentUpon>PackagesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrintControl1.Designer.cs">
+      <DependentUpon>PrintControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductControl2.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PackagesControl.resx">
       <DependentUpon>PackagesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintControl1.resx">
+      <DependentUpon>PrintControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductControl2.resx">
       <DependentUpon>ProductControl2.cs</DependentUpon>
