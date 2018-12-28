@@ -39,21 +39,26 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.homeControl1 = new Travel_Experts.HomeControl();
+            this.homeControl2 = new Travel_Experts.HomeControl();
+            this.packagesControl5 = new Travel_Experts.PackagesControl();
+            this.productControl24 = new Travel_Experts.ProductControl2();
+            this.suppliersControl2 = new Travel_Experts.SuppliersControl();
+            this.productControl23 = new Travel_Experts.ProductControl2();
+            this.packagesControl4 = new Travel_Experts.PackagesControl();
+            this.productControl22 = new Travel_Experts.ProductControl2();
+            this.packagesControl3 = new Travel_Experts.PackagesControl();
+            this.packagesControl2 = new Travel_Experts.PackagesControl();
+            this.packagesControl1 = new Travel_Experts.PackagesControl();
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.productControl21 = new Travel_Experts.ProductControl2();
             this.packages1 = new Travel_Experts.PackagesControl();
             this.administratorControl1 = new Travel_Experts.AdministratorControl();
-            this.packagesControl1 = new Travel_Experts.PackagesControl();
-            this.packagesControl2 = new Travel_Experts.PackagesControl();
-            this.packagesControl3 = new Travel_Experts.PackagesControl();
-            this.productControl22 = new Travel_Experts.ProductControl2();
-            this.packagesControl4 = new Travel_Experts.PackagesControl();
-            this.productControl23 = new Travel_Experts.ProductControl2();
-            this.suppliersControl2 = new Travel_Experts.SuppliersControl();
-            this.productControl24 = new Travel_Experts.ProductControl2();
-            this.packagesControl5 = new Travel_Experts.PackagesControl();
-            this.homeControl2 = new Travel_Experts.HomeControl();
+            this.homeControl1 = new Travel_Experts.HomeControl();
+            this.packagesControl6 = new Travel_Experts.PackagesControl();
+            this.suppliersControl3 = new Travel_Experts.SuppliersControl();
+            this.productControl25 = new Travel_Experts.ProductControl2();
+            this.administratorControl2 = new Travel_Experts.AdministratorControl();
+            this.suppliersControl4 = new Travel_Experts.SuppliersControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -213,12 +218,76 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Travel Experts ";
             // 
-            // homeControl1
+            // homeControl2
             // 
-            this.homeControl1.Location = new System.Drawing.Point(167, 70);
-            this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(611, 429);
-            this.homeControl1.TabIndex = 3;
+            this.homeControl2.Location = new System.Drawing.Point(164, 61);
+            this.homeControl2.Name = "homeControl2";
+            this.homeControl2.Size = new System.Drawing.Size(626, 438);
+            this.homeControl2.TabIndex = 19;
+            // 
+            // packagesControl5
+            // 
+            this.packagesControl5.Location = new System.Drawing.Point(204, 110);
+            this.packagesControl5.Name = "packagesControl5";
+            this.packagesControl5.Size = new System.Drawing.Size(517, 367);
+            this.packagesControl5.TabIndex = 18;
+            // 
+            // productControl24
+            // 
+            this.productControl24.Location = new System.Drawing.Point(196, 102);
+            this.productControl24.Name = "productControl24";
+            this.productControl24.Size = new System.Drawing.Size(546, 378);
+            this.productControl24.TabIndex = 17;
+            // 
+            // suppliersControl2
+            // 
+            this.suppliersControl2.BackColor = System.Drawing.Color.White;
+            this.suppliersControl2.Location = new System.Drawing.Point(188, 94);
+            this.suppliersControl2.Name = "suppliersControl2";
+            this.suppliersControl2.Size = new System.Drawing.Size(534, 355);
+            this.suppliersControl2.TabIndex = 16;
+            // 
+            // productControl23
+            // 
+            this.productControl23.Location = new System.Drawing.Point(180, 86);
+            this.productControl23.Name = "productControl23";
+            this.productControl23.Size = new System.Drawing.Size(546, 378);
+            this.productControl23.TabIndex = 15;
+            // 
+            // packagesControl4
+            // 
+            this.packagesControl4.Location = new System.Drawing.Point(172, 78);
+            this.packagesControl4.Name = "packagesControl4";
+            this.packagesControl4.Size = new System.Drawing.Size(618, 421);
+            this.packagesControl4.TabIndex = 14;
+            // 
+            // productControl22
+            // 
+            this.productControl22.Location = new System.Drawing.Point(164, 70);
+            this.productControl22.Name = "productControl22";
+            this.productControl22.Size = new System.Drawing.Size(626, 429);
+            this.productControl22.TabIndex = 13;
+            // 
+            // packagesControl3
+            // 
+            this.packagesControl3.Location = new System.Drawing.Point(180, 86);
+            this.packagesControl3.Name = "packagesControl3";
+            this.packagesControl3.Size = new System.Drawing.Size(610, 413);
+            this.packagesControl3.TabIndex = 12;
+            // 
+            // packagesControl2
+            // 
+            this.packagesControl2.Location = new System.Drawing.Point(172, 78);
+            this.packagesControl2.Name = "packagesControl2";
+            this.packagesControl2.Size = new System.Drawing.Size(589, 421);
+            this.packagesControl2.TabIndex = 11;
+            // 
+            // packagesControl1
+            // 
+            this.packagesControl1.Location = new System.Drawing.Point(164, 70);
+            this.packagesControl1.Name = "packagesControl1";
+            this.packagesControl1.Size = new System.Drawing.Size(597, 429);
+            this.packagesControl1.TabIndex = 10;
             // 
             // suppliersControl1
             // 
@@ -249,76 +318,49 @@
             this.administratorControl1.Size = new System.Drawing.Size(620, 419);
             this.administratorControl1.TabIndex = 9;
             // 
-            // packagesControl1
+            // homeControl1
             // 
-            this.packagesControl1.Location = new System.Drawing.Point(164, 70);
-            this.packagesControl1.Name = "packagesControl1";
-            this.packagesControl1.Size = new System.Drawing.Size(597, 429);
-            this.packagesControl1.TabIndex = 10;
+            this.homeControl1.Location = new System.Drawing.Point(167, 70);
+            this.homeControl1.Name = "homeControl1";
+            this.homeControl1.Size = new System.Drawing.Size(611, 429);
+            this.homeControl1.TabIndex = 3;
             // 
-            // packagesControl2
+            // packagesControl6
             // 
-            this.packagesControl2.Location = new System.Drawing.Point(172, 78);
-            this.packagesControl2.Name = "packagesControl2";
-            this.packagesControl2.Size = new System.Drawing.Size(589, 421);
-            this.packagesControl2.TabIndex = 11;
+            this.packagesControl6.Location = new System.Drawing.Point(164, 61);
+            this.packagesControl6.Name = "packagesControl6";
+            this.packagesControl6.Size = new System.Drawing.Size(626, 438);
+            this.packagesControl6.TabIndex = 20;
             // 
-            // packagesControl3
+            // suppliersControl3
             // 
-            this.packagesControl3.Location = new System.Drawing.Point(180, 86);
-            this.packagesControl3.Name = "packagesControl3";
-            this.packagesControl3.Size = new System.Drawing.Size(610, 413);
-            this.packagesControl3.TabIndex = 12;
+            this.suppliersControl3.BackColor = System.Drawing.Color.White;
+            this.suppliersControl3.Location = new System.Drawing.Point(164, 61);
+            this.suppliersControl3.Name = "suppliersControl3";
+            this.suppliersControl3.Size = new System.Drawing.Size(626, 438);
+            this.suppliersControl3.TabIndex = 21;
             // 
-            // productControl22
+            // productControl25
             // 
-            this.productControl22.Location = new System.Drawing.Point(164, 70);
-            this.productControl22.Name = "productControl22";
-            this.productControl22.Size = new System.Drawing.Size(626, 429);
-            this.productControl22.TabIndex = 13;
+            this.productControl25.Location = new System.Drawing.Point(164, 61);
+            this.productControl25.Name = "productControl25";
+            this.productControl25.Size = new System.Drawing.Size(626, 438);
+            this.productControl25.TabIndex = 22;
             // 
-            // packagesControl4
+            // administratorControl2
             // 
-            this.packagesControl4.Location = new System.Drawing.Point(172, 78);
-            this.packagesControl4.Name = "packagesControl4";
-            this.packagesControl4.Size = new System.Drawing.Size(618, 421);
-            this.packagesControl4.TabIndex = 14;
+            this.administratorControl2.Location = new System.Drawing.Point(164, 61);
+            this.administratorControl2.Name = "administratorControl2";
+            this.administratorControl2.Size = new System.Drawing.Size(626, 438);
+            this.administratorControl2.TabIndex = 23;
             // 
-            // productControl23
+            // suppliersControl4
             // 
-            this.productControl23.Location = new System.Drawing.Point(180, 86);
-            this.productControl23.Name = "productControl23";
-            this.productControl23.Size = new System.Drawing.Size(546, 378);
-            this.productControl23.TabIndex = 15;
-            // 
-            // suppliersControl2
-            // 
-            this.suppliersControl2.BackColor = System.Drawing.Color.White;
-            this.suppliersControl2.Location = new System.Drawing.Point(188, 94);
-            this.suppliersControl2.Name = "suppliersControl2";
-            this.suppliersControl2.Size = new System.Drawing.Size(534, 355);
-            this.suppliersControl2.TabIndex = 16;
-            // 
-            // productControl24
-            // 
-            this.productControl24.Location = new System.Drawing.Point(196, 102);
-            this.productControl24.Name = "productControl24";
-            this.productControl24.Size = new System.Drawing.Size(546, 378);
-            this.productControl24.TabIndex = 17;
-            // 
-            // packagesControl5
-            // 
-            this.packagesControl5.Location = new System.Drawing.Point(204, 110);
-            this.packagesControl5.Name = "packagesControl5";
-            this.packagesControl5.Size = new System.Drawing.Size(517, 367);
-            this.packagesControl5.TabIndex = 18;
-            // 
-            // homeControl2
-            // 
-            this.homeControl2.Location = new System.Drawing.Point(164, 58);
-            this.homeControl2.Name = "homeControl2";
-            this.homeControl2.Size = new System.Drawing.Size(591, 429);
-            this.homeControl2.TabIndex = 19;
+            this.suppliersControl4.BackColor = System.Drawing.Color.White;
+            this.suppliersControl4.Location = new System.Drawing.Point(164, 61);
+            this.suppliersControl4.Name = "suppliersControl4";
+            this.suppliersControl4.Size = new System.Drawing.Size(626, 438);
+            this.suppliersControl4.TabIndex = 24;
             // 
             // Form1
             // 
@@ -326,6 +368,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 499);
+            this.Controls.Add(this.suppliersControl4);
+            this.Controls.Add(this.administratorControl2);
+            this.Controls.Add(this.productControl25);
+            this.Controls.Add(this.suppliersControl3);
+            this.Controls.Add(this.packagesControl6);
             this.Controls.Add(this.homeControl2);
             this.Controls.Add(this.packagesControl5);
             this.Controls.Add(this.productControl24);
@@ -383,6 +430,11 @@
         private ProductControl2 productControl24;
         private PackagesControl packagesControl5;
         private HomeControl homeControl2;
+        private PackagesControl packagesControl6;
+        private SuppliersControl suppliersControl3;
+        private ProductControl2 productControl25;
+        private AdministratorControl administratorControl2;
+        private SuppliersControl suppliersControl4;
     }
 }
 

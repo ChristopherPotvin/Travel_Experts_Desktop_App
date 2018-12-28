@@ -32,8 +32,8 @@
             this.btnProdApply = new System.Windows.Forms.Button();
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdSearch = new System.Windows.Forms.Button();
-            this.textProdID = new System.Windows.Forms.TextBox();
-            this.textProdName = new System.Windows.Forms.TextBox();
+            this.txtProdID = new System.Windows.Forms.TextBox();
+            this.txtProdName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +63,7 @@
             this.btnProdApply.TabIndex = 30;
             this.btnProdApply.Text = "Apply";
             this.btnProdApply.UseVisualStyleBackColor = true;
+            this.btnProdApply.Click += new System.EventHandler(this.btnProdApply_Click);
             // 
             // btnProdClear
             // 
@@ -82,19 +83,19 @@
             this.btnProdSearch.Text = "Search";
             this.btnProdSearch.UseVisualStyleBackColor = true;
             // 
-            // textProdID
+            // txtProdID
             // 
-            this.textProdID.Location = new System.Drawing.Point(239, 238);
-            this.textProdID.Name = "textProdID";
-            this.textProdID.Size = new System.Drawing.Size(125, 20);
-            this.textProdID.TabIndex = 27;
+            this.txtProdID.Location = new System.Drawing.Point(239, 238);
+            this.txtProdID.Name = "txtProdID";
+            this.txtProdID.Size = new System.Drawing.Size(125, 20);
+            this.txtProdID.TabIndex = 27;
             // 
-            // textProdName
+            // txtProdName
             // 
-            this.textProdName.Location = new System.Drawing.Point(239, 212);
-            this.textProdName.Name = "textProdName";
-            this.textProdName.Size = new System.Drawing.Size(125, 20);
-            this.textProdName.TabIndex = 26;
+            this.txtProdName.Location = new System.Drawing.Point(239, 212);
+            this.txtProdName.Name = "txtProdName";
+            this.txtProdName.Size = new System.Drawing.Size(125, 20);
+            this.txtProdName.TabIndex = 26;
             // 
             // label1
             // 
@@ -200,8 +201,8 @@
             this.Controls.Add(this.btnProdApply);
             this.Controls.Add(this.btnProdClear);
             this.Controls.Add(this.btnProdSearch);
-            this.Controls.Add(this.textProdID);
-            this.Controls.Add(this.textProdName);
+            this.Controls.Add(this.txtProdID);
+            this.Controls.Add(this.txtProdName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -221,8 +222,8 @@
         private System.Windows.Forms.Button btnProdApply;
         private System.Windows.Forms.Button btnProdClear;
         private System.Windows.Forms.Button btnProdSearch;
-        private System.Windows.Forms.TextBox textProdID;
-        private System.Windows.Forms.TextBox textProdName;
+        private System.Windows.Forms.TextBox txtProdID;
+        private System.Windows.Forms.TextBox txtProdName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;

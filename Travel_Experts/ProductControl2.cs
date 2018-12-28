@@ -16,5 +16,40 @@ namespace Travel_Experts
         {
             InitializeComponent();
         }
+
+        private string getProduct_Name()
+        {
+            if (Validator.IsString(txtProdName, lblProdName))
+            {
+                return Convert.ToString(txtProdName.Text);
+            }
+
+            return null;
+        }
+ 
+        private int getProduct_Id()
+        {
+            if (Validator.IsNonNegativeInt(txtProdID, lblProdId))
+            {
+                return Convert.ToInt32(txtProdID.Text);
+            }
+            return 0;
+        }
+
+        private void btnProdApply_Click(object sender, EventArgs e)
+        {
+
+            string productName = getProduct_Name();
+            int productId = getProduct_Id();
+
+            if (productName != null && productId != 0)
+            {
+                
+                //Model.Products products = new Model.Products ((getProduct_Name(), getProduct_Id());
+               
+               
+                MessageBox.Show(products.ToString());
+            }
+        }
     }
 }
