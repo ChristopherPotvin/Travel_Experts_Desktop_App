@@ -359,7 +359,7 @@
             this.suppliersControl4.BackColor = System.Drawing.Color.White;
             this.suppliersControl4.Location = new System.Drawing.Point(164, 61);
             this.suppliersControl4.Name = "suppliersControl4";
-            this.suppliersControl4.Size = new System.Drawing.Size(626, 438);
+            this.suppliersControl4.Size = new System.Drawing.Size(547, 387);
             this.suppliersControl4.TabIndex = 24;
             // 
             // Form1

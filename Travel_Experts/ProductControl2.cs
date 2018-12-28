@@ -19,7 +19,7 @@ namespace Travel_Experts
 
         private string getProduct_Name()
         {
-            if (Validator.IsString(txtProdName, lblProdName))
+            if (Validator.IsString(txtProdName, lblProdName) && Validator.IsProvided(txtProdName, lblProdName))
             {
                 return Convert.ToString(txtProdName.Text);
             }
@@ -29,7 +29,7 @@ namespace Travel_Experts
  
         private int getProduct_Id()
         {
-            if (Validator.IsNonNegativeInt(txtProdID, lblProdId))
+            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId))
             {
                 return Convert.ToInt32(txtProdID.Text);
             }
@@ -44,11 +44,9 @@ namespace Travel_Experts
 
             if (productName != null && productId != 0)
             {
-                
-                //Model.Products products = new Model.Products ((getProduct_Name(), getProduct_Id());
+                Model.Products products = new Model.Products (getProduct_Id(), getProduct_Name()); // creating the object
                
-               
-                MessageBox.Show(products.ToString());
+                MessageBox.Show(products.ToString()); // Showing the object
             }
         }
     }
