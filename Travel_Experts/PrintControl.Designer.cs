@@ -1,6 +1,6 @@
 ﻿namespace Travel_Experts
 {
-    partial class PrintControl1
+    partial class PrintControl
     {
         /// <summary> 
         /// Required designer variable.
