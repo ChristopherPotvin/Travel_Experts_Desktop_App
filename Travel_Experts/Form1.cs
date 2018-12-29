@@ -17,6 +17,10 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Form Control Windows
+        /// </summary>
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             homeControl1.BringToFront();
@@ -47,6 +51,10 @@ namespace Travel_Experts
             administratorControl1.BringToFront();
         }
 
+        /// <summary>
+        /// Social Media Icons
+        /// </summary>
+
         private void picBoxFB_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.facebook.com/");
@@ -68,5 +76,13 @@ namespace Travel_Experts
 
         }
 
+        /// <summary>
+        /// Exit Button
+        /// </summary>
+
+        private void pbShutdown_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

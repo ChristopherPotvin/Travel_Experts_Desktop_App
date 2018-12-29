@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnUnallocated = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
@@ -37,11 +38,13 @@
             this.btnPackages = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.homeControl2 = new Travel_Experts.HomeControl();
-            this.packagesControl5 = new Travel_Experts.PackagesControl();
-            this.productControl24 = new Travel_Experts.ProductControl2();
+            this.pictureBoxLinkdn = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTwitter = new System.Windows.Forms.PictureBox();
+            this.pictureBoxInsta = new System.Windows.Forms.PictureBox();
+            this.picBoxFB = new System.Windows.Forms.PictureBox();
+            this.pbShutdown = new System.Windows.Forms.PictureBox();
+            this.administratorControl3 = new Travel_Experts.AdministratorControl();
             this.suppliersControl2 = new Travel_Experts.SuppliersControl();
             this.productControl23 = new Travel_Experts.ProductControl2();
             this.packagesControl4 = new Travel_Experts.PackagesControl();
@@ -54,19 +57,28 @@
             this.packages1 = new Travel_Experts.PackagesControl();
             this.administratorControl1 = new Travel_Experts.AdministratorControl();
             this.homeControl1 = new Travel_Experts.HomeControl();
-            this.packagesControl6 = new Travel_Experts.PackagesControl();
-            this.suppliersControl3 = new Travel_Experts.SuppliersControl();
-            this.productControl25 = new Travel_Experts.ProductControl2();
-            this.administratorControl2 = new Travel_Experts.AdministratorControl();
             this.suppliersControl4 = new Travel_Experts.SuppliersControl();
+            this.administratorControl2 = new Travel_Experts.AdministratorControl();
+            this.packagesControl6 = new Travel_Experts.PackagesControl();
+            this.productControl25 = new Travel_Experts.ProductControl2();
+            this.suppliersControl3 = new Travel_Experts.SuppliersControl();
+            this.homeControl2 = new Travel_Experts.HomeControl();
+            this.packagesControl5 = new Travel_Experts.PackagesControl();
+            this.productControl24 = new Travel_Experts.ProductControl2();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLinkdn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxFB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShutdown)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnUnallocated);
             this.panel1.Controls.Add(this.btnSuppliers);
@@ -76,9 +88,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 499);
+            this.panel1.Size = new System.Drawing.Size(210, 609);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(66, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -90,9 +114,10 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 370);
+            this.button1.Location = new System.Drawing.Point(4, 484);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 52);
+            this.button1.Size = new System.Drawing.Size(202, 64);
             this.button1.TabIndex = 3;
             this.button1.Text = "Admin";
             this.button1.UseVisualStyleBackColor = false;
@@ -108,9 +133,10 @@
             this.btnUnallocated.ForeColor = System.Drawing.Color.Black;
             this.btnUnallocated.Image = ((System.Drawing.Image)(resources.GetObject("btnUnallocated.Image")));
             this.btnUnallocated.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnallocated.Location = new System.Drawing.Point(3, 312);
+            this.btnUnallocated.Location = new System.Drawing.Point(4, 412);
+            this.btnUnallocated.Margin = new System.Windows.Forms.Padding(4);
             this.btnUnallocated.Name = "btnUnallocated";
-            this.btnUnallocated.Size = new System.Drawing.Size(158, 52);
+            this.btnUnallocated.Size = new System.Drawing.Size(202, 64);
             this.btnUnallocated.TabIndex = 2;
             this.btnUnallocated.Text = "Print ";
             this.btnUnallocated.UseVisualStyleBackColor = false;
@@ -125,9 +151,10 @@
             this.btnSuppliers.ForeColor = System.Drawing.Color.Black;
             this.btnSuppliers.Image = ((System.Drawing.Image)(resources.GetObject("btnSuppliers.Image")));
             this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuppliers.Location = new System.Drawing.Point(3, 254);
+            this.btnSuppliers.Location = new System.Drawing.Point(4, 341);
+            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(158, 52);
+            this.btnSuppliers.Size = new System.Drawing.Size(202, 64);
             this.btnSuppliers.TabIndex = 2;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = false;
@@ -143,9 +170,10 @@
             this.btnProducts.ForeColor = System.Drawing.Color.Black;
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(3, 196);
+            this.btnProducts.Location = new System.Drawing.Point(4, 269);
+            this.btnProducts.Margin = new System.Windows.Forms.Padding(4);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(158, 52);
+            this.btnProducts.Size = new System.Drawing.Size(202, 64);
             this.btnProducts.TabIndex = 2;
             this.btnProducts.Text = "Products ";
             this.btnProducts.UseVisualStyleBackColor = false;
@@ -161,9 +189,10 @@
             this.btnPackages.ForeColor = System.Drawing.Color.Black;
             this.btnPackages.Image = ((System.Drawing.Image)(resources.GetObject("btnPackages.Image")));
             this.btnPackages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPackages.Location = new System.Drawing.Point(3, 138);
+            this.btnPackages.Location = new System.Drawing.Point(4, 198);
+            this.btnPackages.Margin = new System.Windows.Forms.Padding(4);
             this.btnPackages.Name = "btnPackages";
-            this.btnPackages.Size = new System.Drawing.Size(158, 52);
+            this.btnPackages.Size = new System.Drawing.Size(202, 64);
             this.btnPackages.TabIndex = 2;
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
@@ -179,9 +208,10 @@
             this.btnHome.ForeColor = System.Drawing.Color.Black;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(3, 80);
+            this.btnHome.Location = new System.Drawing.Point(4, 126);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(158, 52);
+            this.btnHome.Size = new System.Drawing.Size(202, 64);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home ";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -189,193 +219,274 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(164, 0);
+            this.panel2.Controls.Add(this.picBoxFB);
+            this.panel2.Controls.Add(this.pictureBoxLinkdn);
+            this.panel2.Controls.Add(this.pictureBoxTwitter);
+            this.panel2.Controls.Add(this.pictureBoxInsta);
+            this.panel2.Location = new System.Drawing.Point(210, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(626, 64);
+            this.panel2.Size = new System.Drawing.Size(845, 87);
             this.panel2.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(562, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(227, 20);
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 25);
+            this.label1.Size = new System.Drawing.Size(212, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Travel Experts ";
             // 
-            // homeControl2
+            // pictureBoxLinkdn
             // 
-            this.homeControl2.Location = new System.Drawing.Point(164, 61);
-            this.homeControl2.Name = "homeControl2";
-            this.homeControl2.Size = new System.Drawing.Size(626, 438);
-            this.homeControl2.TabIndex = 19;
+            this.pictureBoxLinkdn.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBoxLinkdn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxLinkdn.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLinkdn.Image")));
+            this.pictureBoxLinkdn.Location = new System.Drawing.Point(599, 22);
+            this.pictureBoxLinkdn.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxLinkdn.Name = "pictureBoxLinkdn";
+            this.pictureBoxLinkdn.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxLinkdn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLinkdn.TabIndex = 31;
+            this.pictureBoxLinkdn.TabStop = false;
             // 
-            // packagesControl5
+            // pictureBoxTwitter
             // 
-            this.packagesControl5.Location = new System.Drawing.Point(204, 110);
-            this.packagesControl5.Name = "packagesControl5";
-            this.packagesControl5.Size = new System.Drawing.Size(517, 367);
-            this.packagesControl5.TabIndex = 18;
+            this.pictureBoxTwitter.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBoxTwitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxTwitter.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTwitter.Image")));
+            this.pictureBoxTwitter.Location = new System.Drawing.Point(543, 22);
+            this.pictureBoxTwitter.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxTwitter.Name = "pictureBoxTwitter";
+            this.pictureBoxTwitter.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxTwitter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxTwitter.TabIndex = 30;
+            this.pictureBoxTwitter.TabStop = false;
             // 
-            // productControl24
+            // pictureBoxInsta
             // 
-            this.productControl24.Location = new System.Drawing.Point(196, 102);
-            this.productControl24.Name = "productControl24";
-            this.productControl24.Size = new System.Drawing.Size(546, 378);
-            this.productControl24.TabIndex = 17;
+            this.pictureBoxInsta.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBoxInsta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxInsta.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInsta.Image")));
+            this.pictureBoxInsta.Location = new System.Drawing.Point(487, 22);
+            this.pictureBoxInsta.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxInsta.Name = "pictureBoxInsta";
+            this.pictureBoxInsta.Size = new System.Drawing.Size(36, 36);
+            this.pictureBoxInsta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxInsta.TabIndex = 29;
+            this.pictureBoxInsta.TabStop = false;
+            // 
+            // picBoxFB
+            // 
+            this.picBoxFB.BackColor = System.Drawing.Color.SteelBlue;
+            this.picBoxFB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBoxFB.Image = ((System.Drawing.Image)(resources.GetObject("picBoxFB.Image")));
+            this.picBoxFB.Location = new System.Drawing.Point(434, 22);
+            this.picBoxFB.Margin = new System.Windows.Forms.Padding(4);
+            this.picBoxFB.Name = "picBoxFB";
+            this.picBoxFB.Size = new System.Drawing.Size(36, 36);
+            this.picBoxFB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBoxFB.TabIndex = 28;
+            this.picBoxFB.TabStop = false;
+            // 
+            // pbShutdown
+            // 
+            this.pbShutdown.BackColor = System.Drawing.Color.SteelBlue;
+            this.pbShutdown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbShutdown.BackgroundImage")));
+            this.pbShutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbShutdown.Location = new System.Drawing.Point(975, 22);
+            this.pbShutdown.Name = "pbShutdown";
+            this.pbShutdown.Size = new System.Drawing.Size(45, 44);
+            this.pbShutdown.TabIndex = 32;
+            this.pbShutdown.TabStop = false;
+            this.pbShutdown.Click += new System.EventHandler(this.pbShutdown_Click);
+            // 
+            // administratorControl3
+            // 
+            this.administratorControl3.Location = new System.Drawing.Point(240, 98);
+            this.administratorControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.administratorControl3.Name = "administratorControl3";
+            this.administratorControl3.Size = new System.Drawing.Size(777, 486);
+            this.administratorControl3.TabIndex = 33;
             // 
             // suppliersControl2
             // 
             this.suppliersControl2.BackColor = System.Drawing.Color.White;
-            this.suppliersControl2.Location = new System.Drawing.Point(188, 94);
+            this.suppliersControl2.Location = new System.Drawing.Point(251, 116);
+            this.suppliersControl2.Margin = new System.Windows.Forms.Padding(5);
             this.suppliersControl2.Name = "suppliersControl2";
-            this.suppliersControl2.Size = new System.Drawing.Size(534, 355);
+            this.suppliersControl2.Size = new System.Drawing.Size(712, 437);
             this.suppliersControl2.TabIndex = 16;
             // 
             // productControl23
             // 
-            this.productControl23.Location = new System.Drawing.Point(180, 86);
+            this.productControl23.Location = new System.Drawing.Point(240, 106);
+            this.productControl23.Margin = new System.Windows.Forms.Padding(5);
             this.productControl23.Name = "productControl23";
-            this.productControl23.Size = new System.Drawing.Size(546, 378);
+            this.productControl23.Size = new System.Drawing.Size(728, 465);
             this.productControl23.TabIndex = 15;
             // 
             // packagesControl4
             // 
-            this.packagesControl4.Location = new System.Drawing.Point(172, 78);
+            this.packagesControl4.Location = new System.Drawing.Point(326, 126);
+            this.packagesControl4.Margin = new System.Windows.Forms.Padding(5);
             this.packagesControl4.Name = "packagesControl4";
-            this.packagesControl4.Size = new System.Drawing.Size(618, 421);
+            this.packagesControl4.Size = new System.Drawing.Size(824, 518);
             this.packagesControl4.TabIndex = 14;
             // 
             // productControl22
             // 
-            this.productControl22.Location = new System.Drawing.Point(164, 70);
+            this.productControl22.Location = new System.Drawing.Point(326, 135);
+            this.productControl22.Margin = new System.Windows.Forms.Padding(5);
             this.productControl22.Name = "productControl22";
-            this.productControl22.Size = new System.Drawing.Size(626, 429);
+            this.productControl22.Size = new System.Drawing.Size(835, 528);
             this.productControl22.TabIndex = 13;
             // 
             // packagesControl3
             // 
-            this.packagesControl3.Location = new System.Drawing.Point(180, 86);
+            this.packagesControl3.Location = new System.Drawing.Point(282, 170);
+            this.packagesControl3.Margin = new System.Windows.Forms.Padding(5);
             this.packagesControl3.Name = "packagesControl3";
-            this.packagesControl3.Size = new System.Drawing.Size(610, 413);
+            this.packagesControl3.Size = new System.Drawing.Size(813, 508);
             this.packagesControl3.TabIndex = 12;
             // 
             // packagesControl2
             // 
-            this.packagesControl2.Location = new System.Drawing.Point(172, 78);
+            this.packagesControl2.Location = new System.Drawing.Point(251, 116);
+            this.packagesControl2.Margin = new System.Windows.Forms.Padding(5);
             this.packagesControl2.Name = "packagesControl2";
-            this.packagesControl2.Size = new System.Drawing.Size(589, 421);
+            this.packagesControl2.Size = new System.Drawing.Size(785, 518);
             this.packagesControl2.TabIndex = 11;
             // 
             // packagesControl1
             // 
-            this.packagesControl1.Location = new System.Drawing.Point(164, 70);
+            this.packagesControl1.Location = new System.Drawing.Point(299, 116);
+            this.packagesControl1.Margin = new System.Windows.Forms.Padding(5);
             this.packagesControl1.Name = "packagesControl1";
-            this.packagesControl1.Size = new System.Drawing.Size(597, 429);
+            this.packagesControl1.Size = new System.Drawing.Size(796, 528);
             this.packagesControl1.TabIndex = 10;
             // 
             // suppliersControl1
             // 
             this.suppliersControl1.BackColor = System.Drawing.Color.White;
-            this.suppliersControl1.Location = new System.Drawing.Point(204, 95);
+            this.suppliersControl1.Location = new System.Drawing.Point(272, 135);
+            this.suppliersControl1.Margin = new System.Windows.Forms.Padding(5);
             this.suppliersControl1.Name = "suppliersControl1";
-            this.suppliersControl1.Size = new System.Drawing.Size(557, 350);
+            this.suppliersControl1.Size = new System.Drawing.Size(743, 431);
             this.suppliersControl1.TabIndex = 2;
             // 
             // productControl21
             // 
-            this.productControl21.Location = new System.Drawing.Point(194, 70);
+            this.productControl21.Location = new System.Drawing.Point(272, 135);
+            this.productControl21.Margin = new System.Windows.Forms.Padding(5);
             this.productControl21.Name = "productControl21";
-            this.productControl21.Size = new System.Drawing.Size(546, 378);
+            this.productControl21.Size = new System.Drawing.Size(728, 465);
             this.productControl21.TabIndex = 7;
             // 
             // packages1
             // 
-            this.packages1.Location = new System.Drawing.Point(194, 78);
+            this.packages1.Location = new System.Drawing.Point(259, 96);
+            this.packages1.Margin = new System.Windows.Forms.Padding(5);
             this.packages1.Name = "packages1";
-            this.packages1.Size = new System.Drawing.Size(517, 367);
+            this.packages1.Size = new System.Drawing.Size(689, 452);
             this.packages1.TabIndex = 8;
             // 
             // administratorControl1
             // 
-            this.administratorControl1.Location = new System.Drawing.Point(170, 80);
+            this.administratorControl1.Location = new System.Drawing.Point(240, 126);
+            this.administratorControl1.Margin = new System.Windows.Forms.Padding(5);
             this.administratorControl1.Name = "administratorControl1";
-            this.administratorControl1.Size = new System.Drawing.Size(620, 419);
+            this.administratorControl1.Size = new System.Drawing.Size(735, 445);
             this.administratorControl1.TabIndex = 9;
             // 
             // homeControl1
             // 
-            this.homeControl1.Location = new System.Drawing.Point(167, 70);
+            this.homeControl1.Location = new System.Drawing.Point(240, 202);
+            this.homeControl1.Margin = new System.Windows.Forms.Padding(5);
             this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(611, 429);
+            this.homeControl1.Size = new System.Drawing.Size(815, 528);
             this.homeControl1.TabIndex = 3;
-            // 
-            // packagesControl6
-            // 
-            this.packagesControl6.Location = new System.Drawing.Point(164, 61);
-            this.packagesControl6.Name = "packagesControl6";
-            this.packagesControl6.Size = new System.Drawing.Size(626, 438);
-            this.packagesControl6.TabIndex = 20;
-            // 
-            // suppliersControl3
-            // 
-            this.suppliersControl3.BackColor = System.Drawing.Color.White;
-            this.suppliersControl3.Location = new System.Drawing.Point(164, 61);
-            this.suppliersControl3.Name = "suppliersControl3";
-            this.suppliersControl3.Size = new System.Drawing.Size(626, 438);
-            this.suppliersControl3.TabIndex = 21;
-            // 
-            // productControl25
-            // 
-            this.productControl25.Location = new System.Drawing.Point(164, 61);
-            this.productControl25.Name = "productControl25";
-            this.productControl25.Size = new System.Drawing.Size(626, 438);
-            this.productControl25.TabIndex = 22;
-            // 
-            // administratorControl2
-            // 
-            this.administratorControl2.Location = new System.Drawing.Point(164, 61);
-            this.administratorControl2.Name = "administratorControl2";
-            this.administratorControl2.Size = new System.Drawing.Size(626, 438);
-            this.administratorControl2.TabIndex = 23;
             // 
             // suppliersControl4
             // 
             this.suppliersControl4.BackColor = System.Drawing.Color.White;
-            this.suppliersControl4.Location = new System.Drawing.Point(164, 61);
+            this.suppliersControl4.Location = new System.Drawing.Point(240, 98);
+            this.suppliersControl4.Margin = new System.Windows.Forms.Padding(5);
             this.suppliersControl4.Name = "suppliersControl4";
-            this.suppliersControl4.Size = new System.Drawing.Size(547, 387);
+            this.suppliersControl4.Size = new System.Drawing.Size(799, 501);
             this.suppliersControl4.TabIndex = 24;
+            // 
+            // administratorControl2
+            // 
+            this.administratorControl2.Location = new System.Drawing.Point(224, 96);
+            this.administratorControl2.Margin = new System.Windows.Forms.Padding(5);
+            this.administratorControl2.Name = "administratorControl2";
+            this.administratorControl2.Size = new System.Drawing.Size(815, 504);
+            this.administratorControl2.TabIndex = 23;
+            // 
+            // packagesControl6
+            // 
+            this.packagesControl6.Location = new System.Drawing.Point(224, 96);
+            this.packagesControl6.Margin = new System.Windows.Forms.Padding(5);
+            this.packagesControl6.Name = "packagesControl6";
+            this.packagesControl6.Size = new System.Drawing.Size(812, 504);
+            this.packagesControl6.TabIndex = 20;
+            // 
+            // productControl25
+            // 
+            this.productControl25.Location = new System.Drawing.Point(219, 106);
+            this.productControl25.Margin = new System.Windows.Forms.Padding(5);
+            this.productControl25.Name = "productControl25";
+            this.productControl25.Size = new System.Drawing.Size(820, 474);
+            this.productControl25.TabIndex = 22;
+            // 
+            // suppliersControl3
+            // 
+            this.suppliersControl3.BackColor = System.Drawing.Color.White;
+            this.suppliersControl3.Location = new System.Drawing.Point(224, 108);
+            this.suppliersControl3.Margin = new System.Windows.Forms.Padding(5);
+            this.suppliersControl3.Name = "suppliersControl3";
+            this.suppliersControl3.Size = new System.Drawing.Size(820, 483);
+            this.suppliersControl3.TabIndex = 21;
+            // 
+            // homeControl2
+            // 
+            this.homeControl2.Location = new System.Drawing.Point(251, 116);
+            this.homeControl2.Margin = new System.Windows.Forms.Padding(5);
+            this.homeControl2.Name = "homeControl2";
+            this.homeControl2.Size = new System.Drawing.Size(764, 483);
+            this.homeControl2.TabIndex = 19;
+            // 
+            // packagesControl5
+            // 
+            this.packagesControl5.Location = new System.Drawing.Point(259, 108);
+            this.packagesControl5.Margin = new System.Windows.Forms.Padding(5);
+            this.packagesControl5.Name = "packagesControl5";
+            this.packagesControl5.Size = new System.Drawing.Size(737, 463);
+            this.packagesControl5.TabIndex = 18;
+            // 
+            // productControl24
+            // 
+            this.productControl24.Location = new System.Drawing.Point(240, 108);
+            this.productControl24.Margin = new System.Windows.Forms.Padding(5);
+            this.productControl24.Name = "productControl24";
+            this.productControl24.Size = new System.Drawing.Size(760, 483);
+            this.productControl24.TabIndex = 17;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(790, 499);
-            this.Controls.Add(this.suppliersControl4);
-            this.Controls.Add(this.administratorControl2);
-            this.Controls.Add(this.productControl25);
-            this.Controls.Add(this.suppliersControl3);
-            this.Controls.Add(this.packagesControl6);
-            this.Controls.Add(this.homeControl2);
-            this.Controls.Add(this.packagesControl5);
-            this.Controls.Add(this.productControl24);
+            this.ClientSize = new System.Drawing.Size(1053, 609);
+            this.Controls.Add(this.administratorControl3);
+            this.Controls.Add(this.pbShutdown);
             this.Controls.Add(this.suppliersControl2);
             this.Controls.Add(this.productControl23);
             this.Controls.Add(this.packagesControl4);
@@ -390,15 +501,30 @@
             this.Controls.Add(this.packages1);
             this.Controls.Add(this.administratorControl1);
             this.Controls.Add(this.homeControl1);
+            this.Controls.Add(this.suppliersControl4);
+            this.Controls.Add(this.administratorControl2);
+            this.Controls.Add(this.packagesControl6);
+            this.Controls.Add(this.productControl25);
+            this.Controls.Add(this.suppliersControl3);
+            this.Controls.Add(this.homeControl2);
+            this.Controls.Add(this.packagesControl5);
+            this.Controls.Add(this.productControl24);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLinkdn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTwitter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxFB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShutdown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +561,12 @@
         private ProductControl2 productControl25;
         private AdministratorControl administratorControl2;
         private SuppliersControl suppliersControl4;
+        private System.Windows.Forms.PictureBox pictureBoxLinkdn;
+        private System.Windows.Forms.PictureBox pictureBoxTwitter;
+        private System.Windows.Forms.PictureBox pictureBoxInsta;
+        private System.Windows.Forms.PictureBox picBoxFB;
+        private System.Windows.Forms.PictureBox pbShutdown;
+        private AdministratorControl administratorControl3;
     }
 }
 
