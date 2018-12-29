@@ -1,6 +1,6 @@
 ﻿namespace Travel_Experts
 {
-    partial class ProductControl2
+    partial class ProductControl
     {
         /// <summary> 
         /// Required designer variable.

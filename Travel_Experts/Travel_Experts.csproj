@@ -71,17 +71,17 @@
     <Compile Include="PackagesControl.Designer.cs">
       <DependentUpon>PackagesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintControl1.cs">
+    <Compile Include="PrintControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PrintControl1.Designer.cs">
-      <DependentUpon>PrintControl1.cs</DependentUpon>
+    <Compile Include="PrintControl.Designer.cs">
+      <DependentUpon>PrintControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductControl2.cs">
+    <Compile Include="ProductControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProductControl2.Designer.cs">
-      <DependentUpon>ProductControl2.cs</DependentUpon>
+    <Compile Include="ProductControl.Designer.cs">
+      <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,11 +104,11 @@
     <EmbeddedResource Include="PackagesControl.resx">
       <DependentUpon>PackagesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintControl1.resx">
-      <DependentUpon>PrintControl1.cs</DependentUpon>
+    <EmbeddedResource Include="PrintControl.resx">
+      <DependentUpon>PrintControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductControl2.resx">
-      <DependentUpon>ProductControl2.cs</DependentUpon>
+    <EmbeddedResource Include="ProductControl.resx">
+      <DependentUpon>ProductControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

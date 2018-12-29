@@ -38,12 +38,12 @@ namespace Travel_Experts
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            productControl21.BringToFront();
+            productControl1.BringToFront();
         }
 
         private void btnPackages_Click(object sender, EventArgs e)
         {
-            packages1.BringToFront();
+            packagesControl1.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
