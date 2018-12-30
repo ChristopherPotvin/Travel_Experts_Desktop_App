@@ -17,6 +17,10 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Form Control Windows
+        /// </summary>
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             homeControl1.BringToFront();
@@ -34,18 +38,22 @@ namespace Travel_Experts
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            productControl21.BringToFront();
+            productControl1.BringToFront();
         }
 
         private void btnPackages_Click(object sender, EventArgs e)
         {
-            packages1.BringToFront();
+            packagesControl1.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             administratorControl1.BringToFront();
         }
+
+        /// <summary>
+        /// Social Media Icons
+        /// </summary>
 
         private void picBoxFB_Click(object sender, EventArgs e)
         {
@@ -68,5 +76,13 @@ namespace Travel_Experts
 
         }
 
+        /// <summary>
+        /// Exit Button
+        /// </summary>
+
+        private void pbShutdown_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

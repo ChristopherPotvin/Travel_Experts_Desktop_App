@@ -6,9 +6,37 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Products
+    public class Products
     {
-        private Int32 productID;
-        private string productName;
+        private int productId; // var for product ID
+        private string productName; // var for product name
+
+
+        public int ProductId // getting and setting the product ID
+        {
+            get => productId;
+
+            set
+            {
+                if (value > 0)
+                {
+                    productId = value;
+                }
+            }
+        }
+
+        public string ProductName { get => productName; set => productName = value; } // setting and getting the product name
+
+        public Products(int productId, string productName) // the custom constructor passing the var product ID and product Name as parameters
+
+        {
+            ProductId = productId;
+            ProductName = productName;
+        }
+
+        public override string ToString() // displaying the Product ID and Product Name
+        {
+            return "Product ID: " + ProductId + " Product Name: " + ProductName;
+        }
     }
 }
