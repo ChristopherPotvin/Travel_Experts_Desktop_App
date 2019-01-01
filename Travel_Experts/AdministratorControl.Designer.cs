@@ -28,33 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnAdminSup = new System.Windows.Forms.Button();
+            this.btnAdminPdct = new System.Windows.Forms.Button();
+            this.btnAdminPkg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // btnAdminSup
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(240, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Administration";
+            this.btnAdminSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminSup.Location = new System.Drawing.Point(401, 3);
+            this.btnAdminSup.Name = "btnAdminSup";
+            this.btnAdminSup.Size = new System.Drawing.Size(146, 37);
+            this.btnAdminSup.TabIndex = 5;
+            this.btnAdminSup.Text = "Supplier";
+            this.btnAdminSup.UseVisualStyleBackColor = true;
+            // 
+            // btnAdminPdct
+            // 
+            this.btnAdminPdct.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPdct.Location = new System.Drawing.Point(232, 3);
+            this.btnAdminPdct.Name = "btnAdminPdct";
+            this.btnAdminPdct.Size = new System.Drawing.Size(146, 37);
+            this.btnAdminPdct.TabIndex = 4;
+            this.btnAdminPdct.Text = "Product";
+            this.btnAdminPdct.UseVisualStyleBackColor = true;
+            // 
+            // btnAdminPkg
+            // 
+            this.btnAdminPkg.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPkg.Location = new System.Drawing.Point(63, 3);
+            this.btnAdminPkg.Name = "btnAdminPkg";
+            this.btnAdminPkg.Size = new System.Drawing.Size(146, 37);
+            this.btnAdminPkg.TabIndex = 3;
+            this.btnAdminPkg.Text = "Package";
+            this.btnAdminPkg.UseVisualStyleBackColor = true;
             // 
             // AdministratorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAdminSup);
+            this.Controls.Add(this.btnAdminPdct);
+            this.Controls.Add(this.btnAdminPkg);
             this.Name = "AdministratorControl";
             this.Size = new System.Drawing.Size(601, 395);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdminSup;
+        private System.Windows.Forms.Button btnAdminPdct;
+        private System.Windows.Forms.Button btnAdminPkg;
     }
 }
