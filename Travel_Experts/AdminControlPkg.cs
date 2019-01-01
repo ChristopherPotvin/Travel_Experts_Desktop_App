@@ -115,8 +115,15 @@ namespace Travel_Experts
             lblSearch.Visible = true;
             txtSearch.Visible = true;
 
-            //clear text fields
+            //visible false error messages if any
+            lblCurrency.Visible = false;
+            lblEmpty.Visible = false;
+            lblId.Visible = false;
+            lblName.Visible = false;
+
+            //clear text fields and background color
             txtSearch.Text = "";
+            txtSearch.BackColor = Color.White;
 
             //focus on search text field
             txtSearch.Focus();

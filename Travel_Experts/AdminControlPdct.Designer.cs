@@ -58,6 +58,7 @@
             this.btnClear.TabIndex = 73;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label2
             // 
@@ -167,6 +168,7 @@
             this.btnSearch.TabIndex = 62;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblSearch
             // 
