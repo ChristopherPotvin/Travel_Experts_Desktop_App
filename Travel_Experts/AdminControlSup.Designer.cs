@@ -192,11 +192,7 @@
             this.cboSearch.Items.AddRange(new object[] {
             "All",
             "Id",
-            "Name",
-            "Start Date",
-            "End Date",
-            "Base Price",
-            "Commission"});
+            "Name"});
             this.cboSearch.Location = new System.Drawing.Point(111, 32);
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(121, 21);
