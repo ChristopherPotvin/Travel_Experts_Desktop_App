@@ -227,6 +227,7 @@
             this.Controls.Add(this.txtSearch);
             this.Name = "AdminControlSup";
             this.Size = new System.Drawing.Size(601, 395);
+            this.Load += new System.EventHandler(this.AdminControlSup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).EndInit();

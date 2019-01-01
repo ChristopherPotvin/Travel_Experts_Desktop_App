@@ -19,7 +19,8 @@ namespace Travel_Experts
 
         private void AdminControlPdct_Load(object sender, EventArgs e)
         {
-
+            //select a default value for search option (combo box)
+            cboSearch.SelectedIndex = 0;
         }
     }
 }

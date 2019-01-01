@@ -61,6 +61,7 @@
             this.btnClear.TabIndex = 57;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label2
             // 
@@ -204,6 +205,7 @@
             this.btnSearch.TabIndex = 43;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblSearch
             // 
@@ -238,6 +240,7 @@
             this.cboSearch.Name = "cboSearch";
             this.cboSearch.Size = new System.Drawing.Size(121, 21);
             this.cboSearch.TabIndex = 40;
+            this.cboSearch.SelectedIndexChanged += new System.EventHandler(this.cboSearch_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -271,6 +274,7 @@
             this.Controls.Add(this.txtSearch);
             this.Name = "AdminControlPkg";
             this.Size = new System.Drawing.Size(601, 395);
+            this.Load += new System.EventHandler(this.AdminControlPkg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).EndInit();
