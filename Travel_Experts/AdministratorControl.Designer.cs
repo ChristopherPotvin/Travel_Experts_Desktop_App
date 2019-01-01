@@ -45,6 +45,7 @@
             this.btnAdminSup.TabIndex = 5;
             this.btnAdminSup.Text = "Supplier";
             this.btnAdminSup.UseVisualStyleBackColor = true;
+            this.btnAdminSup.Click += new System.EventHandler(this.btnAdminSup_Click);
             // 
             // btnAdminPdct
             // 
@@ -55,6 +56,7 @@
             this.btnAdminPdct.TabIndex = 4;
             this.btnAdminPdct.Text = "Product";
             this.btnAdminPdct.UseVisualStyleBackColor = true;
+            this.btnAdminPdct.Click += new System.EventHandler(this.btnAdminPdct_Click);
             // 
             // btnAdminPkg
             // 
@@ -65,6 +67,7 @@
             this.btnAdminPkg.TabIndex = 3;
             this.btnAdminPkg.Text = "Package";
             this.btnAdminPkg.UseVisualStyleBackColor = true;
+            this.btnAdminPkg.Click += new System.EventHandler(this.btnAdminPkg_Click);
             // 
             // adminControlSup1
             // 
@@ -86,6 +89,7 @@
             this.adminControlPkg1.Name = "adminControlPkg1";
             this.adminControlPkg1.Size = new System.Drawing.Size(601, 349);
             this.adminControlPkg1.TabIndex = 8;
+            this.adminControlPkg1.Load += new System.EventHandler(this.adminControlPkg1_Load);
             // 
             // AdministratorControl
             // 
@@ -99,6 +103,7 @@
             this.Controls.Add(this.btnAdminPkg);
             this.Name = "AdministratorControl";
             this.Size = new System.Drawing.Size(601, 395);
+            this.Load += new System.EventHandler(this.AdministratorControl_Load);
             this.ResumeLayout(false);
 
         }
