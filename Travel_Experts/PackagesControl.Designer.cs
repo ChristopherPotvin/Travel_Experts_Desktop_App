@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radAdd = new System.Windows.Forms.RadioButton();
-            this.radUpdate = new System.Windows.Forms.RadioButton();
             this.radDelete = new System.Windows.Forms.RadioButton();
+            this.radUpdate = new System.Windows.Forms.RadioButton();
+            this.radAdd = new System.Windows.Forms.RadioButton();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCommission = new System.Windows.Forms.Label();
@@ -75,16 +75,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Packages";
             // 
-            // radAdd
+            // radDelete
             // 
-            this.radAdd.AutoSize = true;
-            this.radAdd.Location = new System.Drawing.Point(33, 18);
-            this.radAdd.Name = "radAdd";
-            this.radAdd.Size = new System.Drawing.Size(44, 17);
-            this.radAdd.TabIndex = 0;
-            this.radAdd.TabStop = true;
-            this.radAdd.Text = "Add";
-            this.radAdd.UseVisualStyleBackColor = true;
+            this.radDelete.AutoSize = true;
+            this.radDelete.Location = new System.Drawing.Point(180, 18);
+            this.radDelete.Name = "radDelete";
+            this.radDelete.Size = new System.Drawing.Size(56, 17);
+            this.radDelete.TabIndex = 2;
+            this.radDelete.TabStop = true;
+            this.radDelete.Text = "Delete";
+            this.radDelete.UseVisualStyleBackColor = true;
             // 
             // radUpdate
             // 
@@ -97,16 +97,16 @@
             this.radUpdate.Text = "Update";
             this.radUpdate.UseVisualStyleBackColor = true;
             // 
-            // radDelete
+            // radAdd
             // 
-            this.radDelete.AutoSize = true;
-            this.radDelete.Location = new System.Drawing.Point(180, 18);
-            this.radDelete.Name = "radDelete";
-            this.radDelete.Size = new System.Drawing.Size(56, 17);
-            this.radDelete.TabIndex = 2;
-            this.radDelete.TabStop = true;
-            this.radDelete.Text = "Delete";
-            this.radDelete.UseVisualStyleBackColor = true;
+            this.radAdd.AutoSize = true;
+            this.radAdd.Location = new System.Drawing.Point(33, 18);
+            this.radAdd.Name = "radAdd";
+            this.radAdd.Size = new System.Drawing.Size(44, 17);
+            this.radAdd.TabIndex = 0;
+            this.radAdd.TabStop = true;
+            this.radAdd.Text = "Add";
+            this.radAdd.UseVisualStyleBackColor = true;
             // 
             // txtName
             // 
@@ -137,6 +137,7 @@
             // 
             // txtCommission
             // 
+            this.txtCommission.Enabled = false;
             this.txtCommission.Location = new System.Drawing.Point(366, 160);
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.Size = new System.Drawing.Size(148, 20);
@@ -155,6 +156,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.Enabled = false;
             this.txtPrice.Location = new System.Drawing.Point(66, 160);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(125, 20);
@@ -191,6 +193,7 @@
             // dateStart
             // 
             this.dateStart.CustomFormat = "yyyy-MM-dd 00:00:00";
+            this.dateStart.Enabled = false;
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateStart.Location = new System.Drawing.Point(66, 190);
             this.dateStart.Name = "dateStart";
@@ -221,6 +224,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "yyyy-MM-dd 00:00:00";
+            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(66, 222);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -246,6 +250,7 @@
             // 
             // richTxtDescription
             // 
+            this.richTxtDescription.Enabled = false;
             this.richTxtDescription.Location = new System.Drawing.Point(212, 199);
             this.richTxtDescription.Name = "richTxtDescription";
             this.richTxtDescription.Size = new System.Drawing.Size(354, 118);
