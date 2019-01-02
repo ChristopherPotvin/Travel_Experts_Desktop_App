@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminControlPdct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControlPdct.Designer.cs">
+      <DependentUpon>AdminControlPdct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControlPkg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControlPkg.Designer.cs">
+      <DependentUpon>AdminControlPkg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControlSup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControlSup.Designer.cs">
+      <DependentUpon>AdminControlSup.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministratorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +110,15 @@
       <DependentUpon>SuppliersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Validator.cs" />
+    <EmbeddedResource Include="AdminControlPdct.resx">
+      <DependentUpon>AdminControlPdct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControlPkg.resx">
+      <DependentUpon>AdminControlPkg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControlSup.resx">
+      <DependentUpon>AdminControlSup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdministratorControl.resx">
       <DependentUpon>AdministratorControl.cs</DependentUpon>
     </EmbeddedResource>
