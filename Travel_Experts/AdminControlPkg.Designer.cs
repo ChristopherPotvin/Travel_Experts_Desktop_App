@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminControlPkg));
             this.btnClear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.cboSearch = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
@@ -83,6 +85,7 @@
             this.pctExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctExcel.TabIndex = 55;
             this.pctExcel.TabStop = false;
+            this.toolTip1.SetToolTip(this.pctExcel, "Export to Excel file");
             // 
             // pctPdf
             // 
@@ -93,6 +96,7 @@
             this.pctPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctPdf.TabIndex = 54;
             this.pctPdf.TabStop = false;
+            this.toolTip1.SetToolTip(this.pctPdf, "Export to Pdf file");
             // 
             // btnSave
             // 
@@ -316,5 +320,6 @@
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
