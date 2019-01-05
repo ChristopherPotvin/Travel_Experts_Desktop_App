@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminControlPkg));
             this.btnClear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pctExcel = new System.Windows.Forms.PictureBox();
-            this.pctSave = new System.Windows.Forms.PictureBox();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.pctPdf = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblCurrency = new System.Windows.Forms.Label();
             this.cboCurrency = new System.Windows.Forms.ComboBox();
             this.cboDate = new System.Windows.Forms.ComboBox();
@@ -48,8 +49,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboSearch = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,25 +85,27 @@
             this.pctExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctExcel.TabIndex = 55;
             this.pctExcel.TabStop = false;
+            this.toolTip1.SetToolTip(this.pctExcel, "Export to Excel file");
             // 
-            // pctSave
+            // pctPdf
             // 
-            this.pctSave.Image = ((System.Drawing.Image)(resources.GetObject("pctSave.Image")));
-            this.pctSave.Location = new System.Drawing.Point(520, 124);
-            this.pctSave.Name = "pctSave";
-            this.pctSave.Size = new System.Drawing.Size(30, 21);
-            this.pctSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctSave.TabIndex = 54;
-            this.pctSave.TabStop = false;
+            this.pctPdf.Image = ((System.Drawing.Image)(resources.GetObject("pctPdf.Image")));
+            this.pctPdf.Location = new System.Drawing.Point(520, 124);
+            this.pctPdf.Name = "pctPdf";
+            this.pctPdf.Size = new System.Drawing.Size(30, 21);
+            this.pctPdf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctPdf.TabIndex = 54;
+            this.pctPdf.TabStop = false;
+            this.toolTip1.SetToolTip(this.pctPdf, "Export to Pdf file");
             // 
-            // btnEdit
+            // btnSave
             // 
-            this.btnEdit.Location = new System.Drawing.Point(383, 323);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 53;
-            this.btnEdit.Text = "Update";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(383, 323);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 53;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // lblCurrency
             // 
@@ -249,15 +254,25 @@
             this.txtSearch.Size = new System.Drawing.Size(212, 20);
             this.txtSearch.TabIndex = 39;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(47, 323);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 58;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
             // AdminControlPkg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pctExcel);
-            this.Controls.Add(this.pctSave);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.pctPdf);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblCurrency);
             this.Controls.Add(this.cboCurrency);
             this.Controls.Add(this.cboDate);
@@ -276,7 +291,7 @@
             this.Size = new System.Drawing.Size(601, 395);
             this.Load += new System.EventHandler(this.AdminControlPkg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,8 +303,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pctExcel;
-        private System.Windows.Forms.PictureBox pctSave;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.PictureBox pctPdf;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblCurrency;
         private System.Windows.Forms.ComboBox cboCurrency;
         private System.Windows.Forms.ComboBox cboDate;
@@ -304,5 +319,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
