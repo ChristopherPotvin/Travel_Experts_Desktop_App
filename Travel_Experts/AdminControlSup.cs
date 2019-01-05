@@ -71,5 +71,10 @@ namespace Travel_Experts
             //focus on search text field
             txtSearch.Focus();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
