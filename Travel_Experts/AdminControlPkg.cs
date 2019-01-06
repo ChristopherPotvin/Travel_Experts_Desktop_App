@@ -19,6 +19,10 @@ namespace Travel_Experts
 
         private void AdminControlPkg_Load(object sender, EventArgs e)
         {
+            //declare connection string variable
+            string connectionString = @"Data Source = projectteamno7.database.windows.net; Initial Catalog = travelexperts; User ID = runner; Password = Travel123";
+            string pkgQryAll = "SELECT * FROM Packages"; //select all tables from packages in database
+
             //select a default value for search option (combo box)
             cboSearch.SelectedIndex = 0;
             cboDate.SelectedIndex = 0;
