@@ -23,6 +23,7 @@ namespace Travel_Experts
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            Navigation(false);
             homeControl1.BringToFront();
         }
 
@@ -46,7 +47,7 @@ namespace Travel_Experts
             packagesControl1.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
             administratorControl1.BringToFront();
         }
@@ -83,6 +84,19 @@ namespace Travel_Experts
         private void pbShutdown_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Change navigation based on user login status
+        /// </summary>
+
+        public void Navigation(bool TF)
+        {
+            btnPackages.Enabled =TF;
+            btnProducts.Enabled = TF;
+            btnSuppliers.Enabled = TF;
+            btnUnallocated.Enabled = TF;
+            btnAdmin.Enabled = TF;
         }
     }
 }
