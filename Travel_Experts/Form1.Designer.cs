@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.btnUnallocated = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnAdmin);
             this.panel1.Controls.Add(this.btnUnallocated);
             this.panel1.Controls.Add(this.btnSuppliers);
             this.panel1.Controls.Add(this.btnProducts);
@@ -73,40 +73,37 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 609);
+            this.panel1.Size = new System.Drawing.Size(158, 495);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(66, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnAdmin
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(4, 484);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 64);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Admin";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.FlatAppearance.BorderSize = 0;
+            this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmin.ForeColor = System.Drawing.Color.Black;
+            this.btnAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnAdmin.Image")));
+            this.btnAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdmin.Location = new System.Drawing.Point(3, 393);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(152, 52);
+            this.btnAdmin.TabIndex = 3;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // btnUnallocated
             // 
@@ -118,10 +115,9 @@
             this.btnUnallocated.ForeColor = System.Drawing.Color.Black;
             this.btnUnallocated.Image = ((System.Drawing.Image)(resources.GetObject("btnUnallocated.Image")));
             this.btnUnallocated.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnallocated.Location = new System.Drawing.Point(4, 412);
-            this.btnUnallocated.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUnallocated.Location = new System.Drawing.Point(3, 335);
             this.btnUnallocated.Name = "btnUnallocated";
-            this.btnUnallocated.Size = new System.Drawing.Size(202, 64);
+            this.btnUnallocated.Size = new System.Drawing.Size(152, 52);
             this.btnUnallocated.TabIndex = 2;
             this.btnUnallocated.Text = "Print ";
             this.btnUnallocated.UseVisualStyleBackColor = false;
@@ -136,10 +132,9 @@
             this.btnSuppliers.ForeColor = System.Drawing.Color.Black;
             this.btnSuppliers.Image = ((System.Drawing.Image)(resources.GetObject("btnSuppliers.Image")));
             this.btnSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSuppliers.Location = new System.Drawing.Point(4, 341);
-            this.btnSuppliers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSuppliers.Location = new System.Drawing.Point(3, 277);
             this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(202, 64);
+            this.btnSuppliers.Size = new System.Drawing.Size(152, 52);
             this.btnSuppliers.TabIndex = 2;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = false;
@@ -155,10 +150,9 @@
             this.btnProducts.ForeColor = System.Drawing.Color.Black;
             this.btnProducts.Image = ((System.Drawing.Image)(resources.GetObject("btnProducts.Image")));
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(4, 269);
-            this.btnProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProducts.Location = new System.Drawing.Point(3, 219);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Size = new System.Drawing.Size(202, 64);
+            this.btnProducts.Size = new System.Drawing.Size(152, 52);
             this.btnProducts.TabIndex = 2;
             this.btnProducts.Text = "Products ";
             this.btnProducts.UseVisualStyleBackColor = false;
@@ -174,10 +168,9 @@
             this.btnPackages.ForeColor = System.Drawing.Color.Black;
             this.btnPackages.Image = ((System.Drawing.Image)(resources.GetObject("btnPackages.Image")));
             this.btnPackages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPackages.Location = new System.Drawing.Point(4, 198);
-            this.btnPackages.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPackages.Location = new System.Drawing.Point(3, 161);
             this.btnPackages.Name = "btnPackages";
-            this.btnPackages.Size = new System.Drawing.Size(202, 64);
+            this.btnPackages.Size = new System.Drawing.Size(152, 52);
             this.btnPackages.TabIndex = 2;
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = false;
@@ -193,10 +186,9 @@
             this.btnHome.ForeColor = System.Drawing.Color.Black;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(4, 126);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHome.Location = new System.Drawing.Point(3, 102);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(202, 64);
+            this.btnHome.Size = new System.Drawing.Size(152, 52);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home ";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -211,20 +203,18 @@
             this.panel2.Controls.Add(this.pictureBoxLinkdn);
             this.panel2.Controls.Add(this.pictureBoxTwitter);
             this.panel2.Controls.Add(this.pictureBoxInsta);
-            this.panel2.Location = new System.Drawing.Point(210, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(158, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(845, 87);
+            this.panel2.Size = new System.Drawing.Size(634, 71);
             this.panel2.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(42, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 36);
+            this.label1.Size = new System.Drawing.Size(167, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Travel Experts ";
             // 
@@ -233,8 +223,7 @@
             this.picBoxFB.BackColor = System.Drawing.Color.SteelBlue;
             this.picBoxFB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBoxFB.Image = ((System.Drawing.Image)(resources.GetObject("picBoxFB.Image")));
-            this.picBoxFB.Location = new System.Drawing.Point(434, 22);
-            this.picBoxFB.Margin = new System.Windows.Forms.Padding(4);
+            this.picBoxFB.Location = new System.Drawing.Point(326, 18);
             this.picBoxFB.Name = "picBoxFB";
             this.picBoxFB.Size = new System.Drawing.Size(36, 36);
             this.picBoxFB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -246,8 +235,7 @@
             this.pictureBoxLinkdn.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxLinkdn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxLinkdn.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLinkdn.Image")));
-            this.pictureBoxLinkdn.Location = new System.Drawing.Point(599, 22);
-            this.pictureBoxLinkdn.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxLinkdn.Location = new System.Drawing.Point(449, 18);
             this.pictureBoxLinkdn.Name = "pictureBoxLinkdn";
             this.pictureBoxLinkdn.Size = new System.Drawing.Size(36, 36);
             this.pictureBoxLinkdn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -259,8 +247,7 @@
             this.pictureBoxTwitter.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxTwitter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxTwitter.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTwitter.Image")));
-            this.pictureBoxTwitter.Location = new System.Drawing.Point(543, 22);
-            this.pictureBoxTwitter.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxTwitter.Location = new System.Drawing.Point(407, 18);
             this.pictureBoxTwitter.Name = "pictureBoxTwitter";
             this.pictureBoxTwitter.Size = new System.Drawing.Size(36, 36);
             this.pictureBoxTwitter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -272,8 +259,7 @@
             this.pictureBoxInsta.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxInsta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxInsta.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInsta.Image")));
-            this.pictureBoxInsta.Location = new System.Drawing.Point(487, 22);
-            this.pictureBoxInsta.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxInsta.Location = new System.Drawing.Point(365, 18);
             this.pictureBoxInsta.Name = "pictureBoxInsta";
             this.pictureBoxInsta.Size = new System.Drawing.Size(36, 36);
             this.pictureBoxInsta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -285,68 +271,63 @@
             this.pbShutdown.BackColor = System.Drawing.Color.SteelBlue;
             this.pbShutdown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbShutdown.BackgroundImage")));
             this.pbShutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbShutdown.Location = new System.Drawing.Point(975, 22);
+            this.pbShutdown.Location = new System.Drawing.Point(731, 18);
+            this.pbShutdown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbShutdown.Name = "pbShutdown";
-            this.pbShutdown.Size = new System.Drawing.Size(45, 44);
+            this.pbShutdown.Size = new System.Drawing.Size(34, 36);
             this.pbShutdown.TabIndex = 32;
             this.pbShutdown.TabStop = false;
             this.pbShutdown.Click += new System.EventHandler(this.pbShutdown_Click);
             // 
             // administratorControl1
             // 
-            this.administratorControl1.Location = new System.Drawing.Point(239, 110);
-            this.administratorControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.administratorControl1.Location = new System.Drawing.Point(179, 89);
             this.administratorControl1.Name = "administratorControl1";
-            this.administratorControl1.Size = new System.Drawing.Size(801, 486);
+            this.administratorControl1.Size = new System.Drawing.Size(601, 395);
             this.administratorControl1.TabIndex = 33;
             // 
             // homeControl1
             // 
-            this.homeControl1.Location = new System.Drawing.Point(228, 104);
-            this.homeControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.homeControl1.Location = new System.Drawing.Point(171, 84);
             this.homeControl1.Name = "homeControl1";
-            this.homeControl1.Size = new System.Drawing.Size(803, 492);
+            this.homeControl1.Size = new System.Drawing.Size(602, 400);
             this.homeControl1.TabIndex = 34;
             // 
             // packagesControl1
             // 
-            this.packagesControl1.Location = new System.Drawing.Point(301, 126);
-            this.packagesControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.packagesControl1.Location = new System.Drawing.Point(226, 102);
             this.packagesControl1.Name = "packagesControl1";
-            this.packagesControl1.Size = new System.Drawing.Size(689, 452);
+            this.packagesControl1.Size = new System.Drawing.Size(517, 367);
             this.packagesControl1.TabIndex = 35;
             // 
             // suppliersControl1
             // 
             this.suppliersControl1.BackColor = System.Drawing.Color.White;
-            this.suppliersControl1.Location = new System.Drawing.Point(278, 111);
-            this.suppliersControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.suppliersControl1.Location = new System.Drawing.Point(208, 90);
             this.suppliersControl1.Name = "suppliersControl1";
-            this.suppliersControl1.Size = new System.Drawing.Size(712, 437);
+            this.suppliersControl1.Size = new System.Drawing.Size(534, 355);
             this.suppliersControl1.TabIndex = 36;
             // 
             // printControl1
             // 
-            this.printControl1.Location = new System.Drawing.Point(272, 104);
-            this.printControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.printControl1.Location = new System.Drawing.Point(204, 84);
             this.printControl1.Name = "printControl1";
-            this.printControl1.Size = new System.Drawing.Size(737, 463);
+            this.printControl1.Size = new System.Drawing.Size(553, 376);
             this.printControl1.TabIndex = 37;
             // 
             // productControl1
             // 
-            this.productControl1.Location = new System.Drawing.Point(272, 113);
-            this.productControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.productControl1.Location = new System.Drawing.Point(204, 92);
             this.productControl1.Name = "productControl1";
-            this.productControl1.Size = new System.Drawing.Size(728, 465);
+            this.productControl1.Size = new System.Drawing.Size(546, 378);
             this.productControl1.TabIndex = 38;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1053, 609);
+            this.ClientSize = new System.Drawing.Size(790, 495);
             this.Controls.Add(this.productControl1);
             this.Controls.Add(this.printControl1);
             this.Controls.Add(this.suppliersControl1);
@@ -357,7 +338,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -387,7 +367,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.PictureBox pictureBoxLinkdn;
         private System.Windows.Forms.PictureBox pictureBoxTwitter;
         private System.Windows.Forms.PictureBox pictureBoxInsta;

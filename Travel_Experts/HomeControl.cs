@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Login;
+
 
 namespace Travel_Experts
 {
@@ -17,26 +19,34 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
-        // Initialize Social Media Icon href tags
+        //Instantiate login object with the correct login information (placeholder)
+        Login.Login login = new Login.Login("mileycyrus", 12345);
 
-        private void picBoxFB_Click_1(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.facebook.com/");
-        }
 
-        private void pictureBoxTwitter_Click_1(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.twitter.com/");
-        }
+            if (ErrorProvider.ValidProvided(txtUname,"User Name",errorProvider1) && ErrorProvider.ValidProvided(txtPword,"Password",errorProvider1) && ErrorProvider.ValidInt(txtPword, "Password", errorProvider1))
+            {
+                //define local variables from the user inputs 
+                string user = txtUname.Text;
+                int pass = Convert.ToInt32(txtPword.Text);
 
-        private void pictureBoxInsta_Click_1(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.instagram.com/");
-        }
+                //check if the entered information matches the placeholder
+                if (login.EvaluateLogIn(user, pass))
+                {
+                    //Access the partent form and enable the side navigation
+                    Form1 mainForm = (Form1)this.Parent;
+                    mainForm.Navigation(true);
 
-        private void pictureBoxLinkdn_Click_1(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.linkedin.com/");
+                    // Disable the visibility of the login groupbox
+                    gbLogin.Visible = false;
+                }
+                else
+                {
+                    //show default login error message 
+                    MessageBox.Show("Incorrect Login Information");
+                }
+            }    
         }
     }
 }

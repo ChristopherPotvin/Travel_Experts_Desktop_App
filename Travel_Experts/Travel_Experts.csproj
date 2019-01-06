@@ -163,6 +163,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Login\Login.csproj">
+      <Project>{DF546868-F3B9-4D04-B3F3-FCDE4846EF23}</Project>
+      <Name>Login</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{602e5fc0-2eb7-4d93-94c5-bf48407023a7}</Project>
       <Name>Model</Name>
