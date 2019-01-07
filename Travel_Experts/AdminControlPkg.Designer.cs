@@ -53,14 +53,14 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.saveExcelDialog = new System.Windows.Forms.SaveFileDialog();
             this.savePdfDialog = new System.Windows.Forms.SaveFileDialog();
-            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
             this.PackageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPkgAgencyCommission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PkgAgencyCommission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
@@ -178,19 +178,22 @@
             // 
             // packageGridView
             // 
+            this.packageGridView.AllowUserToDeleteRows = false;
+            this.packageGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.packageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.packageGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PackageId,
-            this.dgvPkgName,
-            this.dgvPkgStartDate,
-            this.dgvPkgEndDate,
-            this.dgvPkgDesc,
-            this.dgvPkgBasePrice,
-            this.dgvPkgAgencyCommission});
+            this.PkgName,
+            this.PkgStartDate,
+            this.PkgEndDate,
+            this.PkgDesc,
+            this.PkgBasePrice,
+            this.PkgAgencyCommission});
             this.packageGridView.Location = new System.Drawing.Point(52, 151);
             this.packageGridView.Name = "packageGridView";
             this.packageGridView.Size = new System.Drawing.Size(503, 150);
             this.packageGridView.TabIndex = 47;
+            this.packageGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.packageGridView_DataError);
             // 
             // lblName
             // 
@@ -295,51 +298,58 @@
             // 
             this.savePdfDialog.Filter = "Pdf Files (*.pdf)|*.pdf";
             // 
-            // bindingSourcePackage
-            // 
-            this.bindingSourcePackage.DataSource = typeof(Travel_Experts.AdminControlPkg);
-            // 
             // PackageId
             // 
             this.PackageId.DataPropertyName = "PackageId";
             this.PackageId.HeaderText = "Package Id";
             this.PackageId.Name = "PackageId";
+            this.PackageId.Width = 80;
             // 
-            // dgvPkgName
+            // PkgName
             // 
-            this.dgvPkgName.DataPropertyName = "PkgName";
-            this.dgvPkgName.HeaderText = "Package Name";
-            this.dgvPkgName.Name = "dgvPkgName";
+            this.PkgName.DataPropertyName = "PkgName";
+            this.PkgName.HeaderText = "Package Name";
+            this.PkgName.Name = "PkgName";
+            this.PkgName.Width = 97;
             // 
-            // dgvPkgStartDate
+            // PkgStartDate
             // 
-            this.dgvPkgStartDate.DataPropertyName = "PkgStartDate";
-            this.dgvPkgStartDate.HeaderText = "Start Date";
-            this.dgvPkgStartDate.Name = "dgvPkgStartDate";
+            this.PkgStartDate.DataPropertyName = "PkgStartDate";
+            this.PkgStartDate.HeaderText = "Start Date";
+            this.PkgStartDate.Name = "PkgStartDate";
+            this.PkgStartDate.Width = 74;
             // 
-            // dgvPkgEndDate
+            // PkgEndDate
             // 
-            this.dgvPkgEndDate.DataPropertyName = "PkgEndDate";
-            this.dgvPkgEndDate.HeaderText = "End Date";
-            this.dgvPkgEndDate.Name = "dgvPkgEndDate";
+            this.PkgEndDate.DataPropertyName = "PkgEndDate";
+            this.PkgEndDate.HeaderText = "End Date";
+            this.PkgEndDate.Name = "PkgEndDate";
+            this.PkgEndDate.Width = 71;
             // 
-            // dgvPkgDesc
+            // PkgDesc
             // 
-            this.dgvPkgDesc.DataPropertyName = "PkgDesc";
-            this.dgvPkgDesc.HeaderText = "Description";
-            this.dgvPkgDesc.Name = "dgvPkgDesc";
+            this.PkgDesc.DataPropertyName = "PkgDesc";
+            this.PkgDesc.HeaderText = "Description";
+            this.PkgDesc.Name = "PkgDesc";
+            this.PkgDesc.Width = 85;
             // 
-            // dgvPkgBasePrice
+            // PkgBasePrice
             // 
-            this.dgvPkgBasePrice.DataPropertyName = "PkgBasePrice";
-            this.dgvPkgBasePrice.HeaderText = "Base Price";
-            this.dgvPkgBasePrice.Name = "dgvPkgBasePrice";
+            this.PkgBasePrice.DataPropertyName = "PkgBasePrice";
+            this.PkgBasePrice.HeaderText = "Base Price ($)";
+            this.PkgBasePrice.Name = "PkgBasePrice";
+            this.PkgBasePrice.Width = 79;
             // 
-            // dgvPkgAgencyCommission
+            // PkgAgencyCommission
             // 
-            this.dgvPkgAgencyCommission.DataPropertyName = "PkgAgencyCommission";
-            this.dgvPkgAgencyCommission.HeaderText = "Agency Commission";
-            this.dgvPkgAgencyCommission.Name = "dgvPkgAgencyCommission";
+            this.PkgAgencyCommission.DataPropertyName = "PkgAgencyCommission";
+            this.PkgAgencyCommission.HeaderText = "Agency Commission ($)";
+            this.PkgAgencyCommission.Name = "PkgAgencyCommission";
+            this.PkgAgencyCommission.Width = 118;
+            // 
+            // bindingSourcePackage
+            // 
+            this.bindingSourcePackage.DataSource = typeof(Travel_Experts.AdminControlPkg);
             // 
             // AdminControlPkg
             // 
@@ -404,11 +414,11 @@
         private System.Windows.Forms.SaveFileDialog saveExcelDialog;
         private System.Windows.Forms.SaveFileDialog savePdfDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn PackageId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgStartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgEndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgBasePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgAgencyCommission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgBasePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PkgAgencyCommission;
     }
 }

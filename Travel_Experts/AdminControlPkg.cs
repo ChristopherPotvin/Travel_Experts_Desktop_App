@@ -272,5 +272,10 @@ namespace Travel_Experts
         {
             Exportto.Pdf(packageGridView, "Package Information", savePdfDialog);
         }
+
+        private void packageGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Please enter a valid value", "Data Type Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
