@@ -33,7 +33,7 @@ namespace Travel_Experts
             } 
         }
 
-        //create method to get data from database based on query and create a table with 
+        //create method to get data from database based on query and display table in datagridview
         public static void GetData(string connString, string query,  DataGridView dgvName, BindingSource bsName)
         {
             try
@@ -67,7 +67,6 @@ namespace Travel_Experts
             {
                     try
                     {
-                        //sqlCon.Open();
                         SqlCommand comm = new SqlCommand(deleteStmt, sqlCon);
                         comm.ExecuteNonQuery();
                     }
@@ -81,7 +80,7 @@ namespace Travel_Experts
         //create method to edit/add data to database
         public static void EditData(BindingSource bsName)
         {
-            DialogResult result = MessageBox.Show("Do you really want to update database? ", "Message", MessageBoxButtons.YesNo,
+            DialogResult result = MessageBox.Show("Do you really want to save new information? ", "Message", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

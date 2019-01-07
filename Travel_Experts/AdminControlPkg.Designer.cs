@@ -51,9 +51,20 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.saveExcelDialog = new System.Windows.Forms.SaveFileDialog();
+            this.savePdfDialog = new System.Windows.Forms.SaveFileDialog();
+            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
+            this.PackageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPkgAgencyCommission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePackage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClear
@@ -86,6 +97,7 @@
             this.pctExcel.TabIndex = 55;
             this.pctExcel.TabStop = false;
             this.toolTip1.SetToolTip(this.pctExcel, "Export to Excel file");
+            this.pctExcel.Click += new System.EventHandler(this.pctExcel_Click);
             // 
             // pctPdf
             // 
@@ -97,6 +109,7 @@
             this.pctPdf.TabIndex = 54;
             this.pctPdf.TabStop = false;
             this.toolTip1.SetToolTip(this.pctPdf, "Export to Pdf file");
+            this.pctPdf.Click += new System.EventHandler(this.pctPdf_Click);
             // 
             // btnSave
             // 
@@ -106,6 +119,7 @@
             this.btnSave.TabIndex = 53;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblCurrency
             // 
@@ -160,11 +174,20 @@
             this.btnDelete.TabIndex = 48;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // packageGridView
             // 
             this.packageGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.packageGridView.Location = new System.Drawing.Point(47, 151);
+            this.packageGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PackageId,
+            this.dgvPkgName,
+            this.dgvPkgStartDate,
+            this.dgvPkgEndDate,
+            this.dgvPkgDesc,
+            this.dgvPkgBasePrice,
+            this.dgvPkgAgencyCommission});
+            this.packageGridView.Location = new System.Drawing.Point(52, 151);
             this.packageGridView.Name = "packageGridView";
             this.packageGridView.Size = new System.Drawing.Size(503, 150);
             this.packageGridView.TabIndex = 47;
@@ -262,6 +285,61 @@
             this.btnRefresh.TabIndex = 58;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // saveExcelDialog
+            // 
+            this.saveExcelDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            // 
+            // savePdfDialog
+            // 
+            this.savePdfDialog.Filter = "Pdf Files (*.pdf)|*.pdf";
+            // 
+            // bindingSourcePackage
+            // 
+            this.bindingSourcePackage.DataSource = typeof(Travel_Experts.AdminControlPkg);
+            // 
+            // PackageId
+            // 
+            this.PackageId.DataPropertyName = "PackageId";
+            this.PackageId.HeaderText = "Package Id";
+            this.PackageId.Name = "PackageId";
+            // 
+            // dgvPkgName
+            // 
+            this.dgvPkgName.DataPropertyName = "PkgName";
+            this.dgvPkgName.HeaderText = "Package Name";
+            this.dgvPkgName.Name = "dgvPkgName";
+            // 
+            // dgvPkgStartDate
+            // 
+            this.dgvPkgStartDate.DataPropertyName = "PkgStartDate";
+            this.dgvPkgStartDate.HeaderText = "Start Date";
+            this.dgvPkgStartDate.Name = "dgvPkgStartDate";
+            // 
+            // dgvPkgEndDate
+            // 
+            this.dgvPkgEndDate.DataPropertyName = "PkgEndDate";
+            this.dgvPkgEndDate.HeaderText = "End Date";
+            this.dgvPkgEndDate.Name = "dgvPkgEndDate";
+            // 
+            // dgvPkgDesc
+            // 
+            this.dgvPkgDesc.DataPropertyName = "PkgDesc";
+            this.dgvPkgDesc.HeaderText = "Description";
+            this.dgvPkgDesc.Name = "dgvPkgDesc";
+            // 
+            // dgvPkgBasePrice
+            // 
+            this.dgvPkgBasePrice.DataPropertyName = "PkgBasePrice";
+            this.dgvPkgBasePrice.HeaderText = "Base Price";
+            this.dgvPkgBasePrice.Name = "dgvPkgBasePrice";
+            // 
+            // dgvPkgAgencyCommission
+            // 
+            this.dgvPkgAgencyCommission.DataPropertyName = "PkgAgencyCommission";
+            this.dgvPkgAgencyCommission.HeaderText = "Agency Commission";
+            this.dgvPkgAgencyCommission.Name = "dgvPkgAgencyCommission";
             // 
             // AdminControlPkg
             // 
@@ -293,6 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePackage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +400,15 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.BindingSource bindingSourcePackage;
+        private System.Windows.Forms.SaveFileDialog saveExcelDialog;
+        private System.Windows.Forms.SaveFileDialog savePdfDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PackageId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgBasePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPkgAgencyCommission;
     }
 }

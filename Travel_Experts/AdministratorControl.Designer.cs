@@ -31,9 +31,9 @@
             this.btnAdminSup = new System.Windows.Forms.Button();
             this.btnAdminPdct = new System.Windows.Forms.Button();
             this.btnAdminPkg = new System.Windows.Forms.Button();
-            this.adminControlSup1 = new Travel_Experts.AdminControlSup();
-            this.adminControlPdct1 = new Travel_Experts.AdminControlPdct();
             this.adminControlPkg1 = new Travel_Experts.AdminControlPkg();
+            this.adminControlPdct1 = new Travel_Experts.AdminControlPdct();
+            this.adminControlSup1 = new Travel_Experts.AdminControlSup();
             this.SuspendLayout();
             // 
             // btnAdminSup
@@ -69,12 +69,13 @@
             this.btnAdminPkg.UseVisualStyleBackColor = true;
             this.btnAdminPkg.Click += new System.EventHandler(this.btnAdminPkg_Click);
             // 
-            // adminControlSup1
+            // adminControlPkg1
             // 
-            this.adminControlSup1.Location = new System.Drawing.Point(0, 46);
-            this.adminControlSup1.Name = "adminControlSup1";
-            this.adminControlSup1.Size = new System.Drawing.Size(601, 349);
-            this.adminControlSup1.TabIndex = 6;
+            this.adminControlPkg1.Location = new System.Drawing.Point(0, 46);
+            this.adminControlPkg1.Name = "adminControlPkg1";
+            this.adminControlPkg1.Size = new System.Drawing.Size(601, 349);
+            this.adminControlPkg1.TabIndex = 8;
+            this.adminControlPkg1.Load += new System.EventHandler(this.adminControlPkg1_Load);
             // 
             // adminControlPdct1
             // 
@@ -83,13 +84,12 @@
             this.adminControlPdct1.Size = new System.Drawing.Size(601, 349);
             this.adminControlPdct1.TabIndex = 7;
             // 
-            // adminControlPkg1
+            // adminControlSup1
             // 
-            this.adminControlPkg1.Location = new System.Drawing.Point(0, 46);
-            this.adminControlPkg1.Name = "adminControlPkg1";
-            this.adminControlPkg1.Size = new System.Drawing.Size(601, 349);
-            this.adminControlPkg1.TabIndex = 8;
-            this.adminControlPkg1.Load += new System.EventHandler(this.adminControlPkg1_Load);
+            this.adminControlSup1.Location = new System.Drawing.Point(0, 46);
+            this.adminControlSup1.Name = "adminControlSup1";
+            this.adminControlSup1.Size = new System.Drawing.Size(601, 349);
+            this.adminControlSup1.TabIndex = 6;
             // 
             // AdministratorControl
             // 

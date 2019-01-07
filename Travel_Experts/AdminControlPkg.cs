@@ -12,6 +12,10 @@ namespace Travel_Experts
 {
     public partial class AdminControlPkg : UserControl
     {
+        //declare connection string variable
+        string connectionString = @"Data Source = projectteamno7.database.windows.net; Initial Catalog = travelexperts; User ID = runner; Password = Travel123";
+        string pkgQryAll = "SELECT * FROM Packages"; //select all tables from packages in database
+
         public AdminControlPkg()
         {
             InitializeComponent();
@@ -19,9 +23,13 @@ namespace Travel_Experts
 
         private void AdminControlPkg_Load(object sender, EventArgs e)
         {
-            //declare connection string variable
-            string connectionString = @"Data Source = projectteamno7.database.windows.net; Initial Catalog = travelexperts; User ID = runner; Password = Travel123";
-            string pkgQryAll = "SELECT * FROM Packages"; //select all tables from packages in database
+            
+
+            //set the source of the data to be displayed in the grid view
+            packageGridView.DataSource = bindingSourcePackage;
+
+            //get table for packages
+            Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
 
             //select a default value for search option (combo box)
             cboSearch.SelectedIndex = 0;
@@ -39,6 +47,14 @@ namespace Travel_Experts
                     if (!Validator.IsProvided(txtSearch, lblEmpty)) { }
                     else
                     {
+                        Database.GetData(connectionString, "SELECT * from Packages where lower(CONCAT(PackageId, PkgName, PkgStartDate, PkgEndDate,PkgBasePrice,PkgAgencyCommission)) like '%" + txtSearch.Text.ToLower() + "%'", packageGridView, bindingSourcePackage);
+
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -47,6 +63,13 @@ namespace Travel_Experts
                         !Validator.IsNonZeroPositiveInt(txtSearch, lblId)) { }
                     else
                     {
+                        Database.GetData(connectionString, "SELECT * from Packages where lower(PackageId) like '%" + txtSearch.Text + "%'", packageGridView, bindingSourcePackage);
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -55,11 +78,57 @@ namespace Travel_Experts
                         !Validator.IsString(txtSearch, lblName)) { }
                     else
                     {
+                        Database.GetData(connectionString, "SELECT * from Packages where lower(PkgName) like '%" + txtSearch.Text + "%'", packageGridView, bindingSourcePackage);
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
                 case "Start Date":
                 case "End Date":
+                    string tableDate;
+                    if (cboSearch.SelectedItem.ToString() == "Start Date")
+                    {
+                        tableDate = "PkgStartDate";
+                    }
+                    else { tableDate = "PkgEndDate"; }
+                    switch (cboDate.SelectedItem.ToString())
+                    {
+                        case "Before:":
+                            var sqlBefore = String.Format("SELECT * from Packages where {0} <= '{1}'", tableDate, dateTimePicker1.Value.Date);
+                            Database.GetData(connectionString, sqlBefore, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                        case "After:":
+                            var sqlAfter = String.Format("SELECT * from Packages where {0} >= '{1}'", tableDate, dateTimePicker1.Value.Date);
+                            Database.GetData(connectionString, sqlAfter, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                        case "Exactly on:":
+                            var sqlExact = String.Format("SELECT * from Packages where {0} = '{1}'", tableDate, dateTimePicker1.Value.Date);
+                            Database.GetData(connectionString, sqlExact, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                    }
                     break;
 
                 case "Base Price":
@@ -68,6 +137,47 @@ namespace Travel_Experts
                         !Validator.IsNonNegativeDecimal(txtSearch, lblCurrency)) { }
                     else
                     {
+                        string tableCurrency;
+                        if (cboSearch.SelectedItem.ToString() == "Base Price")
+                        {
+                            tableCurrency = "PkgBasePrice";
+                        }
+                        else { tableCurrency = "PkgAgencyCommission"; }
+                        switch (cboCurrency.SelectedItem.ToString())
+                        {
+                            case "Above:":
+                                var sqlAbove = String.Format("SELECT * from Packages where {0} >= '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                Database.GetData(connectionString, sqlAbove, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+
+                            case "Below:":
+                                var sqlBelow = String.Format("SELECT * from Packages where {0} <= '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                Database.GetData(connectionString, sqlBelow, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+
+                            case "Exactly:":
+                                var sqlExact = String.Format("SELECT * from Packages where {0} = '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                Database.GetData(connectionString, sqlExact, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+                        }
                     }
                     break;
             }
@@ -131,6 +241,36 @@ namespace Travel_Experts
 
             //focus on search text field
             txtSearch.Focus();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to refresh the table? Unsaved data will be lost", "Message", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Database.GetData(connectionString, pkgQryAll, packageGridView, bindingSourcePackage);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Database.EditData(bindingSourcePackage);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Database.DeleteData("Packages", "PackageId", packageGridView);
+        }
+
+        private void pctExcel_Click(object sender, EventArgs e)
+        {
+            Exportto.Excel(packageGridView, "Package Information", saveExcelDialog);
+        }
+
+        private void pctPdf_Click(object sender, EventArgs e)
+        {
+            Exportto.Pdf(packageGridView, "Package Information", savePdfDialog);
         }
     }
 }
