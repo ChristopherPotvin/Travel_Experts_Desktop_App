@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminControlPkg));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pctExcel = new System.Windows.Forms.PictureBox();
@@ -53,6 +55,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.saveExcelDialog = new System.Windows.Forms.SaveFileDialog();
             this.savePdfDialog = new System.Windows.Forms.SaveFileDialog();
+            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
             this.PackageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PkgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PkgStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +63,6 @@
             this.PkgDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PkgBasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PkgAgencyCommission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
@@ -298,12 +300,16 @@
             // 
             this.savePdfDialog.Filter = "Pdf Files (*.pdf)|*.pdf";
             // 
+            // bindingSourcePackage
+            // 
+            this.bindingSourcePackage.DataSource = typeof(Travel_Experts.AdminControlPkg);
+            // 
             // PackageId
             // 
             this.PackageId.DataPropertyName = "PackageId";
             this.PackageId.HeaderText = "Package Id";
             this.PackageId.Name = "PackageId";
-            this.PackageId.Width = 80;
+            this.PackageId.Width = 87;
             // 
             // PkgName
             // 
@@ -336,6 +342,9 @@
             // PkgBasePrice
             // 
             this.PkgBasePrice.DataPropertyName = "PkgBasePrice";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.PkgBasePrice.DefaultCellStyle = dataGridViewCellStyle1;
             this.PkgBasePrice.HeaderText = "Base Price ($)";
             this.PkgBasePrice.Name = "PkgBasePrice";
             this.PkgBasePrice.Width = 79;
@@ -343,13 +352,12 @@
             // PkgAgencyCommission
             // 
             this.PkgAgencyCommission.DataPropertyName = "PkgAgencyCommission";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PkgAgencyCommission.DefaultCellStyle = dataGridViewCellStyle2;
             this.PkgAgencyCommission.HeaderText = "Agency Commission ($)";
             this.PkgAgencyCommission.Name = "PkgAgencyCommission";
             this.PkgAgencyCommission.Width = 118;
-            // 
-            // bindingSourcePackage
-            // 
-            this.bindingSourcePackage.DataSource = typeof(Travel_Experts.AdminControlPkg);
             // 
             // AdminControlPkg
             // 
