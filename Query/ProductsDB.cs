@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Query
 {
-    class ProductsDB
+    public class ProductsDB
     {
         public static List<Products> GetProducts() // method for retrieving products to a list
         {

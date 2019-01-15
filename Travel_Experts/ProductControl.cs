@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Model;
+using Query;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,14 +32,15 @@ namespace Travel_Experts
  
         private int GetProductId()
         {
-            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble (txtProdID, lblProdName)
+            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
               
             }
             return 0;
+           
         }
-
+        
         private void btnProdApply_Click(object sender, EventArgs e)
         {
 
