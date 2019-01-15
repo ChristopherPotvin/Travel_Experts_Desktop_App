@@ -9,7 +9,7 @@ namespace Model
     public class Products
     {
         private int productId; // var for product ID
-        private string productName; // var for product name
+        private string ProdName; // var for product name
 
 
         public int ProductId // getting and setting the product ID
@@ -25,7 +25,7 @@ namespace Model
             }
         }
 
-        public string ProductName { get => productName; set => productName = value; } // setting and getting the product name
+        public string ProductName { get => ProdName; set => ProdName = value; } // setting and getting the product name
 
         public Products(int productId, string productName) // the custom constructor passing the var product ID and product Name as parameters
 

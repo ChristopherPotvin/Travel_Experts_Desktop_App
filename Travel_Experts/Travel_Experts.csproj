@@ -93,11 +93,11 @@
     <Compile Include="PackagesControl.Designer.cs">
       <DependentUpon>PackagesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintControl.cs">
+    <Compile Include="PreviewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PrintControl.Designer.cs">
-      <DependentUpon>PrintControl.cs</DependentUpon>
+    <Compile Include="PreviewControl.Designer.cs">
+      <DependentUpon>PreviewControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductControl.cs">
       <SubType>UserControl</SubType>
@@ -135,8 +135,8 @@
     <EmbeddedResource Include="PackagesControl.resx">
       <DependentUpon>PackagesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintControl.resx">
-      <DependentUpon>PrintControl.cs</DependentUpon>
+    <EmbeddedResource Include="PreviewControl.resx">
+      <DependentUpon>PreviewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductControl.resx">
       <DependentUpon>ProductControl.cs</DependentUpon>
@@ -184,6 +184,32 @@
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AFORMAUTLib">
+      <Guid>{7CD06992-50AA-11D1-B8F0-00A0C9259304}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>

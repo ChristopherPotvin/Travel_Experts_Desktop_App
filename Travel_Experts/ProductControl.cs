@@ -5,8 +5,10 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using Model;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Travel_Experts
 {
@@ -17,7 +19,7 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
-        private string getProduct_Name()
+        private string GetProductName()
         {
             if (Validator.IsString(txtProdName, lblProdName) && Validator.IsProvided(txtProdName, lblProdName))
             {
@@ -27,11 +29,12 @@ namespace Travel_Experts
             return null;
         }
  
-        private int getProduct_Id()
+        private int GetProductId()
         {
-            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId))
+            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble (txtProdID, lblProdName)
+                && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
-                return Convert.ToInt32(txtProdID.Text);
+              
             }
             return 0;
         }
@@ -39,12 +42,12 @@ namespace Travel_Experts
         private void btnProdApply_Click(object sender, EventArgs e)
         {
 
-            string productName = getProduct_Name();
-            int productId = getProduct_Id();
+            string productName = GetProductName();
+            int productId = GetProductId();
 
             if (productName != null && productId != 0)
             {
-                Model.Products products = new Model.Products (getProduct_Id(), getProduct_Name()); // creating the object
+                Model.Products products = new Model.Products (GetProductId(), GetProductName()); // creating the object
                
                 MessageBox.Show(products.ToString()); // Showing the object
             }

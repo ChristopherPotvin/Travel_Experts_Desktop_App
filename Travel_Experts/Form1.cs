@@ -49,6 +49,11 @@ namespace Travel_Experts
             packagesControl1.BringToFront();
         }
 
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            previewControl1.BringToFront();
+        }
+
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             administratorControl1.BringToFront();
@@ -97,8 +102,10 @@ namespace Travel_Experts
             btnPackages.Enabled =TF;
             btnProducts.Enabled = TF;
             btnSuppliers.Enabled = TF;
-            btnUnallocated.Enabled = TF;
+            btnPreview.Enabled = TF;
             btnAdmin.Enabled = TF;
         }
+
+     
     }
 }

@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTime = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdmin = new System.Windows.Forms.Button();
-            this.btnUnallocated = new System.Windows.Forms.Button();
+            this.btnPreview = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnPackages = new System.Windows.Forms.Button();
@@ -48,9 +49,9 @@
             this.homeControl1 = new Travel_Experts.HomeControl();
             this.packagesControl1 = new Travel_Experts.PackagesControl();
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
-            this.printControl1 = new Travel_Experts.PrintControl();
+            this.printControl1 = new Travel_Experts.PreviewControl();
             this.productControl1 = new Travel_Experts.ProductControl();
-            this.txtTime = new System.Windows.Forms.TextBox();
+            this.previewControl1 = new Travel_Experts.PreviewControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -67,7 +68,7 @@
             this.panel1.Controls.Add(this.txtTime);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnAdmin);
-            this.panel1.Controls.Add(this.btnUnallocated);
+            this.panel1.Controls.Add(this.btnPreview);
             this.panel1.Controls.Add(this.btnSuppliers);
             this.panel1.Controls.Add(this.btnProducts);
             this.panel1.Controls.Add(this.btnPackages);
@@ -78,6 +79,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(158, 495);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.Silver;
+            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTime.Location = new System.Drawing.Point(24, 463);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(100, 13);
+            this.txtTime.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -107,22 +117,23 @@
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
-            // btnUnallocated
+            // btnPreview
             // 
-            this.btnUnallocated.BackColor = System.Drawing.Color.Transparent;
-            this.btnUnallocated.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUnallocated.FlatAppearance.BorderSize = 0;
-            this.btnUnallocated.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnallocated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUnallocated.ForeColor = System.Drawing.Color.Black;
-            this.btnUnallocated.Image = ((System.Drawing.Image)(resources.GetObject("btnUnallocated.Image")));
-            this.btnUnallocated.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUnallocated.Location = new System.Drawing.Point(3, 335);
-            this.btnUnallocated.Name = "btnUnallocated";
-            this.btnUnallocated.Size = new System.Drawing.Size(152, 52);
-            this.btnUnallocated.TabIndex = 2;
-            this.btnUnallocated.Text = "Print ";
-            this.btnUnallocated.UseVisualStyleBackColor = false;
+            this.btnPreview.BackColor = System.Drawing.Color.Transparent;
+            this.btnPreview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreview.FlatAppearance.BorderSize = 0;
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.ForeColor = System.Drawing.Color.Black;
+            this.btnPreview.Image = ((System.Drawing.Image)(resources.GetObject("btnPreview.Image")));
+            this.btnPreview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreview.Location = new System.Drawing.Point(3, 335);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(152, 52);
+            this.btnPreview.TabIndex = 2;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.UseVisualStyleBackColor = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // btnSuppliers
             // 
@@ -324,14 +335,12 @@
             this.productControl1.Size = new System.Drawing.Size(546, 378);
             this.productControl1.TabIndex = 38;
             // 
-            // txtTime
+            // previewControl1
             // 
-            this.txtTime.BackColor = System.Drawing.Color.Silver;
-            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTime.Location = new System.Drawing.Point(24, 463);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(100, 13);
-            this.txtTime.TabIndex = 4;
+            this.previewControl1.Location = new System.Drawing.Point(204, 84);
+            this.previewControl1.Name = "previewControl1";
+            this.previewControl1.Size = new System.Drawing.Size(553, 376);
+            this.previewControl1.TabIndex = 39;
             // 
             // Form1
             // 
@@ -339,6 +348,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 495);
+            this.Controls.Add(this.previewControl1);
             this.Controls.Add(this.productControl1);
             this.Controls.Add(this.printControl1);
             this.Controls.Add(this.suppliersControl1);
@@ -370,7 +380,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnUnallocated;
+        private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Button btnPackages;
@@ -388,9 +398,10 @@
         private HomeControl homeControl1;
         private PackagesControl packagesControl1;
         private SuppliersControl suppliersControl1;
-        private PrintControl printControl1;
+        private PreviewControl printControl1;
         private ProductControl productControl1;
         private System.Windows.Forms.TextBox txtTime;
+        private PreviewControl previewControl1;
     }
 }
 
