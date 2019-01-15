@@ -56,7 +56,7 @@ namespace Query
                     SqlCommand comm = new SqlCommand(deleteStmt, con);
                     comm.ExecuteNonQuery();
                 }
-                catch(DBConcurrencyException ex)
+                catch(DBConcurrencyException)
                 {
                     MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
@@ -82,7 +82,7 @@ namespace Query
                     sqlDa.Update(dtbl);
                     MessageBox.Show("Update successful");
                 }
-                catch (DBConcurrencyException ex)
+                catch (DBConcurrencyException)
                 {
                     MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
