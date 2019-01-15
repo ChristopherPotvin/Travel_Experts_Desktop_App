@@ -51,9 +51,11 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePackage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClear
@@ -293,6 +295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePackage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +324,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.BindingSource bindingSourcePackage;
     }
 }
