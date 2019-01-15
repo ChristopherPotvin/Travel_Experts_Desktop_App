@@ -13,7 +13,6 @@ namespace Model
         private int supplierId;
         private string supName;
 
-
         //Properties
         public int SupplierId
         {
