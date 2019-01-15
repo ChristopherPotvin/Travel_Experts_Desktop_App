@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{DF546868-F3B9-4D04-B3F3-FCDE4846EF23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModifyClasses", "DBModifyClasses\DBModifyClasses.csproj", "{CE8C4C5B-8026-4ECA-8CCF-6486ED88FA70}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{DF546868-F3B9-4D04-B3F3-FCDE4846EF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF546868-F3B9-4D04-B3F3-FCDE4846EF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF546868-F3B9-4D04-B3F3-FCDE4846EF23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE8C4C5B-8026-4ECA-8CCF-6486ED88FA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE8C4C5B-8026-4ECA-8CCF-6486ED88FA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE8C4C5B-8026-4ECA-8CCF-6486ED88FA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE8C4C5B-8026-4ECA-8CCF-6486ED88FA70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
