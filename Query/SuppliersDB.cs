@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Model;
 using System.Data.SqlClient;
 
-namespace QueryDB
+namespace Query
 {
 
     public class SuppliersDB

@@ -171,6 +171,10 @@
       <Project>{602e5fc0-2eb7-4d93-94c5-bf48407023a7}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Query\Query.csproj">
+      <Project>{73cf95ed-dda9-4a1b-9f23-3547673c06fb}</Project>
+      <Name>Query</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

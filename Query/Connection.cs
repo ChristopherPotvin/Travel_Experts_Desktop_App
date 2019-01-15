@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace QueryDB
+namespace Query
 {
     class Connection
     {
