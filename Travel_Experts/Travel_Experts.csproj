@@ -71,6 +71,7 @@
       <DependentUpon>AdministratorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorProvider.cs" />
+    <Compile Include="Exportto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
