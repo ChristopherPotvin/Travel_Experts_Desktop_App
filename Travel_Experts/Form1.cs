@@ -25,6 +25,8 @@ namespace Travel_Experts
         {
             Navigation(false);
             homeControl1.BringToFront();
+            DateTime dateTime = DateTime.Now;
+            txtTime.Text = dateTime.ToString();
         }
 
         private void btnHome_Click(object sender, EventArgs e)

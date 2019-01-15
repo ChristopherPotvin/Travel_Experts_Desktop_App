@@ -50,6 +50,7 @@
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.printControl1 = new Travel_Experts.PrintControl();
             this.productControl1 = new Travel_Experts.ProductControl();
+            this.txtTime = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -63,6 +64,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.txtTime);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnAdmin);
             this.panel1.Controls.Add(this.btnUnallocated);
@@ -272,7 +274,7 @@
             this.pbShutdown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbShutdown.BackgroundImage")));
             this.pbShutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pbShutdown.Location = new System.Drawing.Point(731, 18);
-            this.pbShutdown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbShutdown.Margin = new System.Windows.Forms.Padding(2);
             this.pbShutdown.Name = "pbShutdown";
             this.pbShutdown.Size = new System.Drawing.Size(34, 36);
             this.pbShutdown.TabIndex = 32;
@@ -321,6 +323,15 @@
             this.productControl1.Name = "productControl1";
             this.productControl1.Size = new System.Drawing.Size(546, 378);
             this.productControl1.TabIndex = 38;
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.Silver;
+            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTime.Location = new System.Drawing.Point(24, 463);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(100, 13);
+            this.txtTime.TabIndex = 4;
             // 
             // Form1
             // 
@@ -379,6 +390,7 @@
         private SuppliersControl suppliersControl1;
         private PrintControl printControl1;
         private ProductControl productControl1;
+        private System.Windows.Forms.TextBox txtTime;
     }
 }
 
