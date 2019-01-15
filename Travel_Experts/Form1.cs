@@ -83,7 +83,7 @@ namespace Travel_Experts
 
         private void pbShutdown_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         /// <summary>
