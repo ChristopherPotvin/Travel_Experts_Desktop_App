@@ -58,14 +58,41 @@ namespace Query
                 }
                 catch(DBConcurrencyException ex)
                 {
-                    MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                    MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
                 } 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Unable to delete record");
+                    throw ex;
                 }
             }
         }
+
+        //create method to edit data in database from datagridview
+        public static void EditData(BindingSource bsName)
+        {
+            DialogResult result = MessageBox.Show("Do you really want to update database? ", "Message", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    commandBuilder = new SqlCommandBuilder(sqlDa);
+                    bsName.EndEdit();
+                    sqlDa.Update(dtbl);
+                    MessageBox.Show("Update successful");
+                }
+                catch (DBConcurrencyException ex)
+                {
+                    MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
     }
 }
