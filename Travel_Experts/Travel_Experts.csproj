@@ -149,6 +149,7 @@
     <EmbeddedResource Include="SuppliersControl.resx">
       <DependentUpon>SuppliersControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Model.Suppliers.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

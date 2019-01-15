@@ -37,10 +37,10 @@ namespace Model
             SupName = supName;
         }
 
-        public override string ToString()
-        {
-            return SupName + " " + SupplierId;
-        }
+        //public override string ToString()
+        //{
+        //    return SupName + " " + SupplierId;
+        //}
 
     }
 }

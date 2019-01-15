@@ -7,45 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using Query;
 
 namespace Travel_Experts
 {
     public partial class SuppliersControl : UserControl
     {
+
+        List<Suppliers> suppliersList =SuppliersDB.GetSuppliers();
+
         public SuppliersControl()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Event Handlers
-        /// </summary>
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SuppliersControl_Load(object sender, EventArgs e)
         {
-            if 
-                (
-                ErrorProvider.ValidProvided(txtSearch,"Supplier Name Search",errorProvider1)
-                )
-            {
-                //Placeholder
-                MessageBox.Show(Convert.ToString(txtSearch.Text));
-            }         
-        }
+            var supplierLinq = from sup in suppliersList
+                           select new
+                           {
+                               sup.SupName
+                           };
 
-        private void btnApply_Click(object sender, EventArgs e)
-        {
-            if
-                (
-                ErrorProvider.ValidProvided(txtSupName,"Supplier Name",errorProvider1) &&
-                ErrorProvider.ValidInt(txtSupId,"Supplier Id", errorProvider1)               
-                )
+            foreach (var item in supplierLinq)
             {
-                //Instantiate Object
-                Model.Suppliers supplier = new Model.Suppliers(Convert.ToInt32(txtSupId.Text), Convert.ToString(txtSupName.Text));
-
-                //Placeholder
-                MessageBox.Show(supplier.ToString());
+                supNameComboBox.Items.Add(item.SupName);
             }
         }
     }

@@ -18,9 +18,9 @@ namespace Query
 
             SqlConnection conn = Connection.GetConnection();
 
-            string query = "SELECT SupplierID, SupName" +
+            string query = "SELECT SupplierID, SupName " +
                     "FROM Suppliers " +
-                    "ORDER BY SupplierID";
+                    "ORDER BY SupplierID;";
 
             SqlCommand cmd = new SqlCommand(query, conn);
             List<Suppliers> supplierList = new List<Suppliers>();
@@ -32,6 +32,9 @@ namespace Query
 
                 while (reader.Read())
                 {
+                    string var1 = reader["SupplierID"].ToString();
+
+
                     supplier = new Suppliers((int)reader["SupplierID"], (string)reader["SupName"]);
                     supplierList.Add(supplier); // Add to return list
                 }
@@ -45,6 +48,7 @@ namespace Query
             {
                 conn.Close();
             }
+
             return supplierList;
         }
     }
