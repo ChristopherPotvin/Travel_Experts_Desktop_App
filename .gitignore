@@ -4,6 +4,7 @@
 # Custom
 
 Connection.config
+Connections.config
 
 # User-specific files
 *.suo

@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="DataGridDB.cs" />
     <Compile Include="ProductsDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLforDataGrid.cs" />
     <Compile Include="SuppliersDB.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +55,11 @@
       <Project>{602e5fc0-2eb7-4d93-94c5-bf48407023a7}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

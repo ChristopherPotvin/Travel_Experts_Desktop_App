@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace Query
 {
-    class Connection
+    public class Connection
     {
         // Retrieves a connection string by name.
         // Returns null if the name is not found.
