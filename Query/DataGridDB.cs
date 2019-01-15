@@ -37,6 +37,35 @@ namespace Query
             }
         }
 
+        //create method to delete data in database from datagridview
+        public static void DeleteData(string dbTableName, string NameId, DataGridView dgvName)
+        {
+            DataGridViewRow row = dgvName.CurrentCell.OwningRow; //grab current row
+            string value = row.Cells[NameId].Value.ToString(); //grab value from the id field of the selected record
 
+            DialogResult result = MessageBox.Show("Do you really want to delete the record ", "Delete Record", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            string deleteStmt = String.Format("Delete from {0} where {1} = {2}", dbTableName, NameId, value);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    //sqlCon.Open();
+                    SqlCommand comm = new SqlCommand(deleteStmt, con);
+                    comm.ExecuteNonQuery();
+                }
+                catch(DBConcurrencyException ex)
+                {
+                    MessageBox.Show("Another user has updated or deleted the record. Please refresh the table", "Unable to perform command", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+                } 
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unable to delete record");
+                }
+            }
+        }
     }
 }
