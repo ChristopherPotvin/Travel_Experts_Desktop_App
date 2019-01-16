@@ -7,46 +7,82 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using Query;
 
 namespace Travel_Experts
 {
     public partial class SuppliersControl : UserControl
     {
+
+        List<Suppliers> suppliersList =SuppliersDB.GetSuppliers();
+
         public SuppliersControl()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Event Handlers
-        /// </summary>
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SuppliersControl_Load(object sender, EventArgs e)
         {
-            if 
-                (
-                ErrorProvider.ValidProvided(txtSearch,"Supplier Name Search",errorProvider1)
-                )
+            var supplierLinq = from sup in suppliersList
+                           select new
+                           {
+                               sup.SupName
+                           };
+
+            foreach (var item in supplierLinq)
             {
-                //Placeholder
-                MessageBox.Show(Convert.ToString(txtSearch.Text));
-            }         
+                supNameComboBox.Items.Add(item.SupName);
+            }
+        }
+
+        private void supNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var sup = (from x in suppliersList where x.SupName == supNameComboBox.Text select x).First();
+
+            if (sup != null)
+            {
+                supNameTextBox.Text = sup.SupName;
+                supplierIdTextBox.Text = sup.SupplierId.ToString();
+            }
+        }
+
+        private void rbAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            // Alter visibility
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            if
-                (
-                ErrorProvider.ValidProvided(txtSupName,"Supplier Name",errorProvider1) &&
-                ErrorProvider.ValidInt(txtSupId,"Supplier Id", errorProvider1)               
-                )
-            {
-                //Instantiate Object
-                Model.Suppliers supplier = new Model.Suppliers(Convert.ToInt32(txtSupId.Text), Convert.ToString(txtSupName.Text));
+            
+            var checkedButton = gbOptions.Controls.OfType<RadioButton>()
+                                .FirstOrDefault(r => r.Checked);
 
-                //Placeholder
-                MessageBox.Show(supplier.ToString());
-            }
+            switch (checkedButton.Name)
+            {
+                case "rbAdd":
+                    // Insert new supplier
+                    // Sans validation
+                    Suppliers sup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text),supNameTextBox.Text);
+                    SuppliersDB.Insert(sup);
+                    break;
+
+                case "rbUpdate":
+                    // Update existing supplier
+                    // Sans validation
+                    Suppliers newSup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text), supNameTextBox.Text);
+                    var oldSup = (from x in suppliersList where x.SupName == supNameComboBox.Text select x).First();
+                    SuppliersDB.Update(oldSup,newSup);
+                    break;
+
+                case "rbDelete":
+                    // Delete existing supplier
+                    // Sans validation
+                    Suppliers delSup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text), supNameTextBox.Text);
+                    SuppliersDB.Delete(delSup);
+                    break;
+            }            
         }
     }
 }

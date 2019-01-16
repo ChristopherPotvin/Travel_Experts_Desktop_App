@@ -1,4 +1,4 @@
-﻿namespace Travel_Experts
+namespace Travel_Experts
 {
     partial class Form1
     {
@@ -313,14 +313,6 @@
             this.packagesControl1.Size = new System.Drawing.Size(517, 367);
             this.packagesControl1.TabIndex = 35;
             // 
-            // suppliersControl1
-            // 
-            this.suppliersControl1.BackColor = System.Drawing.Color.White;
-            this.suppliersControl1.Location = new System.Drawing.Point(208, 90);
-            this.suppliersControl1.Name = "suppliersControl1";
-            this.suppliersControl1.Size = new System.Drawing.Size(534, 355);
-            this.suppliersControl1.TabIndex = 36;
-            // 
             // printControl1
             // 
             this.printControl1.Location = new System.Drawing.Point(204, 84);
@@ -351,7 +343,6 @@
             this.Controls.Add(this.previewControl1);
             this.Controls.Add(this.productControl1);
             this.Controls.Add(this.printControl1);
-            this.Controls.Add(this.suppliersControl1);
             this.Controls.Add(this.packagesControl1);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.administratorControl1);
