@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Query;
 
 namespace Travel_Experts
 {
@@ -23,6 +24,16 @@ namespace Travel_Experts
             cboSearch.SelectedIndex = 0;
             cboDate.SelectedIndex = 0;
             cboCurrency.SelectedIndex = 0;
+
+            //set the source of the data to be displayed in the grid view
+            packageGridView.DataSource = bindingSourcePackage;
+
+            //establish query
+            string query = SQLforDataGrid.SelQuery("Packages", "*", "PackageId");
+
+            //get table for packages
+            DataGridDB.GetDGData(query, packageGridView, bindingSourcePackage);
+
         }
 
         //button to allow user to search in the database based on their search criteria
