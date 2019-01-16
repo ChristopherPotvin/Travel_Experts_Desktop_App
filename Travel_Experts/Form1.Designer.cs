@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTime = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnUnallocated = new System.Windows.Forms.Button();
@@ -47,10 +48,8 @@
             this.administratorControl1 = new Travel_Experts.AdministratorControl();
             this.homeControl1 = new Travel_Experts.HomeControl();
             this.packagesControl1 = new Travel_Experts.PackagesControl();
-            this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.printControl1 = new Travel_Experts.PrintControl();
             this.productControl1 = new Travel_Experts.ProductControl();
-            this.txtTime = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,6 +77,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(158, 495);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTime
+            // 
+            this.txtTime.BackColor = System.Drawing.Color.Silver;
+            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTime.Location = new System.Drawing.Point(24, 463);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(100, 13);
+            this.txtTime.TabIndex = 4;
             // 
             // pictureBox1
             // 
@@ -302,14 +310,6 @@
             this.packagesControl1.Size = new System.Drawing.Size(517, 367);
             this.packagesControl1.TabIndex = 35;
             // 
-            // suppliersControl1
-            // 
-            this.suppliersControl1.BackColor = System.Drawing.Color.White;
-            this.suppliersControl1.Location = new System.Drawing.Point(208, 90);
-            this.suppliersControl1.Name = "suppliersControl1";
-            this.suppliersControl1.Size = new System.Drawing.Size(534, 355);
-            this.suppliersControl1.TabIndex = 36;
-            // 
             // printControl1
             // 
             this.printControl1.Location = new System.Drawing.Point(204, 84);
@@ -324,15 +324,6 @@
             this.productControl1.Size = new System.Drawing.Size(546, 378);
             this.productControl1.TabIndex = 38;
             // 
-            // txtTime
-            // 
-            this.txtTime.BackColor = System.Drawing.Color.Silver;
-            this.txtTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTime.Location = new System.Drawing.Point(24, 463);
-            this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(100, 13);
-            this.txtTime.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +332,6 @@
             this.ClientSize = new System.Drawing.Size(790, 495);
             this.Controls.Add(this.productControl1);
             this.Controls.Add(this.printControl1);
-            this.Controls.Add(this.suppliersControl1);
             this.Controls.Add(this.packagesControl1);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.administratorControl1);

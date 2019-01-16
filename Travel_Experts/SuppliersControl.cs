@@ -35,5 +35,54 @@ namespace Travel_Experts
                 supNameComboBox.Items.Add(item.SupName);
             }
         }
+
+        private void supNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var sup = (from x in suppliersList where x.SupName == supNameComboBox.Text select x).First();
+
+            if (sup != null)
+            {
+                supNameTextBox.Text = sup.SupName;
+                supplierIdTextBox.Text = sup.SupplierId.ToString();
+            }
+        }
+
+        private void rbAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            // Alter visibility
+        }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            
+            var checkedButton = gbOptions.Controls.OfType<RadioButton>()
+                                .FirstOrDefault(r => r.Checked);
+
+            switch (checkedButton.Name)
+            {
+                case "rbAdd":
+                    // Insert new supplier
+                    // Sans validation
+                    Suppliers sup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text),supNameTextBox.Text);
+                    SuppliersDB.Insert(sup);
+                    break;
+
+                case "rbUpdate":
+                    // Update existing supplier
+                    // Sans validation
+                    Suppliers newSup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text), supNameTextBox.Text);
+                    var oldSup = (from x in suppliersList where x.SupName == supNameComboBox.Text select x).First();
+                    SuppliersDB.Update(oldSup,newSup);
+                    break;
+
+                case "rbDelete":
+                    // Delete existing supplier
+                    // Sans validation
+                    Suppliers delSup = new Suppliers(Convert.ToInt32(supplierIdTextBox.Text), supNameTextBox.Text);
+                    SuppliersDB.Delete(delSup);
+                    break;
+            }            
+        }
     }
 }

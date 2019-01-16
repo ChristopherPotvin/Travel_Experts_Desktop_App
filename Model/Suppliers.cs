@@ -13,7 +13,7 @@ namespace Model
         private int supplierId;
         private string supName;
 
-        //Properties
+        // Properties
         public int SupplierId
         {
             get => supplierId;
@@ -30,17 +30,11 @@ namespace Model
 
         public string SupName { get => supName; set => supName = value; }
 
-        //Constructor
+        // Constructor
         public Suppliers(int supplierId, string supName)
         {
             SupplierId = supplierId;
             SupName = supName;
         }
-
-        //public override string ToString()
-        //{
-        //    return SupName + " " + SupplierId;
-        //}
-
     }
 }
