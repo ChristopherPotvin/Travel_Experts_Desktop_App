@@ -13,6 +13,9 @@ namespace Travel_Experts
 {
     public partial class AdminControlPkg : UserControl
     {
+        //establish general query for packages
+        string pkgQryAll = SQLforDataGrid.SelQuery("Packages", "*", "PackageId");
+
         public AdminControlPkg()
         {
             InitializeComponent();
@@ -28,11 +31,10 @@ namespace Travel_Experts
             //set the source of the data to be displayed in the grid view
             packageGridView.DataSource = bindingSourcePackage;
 
-            //establish query
-            string query = SQLforDataGrid.SelQuery("Packages", "*", "PackageId");
+            
 
             //get table for packages
-            DataGridDB.GetDGData(query, packageGridView, bindingSourcePackage);
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
 
         }
 
@@ -46,6 +48,14 @@ namespace Travel_Experts
                     if (!Validator.IsProvided(txtSearch, lblEmpty)) { }
                     else
                     {
+                        DataGridDB.GetDGData("SELECT * from Packages where lower(CONCAT(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)) like '%" + txtSearch.Text.ToLower() + "%'", packageGridView, bindingSourcePackage);
+
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -54,6 +64,13 @@ namespace Travel_Experts
                         !Validator.IsNonZeroPositiveInt(txtSearch, lblId)) { }
                     else
                     {
+                        DataGridDB.GetDGData("SELECT * from Packages where lower(PackageId) like '%" + txtSearch.Text + "%'", packageGridView, bindingSourcePackage);
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -62,11 +79,51 @@ namespace Travel_Experts
                         !Validator.IsString(txtSearch, lblName)) { }
                     else
                     {
+
                     }
                     break;
 
                 case "Start Date":
                 case "End Date":
+                    string tableDate;
+                    if (cboSearch.SelectedItem.ToString() == "Start Date")
+                    {
+                        tableDate = "PkgStartDate";
+                    }
+                    else { tableDate = "PkgEndDate"; }
+                    switch (cboDate.SelectedItem.ToString())
+                    {
+                        case "Before:":
+                            var sqlBefore = String.Format("SELECT * from Packages where {0} <= '{1}'", tableDate, dateTimePickerPkg.Value.Date);
+                            DataGridDB.GetDGData(sqlBefore, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                        case "After:":
+                            var sqlAfter = String.Format("SELECT * from Packages where {0} >= '{1}'", tableDate, dateTimePickerPkg.Value.Date);
+                            DataGridDB.GetDGData(sqlAfter, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                        case "Exactly on:":
+                            var sqlExact = String.Format("SELECT * from Packages where {0} = '{1}'", tableDate, dateTimePickerPkg.Value.Date);
+                            DataGridDB.GetDGData(sqlExact, packageGridView, bindingSourcePackage);
+                            //if there are is no match to the database:
+                            if (packageGridView.Rows.Count == 1)
+                            {
+                                MessageBox.Show("Unable to find a match");
+                                DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                            }
+                            break;
+                    }
                     break;
 
                 case "Base Price":
@@ -75,6 +132,47 @@ namespace Travel_Experts
                         !Validator.IsNonNegativeDecimal(txtSearch, lblCurrency)) { }
                     else
                     {
+                        string tableCurrency;
+                        if (cboSearch.SelectedItem.ToString() == "Base Price")
+                        {
+                            tableCurrency = "PkgBasePrice";
+                        }
+                        else { tableCurrency = "PkgAgencyCommission"; }
+                        switch (cboCurrency.SelectedItem.ToString())
+                        {
+                            case "Above:":
+                                var sqlAbove = String.Format("SELECT * from Packages where {0} >= '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                DataGridDB.GetDGData(sqlAbove, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+
+                            case "Below:":
+                                var sqlBelow = String.Format("SELECT * from Packages where {0} <= '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                DataGridDB.GetDGData(sqlBelow, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+
+                            case "Exactly:":
+                                var sqlExact = String.Format("SELECT * from Packages where {0} = '{1}'", tableCurrency, Convert.ToDecimal(txtSearch.Text));
+                                DataGridDB.GetDGData(sqlExact, packageGridView, bindingSourcePackage);
+                                //if there are is no match to the database:
+                                if (packageGridView.Rows.Count == 1)
+                                {
+                                    MessageBox.Show("Unable to find a match");
+                                    DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                                }
+                                break;
+                        }
                     }
                     break;
             }
@@ -89,7 +187,7 @@ namespace Travel_Experts
             {
                 cboDate.Visible = false;
                 cboCurrency.Visible = false;
-                dateTimePicker1.Visible = false;
+                dateTimePickerPkg.Visible = false;
                 lblSearch.Visible = true;
                 txtSearch.Visible = true;
             }
@@ -98,7 +196,7 @@ namespace Travel_Experts
             {
                 cboDate.Visible = true;
                 cboCurrency.Visible = false;
-                dateTimePicker1.Visible = true;
+                dateTimePickerPkg.Visible = true;
                 lblSearch.Visible = false;
                 txtSearch.Visible = false;
             }
@@ -106,7 +204,7 @@ namespace Travel_Experts
             {
                 cboDate.Visible = false;
                 cboCurrency.Visible = true;
-                dateTimePicker1.Visible = false;
+                dateTimePickerPkg.Visible = false;
                 lblSearch.Visible = false;
                 txtSearch.Visible = true;
             }
@@ -122,7 +220,7 @@ namespace Travel_Experts
             //reset default visibility for text field and label
             cboDate.Visible = false;
             cboCurrency.Visible = false;
-            dateTimePicker1.Visible = false;
+            dateTimePickerPkg.Visible = false;
             lblSearch.Visible = true;
             txtSearch.Visible = true;
 
@@ -138,6 +236,23 @@ namespace Travel_Experts
 
             //focus on search text field
             txtSearch.Focus();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            //get table for packages
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DataGridDB.SaveDGData(bindingSourcePackage);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridDB.DeleteDGData("Packages", "PackageId", packageGridView);
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
         }
     }
 }
