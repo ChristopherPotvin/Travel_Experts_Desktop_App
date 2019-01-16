@@ -254,5 +254,15 @@ namespace Travel_Experts
             DataGridDB.DeleteDGData("Packages", "PackageId", packageGridView);
             DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
         }
+
+        private void pctExcel_Click(object sender, EventArgs e)
+        {
+            Exportto.Excel(packageGridView, "Package Information", saveExcelFile);
+        }
+
+        private void pctPdf_Click(object sender, EventArgs e)
+        {
+            Exportto.Pdf(packageGridView, "Package Information", savePDFFile);
+        }
     }
 }

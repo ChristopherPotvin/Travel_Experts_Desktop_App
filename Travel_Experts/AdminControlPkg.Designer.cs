@@ -90,6 +90,7 @@
             this.pctExcel.TabIndex = 55;
             this.pctExcel.TabStop = false;
             this.toolTip1.SetToolTip(this.pctExcel, "Export to Excel file");
+            this.pctExcel.Click += new System.EventHandler(this.pctExcel_Click);
             // 
             // pctPdf
             // 
@@ -101,6 +102,7 @@
             this.pctPdf.TabIndex = 54;
             this.pctPdf.TabStop = false;
             this.toolTip1.SetToolTip(this.pctPdf, "Export to Pdf file");
+            this.pctPdf.Click += new System.EventHandler(this.pctPdf_Click);
             // 
             // btnSave
             // 
