@@ -42,7 +42,7 @@ namespace Query
         }
 
         //create method to delete data in database from datagridview
-        public static void DeleteData(string dbTableName, string NameId, DataGridView dgvName)
+        public static void DeleteDGData(string dbTableName, string NameId, DataGridView dgvName)
         {
             DataGridViewRow row = dgvName.CurrentCell.OwningRow; //grab current row
             string value = row.Cells[NameId].Value.ToString(); //grab value from the id field of the selected record
@@ -56,7 +56,7 @@ namespace Query
             {
                 try
                 {
-                    //sqlCon.Open();
+                    con.Open();
                     SqlCommand comm = new SqlCommand(deleteStmt, con);
                     comm.ExecuteNonQuery();
                 }
@@ -69,11 +69,15 @@ namespace Query
                 {
                     throw ex;
                 }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
 
-        //create method to edit data in database from datagridview
-        public static void EditData(BindingSource bsName)
+        //create method to save edited data in database from datagridview
+        public static void SaveDGData(BindingSource bsName)
         {
             DialogResult result = MessageBox.Show("Do you really want to update database? ", "Message", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);

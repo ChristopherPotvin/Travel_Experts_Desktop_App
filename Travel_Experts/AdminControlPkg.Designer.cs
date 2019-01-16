@@ -52,6 +52,8 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bindingSourcePackage = new System.Windows.Forms.BindingSource(this.components);
+            this.saveExcelFile = new System.Windows.Forms.SaveFileDialog();
+            this.savePDFFile = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pctExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctPdf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageGridView)).BeginInit();
@@ -108,6 +110,7 @@
             this.btnSave.TabIndex = 53;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblCurrency
             // 
@@ -162,6 +165,7 @@
             this.btnDelete.TabIndex = 48;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // packageGridView
             // 
@@ -266,6 +270,14 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // saveExcelFile
+            // 
+            this.saveExcelFile.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            // 
+            // savePDFFile
+            // 
+            this.savePDFFile.Filter = "Pdf Files (*.pdf)|*.pdf";
+            // 
             // AdminControlPkg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,5 +338,7 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.BindingSource bindingSourcePackage;
+        private System.Windows.Forms.SaveFileDialog saveExcelFile;
+        private System.Windows.Forms.SaveFileDialog savePDFFile;
     }
 }

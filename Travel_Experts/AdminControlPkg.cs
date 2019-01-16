@@ -243,5 +243,16 @@ namespace Travel_Experts
             //get table for packages
             DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DataGridDB.SaveDGData(bindingSourcePackage);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridDB.DeleteDGData("Packages", "PackageId", packageGridView);
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+        }
     }
 }
