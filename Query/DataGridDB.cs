@@ -35,6 +35,10 @@ namespace Query
             {
                 throw ex;
             }
+            finally
+            {
+                con.Close();
+            }
         }
 
         //create method to delete data in database from datagridview

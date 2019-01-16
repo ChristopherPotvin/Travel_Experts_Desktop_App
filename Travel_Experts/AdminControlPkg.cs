@@ -13,6 +13,9 @@ namespace Travel_Experts
 {
     public partial class AdminControlPkg : UserControl
     {
+        //establish general query for packages
+        string pkgQryAll = SQLforDataGrid.SelQuery("Packages", "*", "PackageId");
+
         public AdminControlPkg()
         {
             InitializeComponent();
@@ -28,11 +31,10 @@ namespace Travel_Experts
             //set the source of the data to be displayed in the grid view
             packageGridView.DataSource = bindingSourcePackage;
 
-            //establish query
-            string query = SQLforDataGrid.SelQuery("Packages", "*", "PackageId");
+            
 
             //get table for packages
-            DataGridDB.GetDGData(query, packageGridView, bindingSourcePackage);
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
 
         }
 
@@ -46,6 +48,14 @@ namespace Travel_Experts
                     if (!Validator.IsProvided(txtSearch, lblEmpty)) { }
                     else
                     {
+                        DataGridDB.GetDGData("SELECT * from Packages where lower(CONCAT(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission)) like '%" + txtSearch.Text.ToLower() + "%'", packageGridView, bindingSourcePackage);
+
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -54,6 +64,13 @@ namespace Travel_Experts
                         !Validator.IsNonZeroPositiveInt(txtSearch, lblId)) { }
                     else
                     {
+                        DataGridDB.GetDGData("SELECT * from Packages where lower(PackageId) like '%" + txtSearch.Text + "%'", packageGridView, bindingSourcePackage);
+                        //if there are is no match to the database:
+                        if (packageGridView.Rows.Count == 1)
+                        {
+                            MessageBox.Show("Unable to find a match");
+                            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
+                        }
                     }
                     break;
 
@@ -138,6 +155,12 @@ namespace Travel_Experts
 
             //focus on search text field
             txtSearch.Focus();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            //get table for packages
+            DataGridDB.GetDGData(pkgQryAll, packageGridView, bindingSourcePackage);
         }
     }
 }
