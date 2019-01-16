@@ -38,7 +38,7 @@
             this.lblCurrency = new System.Windows.Forms.Label();
             this.cboCurrency = new System.Windows.Forms.ComboBox();
             this.cboDate = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerPkg = new System.Windows.Forms.DateTimePicker();
             this.btnDelete = new System.Windows.Forms.Button();
             this.packageGridView = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
@@ -146,13 +146,13 @@
             this.cboDate.TabIndex = 50;
             this.cboDate.Visible = false;
             // 
-            // dateTimePicker1
+            // dateTimePickerPkg
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(352, 29);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 49;
-            this.dateTimePicker1.Visible = false;
+            this.dateTimePickerPkg.Location = new System.Drawing.Point(352, 29);
+            this.dateTimePickerPkg.Name = "dateTimePickerPkg";
+            this.dateTimePickerPkg.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerPkg.TabIndex = 49;
+            this.dateTimePickerPkg.Visible = false;
             // 
             // btnDelete
             // 
@@ -279,7 +279,7 @@
             this.Controls.Add(this.lblCurrency);
             this.Controls.Add(this.cboCurrency);
             this.Controls.Add(this.cboDate);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerPkg);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.packageGridView);
             this.Controls.Add(this.lblName);
@@ -312,7 +312,7 @@
         private System.Windows.Forms.Label lblCurrency;
         private System.Windows.Forms.ComboBox cboCurrency;
         private System.Windows.Forms.ComboBox cboDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerPkg;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView packageGridView;
         private System.Windows.Forms.Label lblName;
