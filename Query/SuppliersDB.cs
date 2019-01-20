@@ -43,22 +43,22 @@ namespace Query
             {
                 throw ex;
             }
-
             finally
             {
                 conn.Close();
             }
-
             return supplierList;
         }
 
-        public static void Insert(Suppliers supplier)
+        public static bool Insert(Suppliers supplier)
         {
+            bool result = false ;
             SqlConnection con = Connection.GetConnection();
-            con.Open();
-
+            
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
@@ -73,30 +73,44 @@ namespace Query
                 SqlParameter namePar = new SqlParameter("@name", SqlDbType.NVarChar);
                 namePar.Value = supplier.SupName;
                 cmd.Parameters.Add(namePar);
-
                 cmd.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (SqlException e)
+            {
+                switch (e.Number)
+                {
+                    case 2627:
+                        throw new DuplicateKeyException(string.Format("Duplicate ID entry, please enter a different ID and try again {0}", supplier.SupplierId));
+                        break;
+                    default:
+                        throw;
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw ex;                             
             }
             finally
             {
-                con.Close();
-                
-            }            
+                con.Close();                              
+            }
+            return result;
         }
 
-        public static void Update(Suppliers oldSupplier, Suppliers newSupplier)
+        public static bool Update(Suppliers oldSupplier, Suppliers newSupplier)
         {
+            bool result = false;
             SqlConnection con = Connection.GetConnection();
-            con.Open();
-
+            
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = con;
                 cmd.CommandText = "UPDATE Suppliers SET SupplierId = @newId, SupName = @newName Where SupplierId = @oldID and SupName = @oldName";
 
                 // newId Paramater
@@ -120,6 +134,8 @@ namespace Query
                 cmd.Parameters.Add(oldNamePar);
 
                 cmd.ExecuteNonQuery();
+
+                result = true;
             }
             catch (Exception ex)
             {
@@ -130,20 +146,22 @@ namespace Query
                 con.Close();
 
             }
+            return result;
         }
 
 
-        public static void Delete(Suppliers supplier)
+        public static bool Delete(Suppliers supplier)
         {
+            bool result = false;
+
             SqlConnection con = Connection.GetConnection();
-            con.Open();
 
             try
             {
+                con.Open();
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-
-                //cmd.CommandText = "INSERT INTO Suppliers (SupplierId, SupName) values (@id, @name)";
 
                 cmd.CommandText = "DELETE FROM Suppliers WHERE SupplierId = @id";
 
@@ -152,12 +170,9 @@ namespace Query
                 idPar.Value = supplier.SupplierId;
                 cmd.Parameters.Add(idPar);
 
-                // Name Paramater
-                //SqlParameter namePar = new SqlParameter("@name", SqlDbType.NVarChar);
-                //namePar.Value = supplier.SupName;
-                //cmd.Parameters.Add(namePar);
-
                 cmd.ExecuteNonQuery();
+
+                result = true;
             }
             catch (Exception ex)
             {
@@ -167,7 +182,17 @@ namespace Query
             {
                 con.Close();
 
-            }          
+            }
+            return result;
+        }
+
+
+        public class DuplicateKeyException : Exception
+        {
+            public DuplicateKeyException(string message)
+               : base(message)
+            {
+            }
         }
     }
 }
