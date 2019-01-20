@@ -48,10 +48,10 @@ namespace Travel_Experts
             this.administratorControl1 = new Travel_Experts.AdministratorControl();
             this.homeControl1 = new Travel_Experts.HomeControl();
             this.packagesControl1 = new Travel_Experts.PackagesControl();
-            this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.printControl1 = new Travel_Experts.PreviewControl();
             this.productControl1 = new Travel_Experts.ProductControl();
             this.previewControl1 = new Travel_Experts.PreviewControl();
+            this.suppliersControl1 = new Travel_Experts.SuppliersControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -329,10 +329,18 @@ namespace Travel_Experts
             // 
             // previewControl1
             // 
-            this.previewControl1.Location = new System.Drawing.Point(204, 84);
+            this.previewControl1.Location = new System.Drawing.Point(179, 84);
             this.previewControl1.Name = "previewControl1";
-            this.previewControl1.Size = new System.Drawing.Size(553, 376);
+            this.previewControl1.Size = new System.Drawing.Size(578, 384);
             this.previewControl1.TabIndex = 39;
+            // 
+            // suppliersControl1
+            // 
+            this.suppliersControl1.BackColor = System.Drawing.Color.White;
+            this.suppliersControl1.Location = new System.Drawing.Point(177, 86);
+            this.suppliersControl1.Name = "suppliersControl1";
+            this.suppliersControl1.Size = new System.Drawing.Size(601, 382);
+            this.suppliersControl1.TabIndex = 40;
             // 
             // Form1
             // 
@@ -340,15 +348,16 @@ namespace Travel_Experts
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 495);
+            this.Controls.Add(this.suppliersControl1);
+            this.Controls.Add(this.pbShutdown);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.previewControl1);
             this.Controls.Add(this.productControl1);
             this.Controls.Add(this.printControl1);
             this.Controls.Add(this.packagesControl1);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.administratorControl1);
-            this.Controls.Add(this.pbShutdown);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -385,14 +394,14 @@ namespace Travel_Experts
         private System.Windows.Forms.PictureBox pictureBoxInsta;
         private System.Windows.Forms.PictureBox picBoxFB;
         private System.Windows.Forms.PictureBox pbShutdown;
+        private System.Windows.Forms.TextBox txtTime;
         private AdministratorControl administratorControl1;
         private HomeControl homeControl1;
         private PackagesControl packagesControl1;
-        private SuppliersControl suppliersControl1;
         private PreviewControl printControl1;
         private ProductControl productControl1;
-        private System.Windows.Forms.TextBox txtTime;
         private PreviewControl previewControl1;
+        private SuppliersControl suppliersControl1;
     }
 }
 

@@ -31,7 +31,8 @@ namespace Travel_Experts
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            homeControl1.BringToFront();
+            //homeControl1.BringToFront();
+            suppliersControl1.BringToFront();
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
