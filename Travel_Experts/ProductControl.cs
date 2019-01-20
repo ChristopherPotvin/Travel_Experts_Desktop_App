@@ -15,6 +15,10 @@ namespace Travel_Experts
 {
     public partial class ProductControl : UserControl
     {
+        List<Products> listofProducts = ProductsDB.GetProducts();
+
+        private Products product;
+
         public ProductControl()
         {
             InitializeComponent();
@@ -30,12 +34,12 @@ namespace Travel_Experts
             return null;
         }
  
-        private int GetProductId()
+        private int GetProductId(int productID)
         {
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
-              
+              product = ProductsDB.GetProducts(productID)
             }
             return 0;
            
@@ -53,6 +57,11 @@ namespace Travel_Experts
                
                 MessageBox.Show(products.ToString()); // Showing the object
             }
+        }
+
+        private void btnProdSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

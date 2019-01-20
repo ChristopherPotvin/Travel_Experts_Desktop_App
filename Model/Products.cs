@@ -35,9 +35,5 @@ namespace Model
             ProductName = productName;
         }
 
-        public override string ToString() // displaying the Product ID and Product Name
-        {
-            return "Product ID: " + ProductId + " Product Name: " + ProductName;
-        }
     }
 }

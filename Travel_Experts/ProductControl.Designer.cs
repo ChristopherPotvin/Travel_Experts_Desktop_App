@@ -82,6 +82,7 @@
             this.btnProdSearch.TabIndex = 28;
             this.btnProdSearch.Text = "Search";
             this.btnProdSearch.UseVisualStyleBackColor = true;
+            this.btnProdSearch.Click += new System.EventHandler(this.btnProdSearch_Click);
             // 
             // txtProdID
             // 
@@ -192,7 +193,7 @@
             this.lblProdName.Text = "Enter a valid product name";
             this.lblProdName.Visible = false;
             // 
-            // ProductControl2
+            // ProductControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -208,7 +209,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Name = "ProductControl2";
+            this.Name = "ProductControl";
             this.Size = new System.Drawing.Size(546, 378);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Query
 {
     public class ProductsDB
     {
-        public static List<Products> GetProducts() // method for retrieving products to a list
+        public static Products GetProductID(int productID)
         {
             Products product = null;
 
@@ -18,21 +19,25 @@ namespace Query
 
             string query = "SELECT ProductID, ProdName " +
                            "FROM Products " +
-                           "ORDER BY ProductID"; // sql statment to get products
+                           "WHERE ProductID = @ProductID"; // sql statment to get productID
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            List<Products> productList = new List<Products>(); // start with an empty list
-
+            command.Parameters.AddWithValue("@ProductID", productID); // value comes from the method's argument
+                   
             try
+
             {
                 connection.Open(); // Open the connection
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
 
                 if (reader.Read())
                 {
-                    product = new Products((int) reader ["ProductID"], (string) reader ["ProdName"]);
-                    productList.Add(product); // return the list of products
+
+                    product = new Products();
+                    product.ProductId = (int)reader["ProductID"];
+                    product.ProductName = reader["ProdName"].ToString();
+                    
                 }
             }
             catch (SqlException ex)
@@ -44,10 +49,10 @@ namespace Query
                 connection.Close();
             }
 
-            return productList;
+            return product;
         }
-        
-        public static int AddProduct(Products product) // method for adding products
+
+        public static int InsertProduct(Products product) // method for adding a new product to the DB
         {
             SqlConnection connection = Connection.GetConnection();
             string insertStatement = "INSERT INTO Products (ProdName) " +
@@ -142,3 +147,39 @@ namespace Query
         }
     }
 }
+//public static List<Products> GetProducts() // method for retrieving products to a list
+//{
+//    Products product = null;
+
+//    SqlConnection connection = Connection.GetConnection(); // instantiate the sql connection
+
+//    string query = "SELECT ProductID, ProdName " +
+//                   "FROM Products " +
+//                   "ORDER BY ProductID"; // sql statment to get products
+
+//    SqlCommand command = new SqlCommand(query, connection);
+
+//    List<Products> productList = new List<Products>(); // start with an empty list
+
+//    try
+//    {
+//        connection.Open(); // Open the connection
+//        SqlDataReader reader = command.ExecuteReader();
+
+//        if (reader.Read())
+//        {
+//            product = new Products((int) reader ["ProductID"], (string) reader ["ProdName"]);
+//            productList.Add(product); // return the list of products
+//        }
+//    }
+//    catch (SqlException ex)
+//    {
+//        throw ex;
+//    }
+//    finally
+//    {
+//        connection.Close();
+//    }
+
+//    return productList;
+//}
