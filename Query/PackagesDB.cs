@@ -4,12 +4,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Model;
+using System.Data;
 namespace Query
 {
+    //This is the business layer between the Packages table user and the database
+    //Author: Peter Oganwu
+    //Date: 6th February 2019
+
     public static class PackagesDB
     {
-
+        //This method gets row data from the from the Packages Table. 
         public static Packages GetPackages(int packageID)
         {
 
@@ -29,7 +34,7 @@ namespace Query
 
                 if (packageReader.Read())
                 {
-                    Packages p = new Packages();
+                    Packages p = new Packages(); //Creating a Packages object.
                     p.PackageId = (int)packageReader["PackageId"];
                     p.PkgName = (string)packageReader["PkgName"];
 
@@ -87,16 +92,16 @@ namespace Query
             }
         }
 
+        //This method adds data to the Packages table.
         public static int AddPackage(Packages package)
         {
             SqlConnection connection = Connection.GetConnection();
             string insertStatment =
-                "SET IDENTITY_INSERT Packages ON; INSERT Packages "
-                + "(PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencycommission) "
-                + "VALUES (@PackageID, @PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencycommission)";
+                "INSERT Packages "
+                + "(PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencycommission) "
+                + "VALUES (@PkgName, @PkgStartDate, @PkgEndDate, @PkgDesc, @PkgBasePrice, @PkgAgencycommission)";
 
             SqlCommand insertCommand = new SqlCommand(insertStatment, connection);
-            insertCommand.Parameters.AddWithValue("@PackageId", package.PackageId);
             insertCommand.Parameters.AddWithValue("@PkgName", package.PkgName);
             insertCommand.Parameters.AddWithValue("@PkgStartDate", package.PkgStartDate);
             insertCommand.Parameters.AddWithValue("@PkgEndDate", package.PkgEndDate);
@@ -123,6 +128,7 @@ namespace Query
 
         }
 
+        //This method deletes data to the Packages table.
         public static bool DeletePackage(Packages package)
         {
             SqlConnection connection = Connection.GetConnection();
@@ -133,8 +139,8 @@ namespace Query
                 + "AND PkgStartDate = @PkgStartDate "
                 + "AND PkgEndDate = @PkgEndDate "
                 + "AND PkgDesc = @PkgDesc "
-                + "PkgBasePrice = @PkgBasePrice "
-                + "PkgAgencyCommission = @PkgAgencyCommission";
+                + "AND PkgBasePrice = @PkgBasePrice "
+                + "AND PkgAgencyCommission = @PkgAgencyCommission";
 
             SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
             deleteCommand.Parameters.AddWithValue("@PackageId", package.PackageId);
@@ -163,26 +169,20 @@ namespace Query
             }
         }
 
+        //This method updatess data to the Packages table.
+
         public static bool UpdatePackage(Packages oldPackage, Packages newPackage)
         {
             SqlConnection connection = Connection.GetConnection();
             string updateStatement = "UPDATE Packages SET "
-                + "PackageId = @NewPackageId, "
                 + "PkgName = @NewPkgName, "
-                + "PkgStartDate = @NewPkgStartDate "
-                + "PkgEndDate = @NewPkgEndDate "
-                + "PkgDesc = @NewPkgDesc "
-                + "PkgBasePrice = @NewPkgBasePrice "
+                + "PkgStartDate = @NewPkgStartDate, "
+                + "PkgEndDate = @NewPkgEndDate, "
+                + "PkgDesc = @NewPkgDesc, "
+                + "PkgBasePrice = @NewPkgBasePrice, "
                 + "PkgAgencyCommission = @NewPkgAgencyCommission" +
-                "WHERE PackageID = @oldPackageID "
-                + "AND PkgName = @OldPkgName "
-                + "PkgStartDate = @OldPkgStartDate "
-                + "PkgEndDate = @OldPkgEndDate "
-                + "PkgDesc = @OldPkgDesc "
-                + "PkgBasePrice = @OldPkgBasePrice "
-                + "PkgAgencyCommission = @OldAgencyCommission ";
+                "WHERE PackageID = @OldPackageID ";
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-            updateCommand.Parameters.AddWithValue("@NewPackageId", newPackage.PackageId);
             updateCommand.Parameters.AddWithValue("@NewPkgName", newPackage.PkgName);
             updateCommand.Parameters.AddWithValue("@NewPkgStartDate", newPackage.PkgStartDate);
             updateCommand.Parameters.AddWithValue("@NewPkgEndDate", newPackage.PkgEndDate);
@@ -190,12 +190,6 @@ namespace Query
             updateCommand.Parameters.AddWithValue("@NewPkgBasePrice", newPackage.PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@NewPkgAgencyCommission", newPackage.PkgAgencyCommission);
             updateCommand.Parameters.AddWithValue("@OldPackageId", oldPackage.PackageId);
-            updateCommand.Parameters.AddWithValue("@OldPkgName", oldPackage.PkgName);
-            updateCommand.Parameters.AddWithValue("@OldPkgStartDate", oldPackage.PkgStartDate);
-            updateCommand.Parameters.AddWithValue("@OldPkgEndDate", oldPackage.PkgEndDate);
-            updateCommand.Parameters.AddWithValue("@OldPkgDesc", oldPackage.PkgDesc);
-            updateCommand.Parameters.AddWithValue("@OldPkgBasePrice", oldPackage.PkgBasePrice);
-            updateCommand.Parameters.AddWithValue("@OldPkgAgencyCommission", oldPackage.PkgAgencyCommission);
 
             try
             {
@@ -217,15 +211,5 @@ namespace Query
         }
     }
 
-    public class Packages
-    {
-        public int PackageId { get; internal set; }
-        public string PkgName { get; internal set; }
-        public object PkgStartDate { get; internal set; }
-        public object PkgEndDate { get; internal set; }
-        public object PkgDesc { get; internal set; }
-        public decimal PkgBasePrice { get; internal set; }
-        public object PkgAgencyCommission { get; internal set; }
-    }
 }
 

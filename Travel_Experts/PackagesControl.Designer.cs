@@ -45,11 +45,12 @@
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.lblEndDate = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.richTxtDescription = new System.Windows.Forms.RichTextBox();
             this.lblPackage = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,9 +69,9 @@
             this.groupBox1.Controls.Add(this.radDelete);
             this.groupBox1.Controls.Add(this.radUpdate);
             this.groupBox1.Controls.Add(this.radAdd);
-            this.groupBox1.Location = new System.Drawing.Point(159, 35);
+            this.groupBox1.Location = new System.Drawing.Point(82, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 47);
+            this.groupBox1.Size = new System.Drawing.Size(265, 55);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Packages";
@@ -78,7 +79,7 @@
             // radDelete
             // 
             this.radDelete.AutoSize = true;
-            this.radDelete.Location = new System.Drawing.Point(180, 18);
+            this.radDelete.Location = new System.Drawing.Point(180, 21);
             this.radDelete.Name = "radDelete";
             this.radDelete.Size = new System.Drawing.Size(56, 17);
             this.radDelete.TabIndex = 2;
@@ -89,7 +90,7 @@
             // radUpdate
             // 
             this.radUpdate.AutoSize = true;
-            this.radUpdate.Location = new System.Drawing.Point(103, 18);
+            this.radUpdate.Location = new System.Drawing.Point(103, 21);
             this.radUpdate.Name = "radUpdate";
             this.radUpdate.Size = new System.Drawing.Size(60, 17);
             this.radUpdate.TabIndex = 1;
@@ -100,13 +101,14 @@
             // radAdd
             // 
             this.radAdd.AutoSize = true;
-            this.radAdd.Location = new System.Drawing.Point(33, 18);
+            this.radAdd.Location = new System.Drawing.Point(33, 21);
             this.radAdd.Name = "radAdd";
             this.radAdd.Size = new System.Drawing.Size(44, 17);
             this.radAdd.TabIndex = 0;
             this.radAdd.TabStop = true;
             this.radAdd.Text = "Add";
             this.radAdd.UseVisualStyleBackColor = true;
+            this.radAdd.CheckedChanged += new System.EventHandler(this.radAdd_CheckedChanged);
             // 
             // txtName
             // 
@@ -114,7 +116,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 20);
             this.txtName.TabIndex = 2;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblName
             // 
@@ -124,7 +125,6 @@
             this.lblName.Size = new System.Drawing.Size(38, 13);
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Name:";
-            this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
             // lblCommission
             // 
@@ -142,7 +142,6 @@
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.Size = new System.Drawing.Size(148, 20);
             this.txtCommission.TabIndex = 4;
-            this.txtCommission.TextChanged += new System.EventHandler(this.txtCommission_TextChanged);
             // 
             // lblPrice
             // 
@@ -152,7 +151,6 @@
             this.lblPrice.Size = new System.Drawing.Size(34, 13);
             this.lblPrice.TabIndex = 7;
             this.lblPrice.Text = "Price:";
-            this.lblPrice.Click += new System.EventHandler(this.lblPrice_Click);
             // 
             // txtPrice
             // 
@@ -161,34 +159,32 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(125, 20);
             this.txtPrice.TabIndex = 6;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(339, 131);
+            this.lblId.Location = new System.Drawing.Point(325, 102);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(21, 13);
             this.lblId.TabIndex = 9;
             this.lblId.Text = "ID:";
-            this.lblId.Click += new System.EventHandler(this.lblId_Click);
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(366, 128);
+            this.txtID.Location = new System.Drawing.Point(352, 99);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(148, 20);
             this.txtID.TabIndex = 8;
-            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(81, 96);
+            this.btnSearch.Location = new System.Drawing.Point(366, 125);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(110, 23);
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search for Package";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dateStart
             // 
@@ -199,7 +195,6 @@
             this.dateStart.Name = "dateStart";
             this.dateStart.Size = new System.Drawing.Size(135, 20);
             this.dateStart.TabIndex = 11;
-            this.dateStart.ValueChanged += new System.EventHandler(this.dateStart_ValueChanged);
             // 
             // lblStartDate
             // 
@@ -209,7 +204,6 @@
             this.lblStartDate.Size = new System.Drawing.Size(58, 13);
             this.lblStartDate.TabIndex = 12;
             this.lblStartDate.Text = "Start Date:";
-            this.lblStartDate.Click += new System.EventHandler(this.lblStartDate_Click);
             // 
             // lblEndDate
             // 
@@ -219,18 +213,16 @@
             this.lblEndDate.Size = new System.Drawing.Size(55, 13);
             this.lblEndDate.TabIndex = 14;
             this.lblEndDate.Text = "End Date:";
-            this.lblEndDate.Click += new System.EventHandler(this.lblEndDate_Click);
             // 
-            // dateTimePicker2
+            // dateEnd
             // 
-            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd 00:00:00";
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(66, 222);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker2.TabIndex = 13;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dateEnd.CustomFormat = "yyyy-MM-dd 00:00:00";
+            this.dateEnd.Enabled = false;
+            this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateEnd.Location = new System.Drawing.Point(66, 222);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(135, 20);
+            this.dateEnd.TabIndex = 13;
             // 
             // btnSubmit
             // 
@@ -240,13 +232,7 @@
             this.btnSubmit.TabIndex = 15;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(197, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 20);
-            this.textBox1.TabIndex = 16;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // richTxtDescription
             // 
@@ -266,16 +252,35 @@
             this.lblPackage.TabIndex = 18;
             this.lblPackage.Text = "Package Description";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(352, 42);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(162, 23);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.Text = "Enter Package ID to Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(352, 67);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(162, 23);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.Text = "Enter Package ID to Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // PackagesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblPackage);
             this.Controls.Add(this.richTxtDescription);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblEndDate);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.dateStart);
             this.Controls.Add(this.btnSearch);
@@ -318,10 +323,11 @@
         private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateEnd;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RichTextBox richTxtDescription;
         private System.Windows.Forms.Label lblPackage;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

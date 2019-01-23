@@ -6,33 +6,36 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Packages
+    public class Packages
     {
-        private int packagesId;
+        private int packageId;
         private string pkgName;
+        private DateTime? pkgStartDate;
+        private DateTime? pkgEndDate;
+        private string pkgDesc;
         private decimal pkgBasePrice;
-        private decimal pkgAgencyCommission;
+        private decimal? pkgAgencyCommission;
 
         public Packages() { } //Empty Constructor
 
         //Constructor
         public Packages(int packagesId, string pkgName, decimal pkgBasePrice, decimal pkgAgencyCommission)
         {
-            this.PackagesId = packagesId;
+            this.PackageId = packageId;
             this.PkgName = pkgName;
             this.PkgBasePrice = pkgBasePrice;
             this.PkgAgencyCommission = pkgAgencyCommission;
         }
 
-        public int PackagesId
+        public int PackageId
         {
             get
             {
-                return packagesId;
+                return packageId;
             }
             set
             {
-                packagesId = value;
+                packageId = value;
             }
         }
 
@@ -48,6 +51,42 @@ namespace Model
             }
         }
 
+        public DateTime? PkgStartDate
+        {
+            get
+            {
+                return pkgStartDate;
+            }
+            set
+            {
+                pkgStartDate = value;
+            }
+        }
+
+        public DateTime? PkgEndDate
+        {
+            get
+            {
+                return pkgEndDate;
+            }
+            set
+            {
+                pkgEndDate = value;
+            }
+        }
+
+        public string PkgDesc
+        {
+            get
+            {
+                return pkgDesc;
+            }
+            set
+            {
+                pkgDesc = value;
+            }
+        }
+
         public decimal PkgBasePrice
         {
             get
@@ -60,7 +99,7 @@ namespace Model
             }
         }
 
-        public decimal PkgAgencyCommission
+        public decimal? PkgAgencyCommission
         {
             get
             {
