@@ -34,7 +34,7 @@ namespace Query
 
                 if (packageReader.Read())
                 {
-                    Packages p = new Packages();
+                    Packages p = new Packages(); //Creating a Packages object.
                     p.PackageId = (int)packageReader["PackageId"];
                     p.PkgName = (string)packageReader["PkgName"];
 
@@ -92,6 +92,7 @@ namespace Query
             }
         }
 
+        //This method adds data to the Packages table.
         public static int AddPackage(Packages package)
         {
             SqlConnection connection = Connection.GetConnection();
@@ -127,6 +128,7 @@ namespace Query
 
         }
 
+        //This method deletes data to the Packages table.
         public static bool DeletePackage(Packages package)
         {
             SqlConnection connection = Connection.GetConnection();
@@ -166,6 +168,8 @@ namespace Query
                 connection.Close();
             }
         }
+
+        //This method updatess data to the Packages table.
 
         public static bool UpdatePackage(Packages oldPackage, Packages newPackage)
         {
