@@ -8,9 +8,13 @@ using Model;
 using System.Data;
 namespace Query
 {
+    //This is the business layer between the Packages table user and the database
+    //Author: Peter Oganwu
+    //Date: 6th February 2019
+
     public static class PackagesDB
     {
-
+        //This method gets row data from the from the Packages Table. 
         public static Packages GetPackages(int packageID)
         {
 
