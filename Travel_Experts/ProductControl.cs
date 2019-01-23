@@ -11,11 +11,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+// Fatal bulid errors have been commented out by Andrew
+
+
 namespace Travel_Experts
 {
     public partial class ProductControl : UserControl
     {
-        List<Products> listofProducts = ProductsDB.GetProducts();
+
+
+        // There is no get products method!
+        //List<Products> listofProducts = ProductsDB.GetProducts();
 
         private Products product;
 
@@ -39,7 +45,7 @@ namespace Travel_Experts
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
-              product = ProductsDB.GetProducts(productID)
+              //product = ProductsDB.GetProducts(productID)
             }
             return 0;
            
@@ -49,13 +55,13 @@ namespace Travel_Experts
         {
 
             string productName = GetProductName();
-            int productId = GetProductId();
+            //int productId = GetProductId();
 
-            if (productName != null && productId != 0)
+            //if (productName != null && productId != 0)
             {
-                Model.Products products = new Model.Products (GetProductId(), GetProductName()); // creating the object
+                //Model.Products products = new Model.Products (GetProductId(), GetProductName()); // creating the object
                
-                MessageBox.Show(products.ToString()); // Showing the object
+                //MessageBox.Show(products.ToString()); // Showing the object
             }
         }
 
