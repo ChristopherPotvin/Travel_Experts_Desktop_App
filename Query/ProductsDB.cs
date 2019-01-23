@@ -37,6 +37,8 @@ namespace Query
                     product = new Products();
                     product.ProductId = (int)reader["ProductID"];
                     product.ProductName = reader["ProdName"].ToString();
+
+
                     
                 }
             }

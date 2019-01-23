@@ -35,5 +35,8 @@ namespace Model
             ProductName = productName;
         }
 
+        // This needs a default constructor
+        public Products() { }
+
     }
 }
