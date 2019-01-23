@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Packages.cs" />
+    <Compile Include="Packages_Products_Suppliers.cs" />
     <Compile Include="Products.cs" />
+    <Compile Include="Products_Suppliers.cs" />
     <Compile Include="Suppliers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
