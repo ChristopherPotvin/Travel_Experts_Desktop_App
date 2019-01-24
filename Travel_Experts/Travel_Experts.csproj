@@ -114,6 +114,7 @@
       <DependentUpon>SuppliersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Validator.cs" />
+    <Compile Include="Validator1.cs" />
     <EmbeddedResource Include="AdminControlPdct.resx">
       <DependentUpon>AdminControlPdct.cs</DependentUpon>
     </EmbeddedResource>
