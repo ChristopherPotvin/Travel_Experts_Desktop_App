@@ -31,19 +31,15 @@ namespace Travel_Experts
             return null;
         }
 
-        private int GetProductId(int productId)
+        private void GetProductID(int productId)
         {
-            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
-                && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
-
                 try { product = ProductsDB.GetProductID(productId); }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
 
                 }
-
-            return productId;
         }
 
         private void InsertProduct(Products products)
@@ -58,9 +54,8 @@ namespace Travel_Experts
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
-
                 int productId = Convert.ToInt32(txtProdID.Text);
-                this.GetProductId(productId);
+                this.GetProductID(productId);
 
                 if (product == null)
                 {
@@ -124,7 +119,7 @@ namespace Travel_Experts
                         {
                             MessageBox.Show("Another user has updated or deleted " + "that package.",
                                 "Database Error");
-                            this.GetProductId(product.ProductId);
+                            this.GetProductID(product.ProductId);
                             if (product != null)
                                 this.DisplayProduct();
                             else
