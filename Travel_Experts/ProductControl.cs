@@ -15,8 +15,6 @@ namespace Travel_Experts
 {
     public partial class ProductControl : UserControl
     {
-        List<Products> listofProducts = ProductsDB.GetProducts();
-
         private Products product;
 
         public ProductControl()
@@ -34,34 +32,69 @@ namespace Travel_Experts
             return null;
         }
  
-        private int GetProductId(int productID)
+        private int GetProductId(int productId)
         {
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
-            {
-              product = ProductsDB.GetProducts(productID)
-            }
-            return 0;
-           
-        }
-        
-        private void btnProdApply_Click(object sender, EventArgs e)
-        {
 
-            string productName = GetProductName();
-            int productId = GetProductId();
+                try { product = ProductsDB.GetProductID(productId); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
 
-            if (productName != null && productId != 0)
-            {
-                Model.Products products = new Model.Products (GetProductId(), GetProductName()); // creating the object
-               
-                MessageBox.Show(products.ToString()); // Showing the object
-            }
+                }
+
+            return productId;
         }
 
         private void btnProdSearch_Click(object sender, EventArgs e)
         {
+            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
+                && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
+            {
+                int productId = Convert.ToInt32(txtProdID.Text);
+                this.GetProductId(productId);
+                if (product == null)
+                {
+                    MessageBox.Show("There was no product found with this ID. " +
+                         "Please try again.", "Product was not found");
+                    this.ClearControls();
+                }
+                else
+                    this.DisplayProduct();
+            }
+        }
 
+        private void btnProdApply_Click(object sender, EventArgs e)
+        {
+
+            string productName = GetProductName();
+            int productID = GetProductId();
+
+            if (productName != null && productID != 0)
+            {
+                Products products = new Products(Convert.ToInt32(txtProdID.Text), txtProdName.Text);
+                ProductsDB.InsertProduct(products);
+            }
+           
+        }
+
+        
+        private void ClearControls()
+        {
+            txtProdID.Text = "";
+            txtProdName.Text = "";
+            btnModify.Enabled = false;
+            btnDelete.Enabled = false;
+            txtProdID.Select();
+        }
+
+        private void DisplayProduct()
+        {
+            txtProdName.Text = product.ProductName;
+            btnModify.Enabled = true;
+            btnProdAdd.Enabled = true;
+            btnDelete.Enabled = true;
         }
     }
 }
