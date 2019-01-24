@@ -28,21 +28,23 @@ namespace Travel_Experts
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            int packageID = Convert.ToInt32(txtID.Text);
-            GetPackage(packageID);
-
-            if (package == null)
+            if (Validator1.IsProvided(txtID, "Package ID") && 
+                Validator1.IsNonNegativeInt(txtID, "Package ID"))
             {
-                MessageBox.Show("No Package found with this ID. " +
-                    "Please try again.", "Package Not Found");
+                int packageID = Convert.ToInt32(txtID.Text);
+                GetPackage(packageID);
+
+                if (package == null)
+                {
+                    MessageBox.Show("No Package found with this ID. " +
+                        "Please try again.", "Package Not Found");
+                }
+                else
+                    this.DisplayPackages();
             }
-            else
-                this.DisplayPackages();
+           
         }
-
-
-
-
+        
         private void GetPackage(int packageID)
         {
             package = PackagesDB.GetPackages(packageID);
@@ -65,13 +67,36 @@ namespace Travel_Experts
             {
                 try
                 {
-                    this.PutPackageData(package);
-                    DialogResult result = MessageBox.Show("Confirm Adding New Package?",
-                        "Confirm Please", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                if (Validator1.IsProvided(txtName, "Package Name") &&
+                    Validator1.IsProvided(txtPrice, "Base Price") &&
+                    Validator1.IsNonNegativeDecimal(txtPrice, "Base Price") &&
+                    Validator1.IsProvided(txtCommission, "Agency Commission") &&
+                    Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
+                    Validator1.IsProvided(richTxtDescription, "Description"))
                     {
-                        this.PutPackageData(package);
-                        package.PackageId = PackagesDB.AddPackage(package);
+                        package.PkgName = txtName.Text;
+                        package.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
+                        package.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
+                        package.PkgStartDate = Convert.ToDateTime(dateStart.Text);
+                        package.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
+                        package.PkgDesc = richTxtDescription.Text;
+
+                        if (package.PkgBasePrice < package.PkgAgencyCommission ||
+                           package.PkgEndDate < package.PkgStartDate)
+                        {
+                            MessageBox.Show("Base Price must be greater than Commission Price or " +
+                                "End Date must be later than Start Date");
+                        }
+                        else
+                        {
+                            DialogResult result = MessageBox.Show("Confirm Adding New Package?",
+                            "Confirm Please", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                this.PutPackageData(package);
+                                package.PackageId = PackagesDB.AddPackage(package);
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -83,31 +108,53 @@ namespace Travel_Experts
             }
             else if (radUpdate.Checked == true)
             {
-                Packages newPackage = new Packages();
-                package.PackageId = Convert.ToInt32(txtID.Text);
-                package.PkgName = txtName.Text;
-                package.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
-                package.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
-                package.PkgStartDate = Convert.ToDateTime(dateStart);
-                package.PkgEndDate = Convert.ToDateTime(dateEnd);
-                package.PkgDesc = richTxtDescription.Text;
                 try
                 {
-                    DialogResult result = MessageBox.Show("Delete " + package.PkgName + "?",
-                  "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+
+                    if(Validator1.IsProvided(txtID, "PackageID") &&
+                       Validator1.IsNonNegativeInt(txtID, "PackageID") &&
+                       Validator1.IsProvided(txtName, "Package Name") &&
+                       Validator1.IsProvided(txtPrice, "Base Price") &&
+                       Validator1.IsNonNegativeDecimal(txtPrice, "Base Price") &&
+                       Validator1.IsProvided(txtCommission, "Agency Commission") &&
+                       Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
+                       Validator1.IsProvided(richTxtDescription, "Description"))
                     {
-                        if (!PackagesDB.UpdatePackage(package, newPackage))
-                        {
-                            MessageBox.Show("Another user has updated or " +
-                                 "deleted that package.", "Database Error");
-                        }
-                        else
-                        {
-                            package = newPackage;
-                        }
+
                     }
 
+                  Packages newPackage = new Packages();
+                  newPackage.PackageId = Convert.ToInt32(txtID.Text);
+                  newPackage.PkgName = txtName.Text;
+                  newPackage.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
+                  newPackage.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
+                  newPackage.PkgStartDate = Convert.ToDateTime(dateStart);
+                  newPackage.PkgEndDate = Convert.ToDateTime(dateEnd);
+                  newPackage.PkgDesc = richTxtDescription.Text;
+
+                  if (newPackage.PkgBasePrice < newPackage.PkgAgencyCommission ||
+                        newPackage.PkgEndDate < newPackage.PkgStartDate)
+                    {
+                        MessageBox.Show("Base Price must be greater than Commission Price or " +
+                           "End Date must be later than Start Date");
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("Delete " + package.PkgName + "?",
+                        "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            if (!PackagesDB.UpdatePackage(package, newPackage))
+                            {
+                                MessageBox.Show("Another user has updated or " +
+                                     "deleted that package.", "Database Error");
+                            }
+                            else
+                            {
+                                package = newPackage;
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
