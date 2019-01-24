@@ -23,7 +23,12 @@ namespace Travel_Experts
 
         private void PackagesControl_Load(object sender, EventArgs e)
         {
-
+            txtName.Enabled = false;
+            txtPrice.Enabled = false;
+            txtCommission.Enabled = false;
+            dateStart.Enabled = false;
+            dateEnd.Enabled = false;
+            richTxtDescription.Enabled = false;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -74,6 +79,8 @@ namespace Travel_Experts
                     Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
                     Validator1.IsProvided(richTxtDescription, "Description"))
                     {
+                        Packages package = new Packages();
+
                         package.PkgName = txtName.Text;
                         package.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
                         package.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
@@ -128,8 +135,8 @@ namespace Travel_Experts
                   newPackage.PkgName = txtName.Text;
                   newPackage.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
                   newPackage.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
-                  newPackage.PkgStartDate = Convert.ToDateTime(dateStart);
-                  newPackage.PkgEndDate = Convert.ToDateTime(dateEnd);
+                  newPackage.PkgStartDate = Convert.ToDateTime(dateStart.Text);
+                  newPackage.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
                   newPackage.PkgDesc = richTxtDescription.Text;
 
                   if (newPackage.PkgBasePrice < newPackage.PkgAgencyCommission ||
@@ -140,8 +147,8 @@ namespace Travel_Experts
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("Delete " + package.PkgName + "?",
-                        "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult result = MessageBox.Show("Update " + package.PkgName + "?",
+                        "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             if (!PackagesDB.UpdatePackage(package, newPackage))
@@ -196,12 +203,11 @@ namespace Travel_Experts
 
         private void PutPackageData(Packages package)
         {
-            package.PackageId = Convert.ToInt32(txtID.Text);
             package.PkgName = txtName.Text;
             package.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
             package.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
-            package.PkgStartDate = Convert.ToDateTime(dateStart);
-            package.PkgEndDate = Convert.ToDateTime(dateEnd);
+            package.PkgStartDate = Convert.ToDateTime(dateStart.Text);
+            package.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
             package.PkgDesc = richTxtDescription.Text;
         }
 
@@ -210,6 +216,12 @@ namespace Travel_Experts
             txtID.Visible = false;
             lblId.Visible = false;
             btnSearch.Visible = false;
+            txtName.Enabled = true;
+            txtPrice.Enabled = true;
+            txtCommission.Enabled = true;
+            dateStart.Enabled = true;
+            dateEnd.Enabled = true;
+            richTxtDescription.Enabled = true;
         }
 
         private void ClearControls()
@@ -221,6 +233,18 @@ namespace Travel_Experts
             dateStart.Text = "";
             dateEnd.Text = "";
             richTxtDescription.Text = "";
+        }
+
+        private void radUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            txtName.Enabled = true;
+            txtPrice.Enabled = true;
+            txtCommission.Enabled = true;
+            dateStart.Enabled = true;
+            dateEnd.Enabled = true;
+            richTxtDescription.Enabled = true;
+            btnDelete.Visible = false;
+            btnUpdate.Visible = true;
         }
     }
 }

@@ -180,8 +180,8 @@ namespace Query
                 + "PkgEndDate = @NewPkgEndDate, "
                 + "PkgDesc = @NewPkgDesc, "
                 + "PkgBasePrice = @NewPkgBasePrice, "
-                + "PkgAgencyCommission = @NewPkgAgencyCommission" +
-                "WHERE PackageID = @OldPackageID ";
+                + "PkgAgencyCommission = @NewPkgAgencyCommission, " 
+                + "WHERE PackageID = @OldPackageID ";
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@NewPkgName", newPackage.PkgName);
             updateCommand.Parameters.AddWithValue("@NewPkgStartDate", newPackage.PkgStartDate);
