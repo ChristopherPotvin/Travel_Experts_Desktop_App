@@ -97,6 +97,7 @@
             this.radUpdate.TabStop = true;
             this.radUpdate.Text = "Update";
             this.radUpdate.UseVisualStyleBackColor = true;
+            this.radUpdate.CheckedChanged += new System.EventHandler(this.radUpdate_CheckedChanged);
             // 
             // radAdd
             // 
