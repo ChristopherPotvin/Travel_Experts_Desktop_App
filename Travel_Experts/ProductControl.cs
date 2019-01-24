@@ -30,7 +30,7 @@ namespace Travel_Experts
 
             return null;
         }
- 
+
         private int GetProductId(int productId)
         {
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
@@ -46,6 +46,13 @@ namespace Travel_Experts
             return productId;
         }
 
+        private void InsertProduct(Products products)
+        {
+            product.ProductId = Convert.ToInt32(txtProdID.Text);
+            product.ProductName = txtProdName.Text;
+
+        }
+
         private void btnProdSearch_Click(object sender, EventArgs e)
         {
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
@@ -54,6 +61,7 @@ namespace Travel_Experts
 
                 int productId = Convert.ToInt32(txtProdID.Text);
                 this.GetProductId(productId);
+
                 if (product == null)
                 {
                     MessageBox.Show("There was no product found with this ID. " +
@@ -61,40 +69,109 @@ namespace Travel_Experts
                     this.ClearControls();
                 }
                 else
+                {
+                    this.DisplayProduct();
+                }
 
             }
         }
 
-        private void btnProdApply_Click(object sender, EventArgs e)
-        {
 
-            string productName = GetProductName();
-            int productID = GetProductId();
-
-            if (productName != null && productID != 0)
-            {
-                Products products = new Products(Convert.ToInt32(txtProdID.Text), txtProdName.Text);
-                ProductsDB.InsertProduct(products);
-            }
-           
-        }
-
-        
         private void ClearControls()
         {
             txtProdID.Text = "";
             txtProdName.Text = "";
-            btnModify.Enabled = false;
-            btnDelete.Enabled = false;
+            btnProdSearch.Enabled = false;
             txtProdID.Select();
         }
 
         private void DisplayProduct()
         {
             txtProdName.Text = product.ProductName;
-            btnModify.Enabled = true;
-            btnProdAdd.Enabled = true;
-            btnDelete.Enabled = true;
+            btnProdSearch.Enabled = true;
         }
-    }
-}
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (rdbAdd.Checked == true)
+            {
+                try
+                {
+                    this.InsertProduct(product);
+                    DialogResult result = MessageBox.Show("Confirm Adding a New Product?",
+                        "Confirm Please", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.InsertProduct(product);
+                        product.ProductId = ProductsDB.InsertProduct(product);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+            
+            else if (rdbDelete.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("Delete " + product.ProductName + "?",
+                  "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (!ProductsDB.DeleteProduct(product))
+                        {
+                            MessageBox.Show("Another user has updated or deleted " + "that package.",
+                                "Database Error");
+                            this.GetProductId(product.ProductId);
+                            if (product != null)
+                                this.DisplayProduct();
+                            else
+                            {
+                                this.ClearControls();
+                            }
+                        }
+                        else
+                            this.ClearControls();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
+            }
+            else
+            {
+                Products newProduct = new Products();
+                product.ProductId = Convert.ToInt32(txtProdID.Text);
+                product.ProductName = txtProdName.Text;
+
+                try
+                {
+                    DialogResult result = MessageBox.Show("Delete " + product.ProductName + "?",
+                  "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (!ProductsDB.UpdateProduct(product, newProduct))
+                        {
+                            MessageBox.Show("Another user has updated or " +
+                                 "deleted that package.", "Database Error");
+                        }
+                        else
+                        {
+                            product = newProduct;
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+
+            }
+
+            
+        }
+    } }

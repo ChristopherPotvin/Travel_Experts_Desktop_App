@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.btnProdAdd = new System.Windows.Forms.Button();
             this.btnProdClear = new System.Windows.Forms.Button();
             this.btnProdSearch = new System.Windows.Forms.Button();
             this.txtProdID = new System.Windows.Forms.TextBox();
@@ -39,8 +38,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblProdId = new System.Windows.Forms.Label();
             this.lblProdName = new System.Windows.Forms.Label();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbAdd = new System.Windows.Forms.RadioButton();
+            this.rdbDelete = new System.Windows.Forms.RadioButton();
+            this.rdbUpdate = new System.Windows.Forms.RadioButton();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -52,19 +55,9 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Product ID :";
             // 
-            // btnProdAdd
-            // 
-            this.btnProdAdd.Location = new System.Drawing.Point(336, 267);
-            this.btnProdAdd.Name = "btnProdAdd";
-            this.btnProdAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnProdAdd.TabIndex = 30;
-            this.btnProdAdd.Text = "Add";
-            this.btnProdAdd.UseVisualStyleBackColor = true;
-            this.btnProdAdd.Click += new System.EventHandler(this.btnProdApply_Click);
-            // 
             // btnProdClear
             // 
-            this.btnProdClear.Location = new System.Drawing.Point(428, 338);
+            this.btnProdClear.Location = new System.Drawing.Point(427, 319);
             this.btnProdClear.Name = "btnProdClear";
             this.btnProdClear.Size = new System.Drawing.Size(75, 23);
             this.btnProdClear.TabIndex = 29;
@@ -73,7 +66,7 @@
             // 
             // btnProdSearch
             // 
-            this.btnProdSearch.Location = new System.Drawing.Point(318, 221);
+            this.btnProdSearch.Location = new System.Drawing.Point(299, 263);
             this.btnProdSearch.Name = "btnProdSearch";
             this.btnProdSearch.Size = new System.Drawing.Size(75, 23);
             this.btnProdSearch.TabIndex = 28;
@@ -82,14 +75,14 @@
             // 
             // txtProdID
             // 
-            this.txtProdID.Location = new System.Drawing.Point(229, 141);
+            this.txtProdID.Location = new System.Drawing.Point(216, 185);
             this.txtProdID.Name = "txtProdID";
             this.txtProdID.Size = new System.Drawing.Size(125, 20);
             this.txtProdID.TabIndex = 27;
             // 
             // txtProdName
             // 
-            this.txtProdName.Location = new System.Drawing.Point(229, 185);
+            this.txtProdName.Location = new System.Drawing.Point(216, 229);
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(125, 20);
             this.txtProdName.TabIndex = 26;
@@ -97,7 +90,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 148);
+            this.label1.Location = new System.Drawing.Point(127, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 25;
@@ -106,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 188);
+            this.label2.Location = new System.Drawing.Point(127, 232);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 24;
@@ -126,7 +119,7 @@
             // 
             this.lblProdId.AutoSize = true;
             this.lblProdId.ForeColor = System.Drawing.Color.Red;
-            this.lblProdId.Location = new System.Drawing.Point(360, 144);
+            this.lblProdId.Location = new System.Drawing.Point(347, 188);
             this.lblProdId.Name = "lblProdId";
             this.lblProdId.Size = new System.Drawing.Size(155, 13);
             this.lblProdId.TabIndex = 31;
@@ -137,39 +130,74 @@
             // 
             this.lblProdName.AutoSize = true;
             this.lblProdName.ForeColor = System.Drawing.Color.Red;
-            this.lblProdName.Location = new System.Drawing.Point(360, 188);
+            this.lblProdName.Location = new System.Drawing.Point(347, 232);
             this.lblProdName.Name = "lblProdName";
             this.lblProdName.Size = new System.Drawing.Size(134, 13);
             this.lblProdName.TabIndex = 32;
             this.lblProdName.Text = "Enter a valid product name";
             this.lblProdName.Visible = false;
             // 
-            // btnModify
+            // groupBox1
             // 
-            this.btnModify.Location = new System.Drawing.Point(255, 267);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(75, 23);
-            this.btnModify.TabIndex = 34;
-            this.btnModify.Text = "Modify";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.rdbUpdate);
+            this.groupBox1.Controls.Add(this.rdbDelete);
+            this.groupBox1.Controls.Add(this.rdbAdd);
+            this.groupBox1.Location = new System.Drawing.Point(162, 104);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(212, 54);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
             // 
-            // btnDelete
+            // rdbAdd
             // 
-            this.btnDelete.Location = new System.Drawing.Point(174, 267);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 33;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.rdbAdd.AutoSize = true;
+            this.rdbAdd.Location = new System.Drawing.Point(25, 19);
+            this.rdbAdd.Name = "rdbAdd";
+            this.rdbAdd.Size = new System.Drawing.Size(44, 17);
+            this.rdbAdd.TabIndex = 0;
+            this.rdbAdd.TabStop = true;
+            this.rdbAdd.Text = "Add";
+            this.rdbAdd.UseVisualStyleBackColor = true;
+            // 
+            // rdbDelete
+            // 
+            this.rdbDelete.AutoSize = true;
+            this.rdbDelete.Location = new System.Drawing.Point(84, 19);
+            this.rdbDelete.Name = "rdbDelete";
+            this.rdbDelete.Size = new System.Drawing.Size(56, 17);
+            this.rdbDelete.TabIndex = 1;
+            this.rdbDelete.TabStop = true;
+            this.rdbDelete.Text = "Delete";
+            this.rdbDelete.UseVisualStyleBackColor = true;
+            // 
+            // rdbUpdate
+            // 
+            this.rdbUpdate.AutoSize = true;
+            this.rdbUpdate.Location = new System.Drawing.Point(146, 19);
+            this.rdbUpdate.Name = "rdbUpdate";
+            this.rdbUpdate.Size = new System.Drawing.Size(60, 17);
+            this.rdbUpdate.TabIndex = 2;
+            this.rdbUpdate.TabStop = true;
+            this.rdbUpdate.Text = "Update";
+            this.rdbUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(392, 123);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 34;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // ProductControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblProdName);
-            this.Controls.Add(this.btnProdAdd);
             this.Controls.Add(this.lblProdId);
             this.Controls.Add(this.btnProdClear);
             this.Controls.Add(this.btnProdSearch);
@@ -181,6 +209,8 @@
             this.Controls.Add(this.label3);
             this.Name = "ProductControl";
             this.Size = new System.Drawing.Size(546, 385);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +218,6 @@
 
         #endregion
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnProdAdd;
         private System.Windows.Forms.Button btnProdClear;
         private System.Windows.Forms.Button btnProdSearch;
         private System.Windows.Forms.TextBox txtProdID;
@@ -198,7 +227,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblProdId;
         private System.Windows.Forms.Label lblProdName;
-        private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdbUpdate;
+        private System.Windows.Forms.RadioButton rdbDelete;
+        private System.Windows.Forms.RadioButton rdbAdd;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

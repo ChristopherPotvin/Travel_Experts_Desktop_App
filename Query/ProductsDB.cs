@@ -149,39 +149,4 @@ namespace Query
         }
     }
 }
-//public static List<Products> GetProducts() // method for retrieving products to a list
-//{
-//    Products product = null;
 
-//    SqlConnection connection = Connection.GetConnection(); // instantiate the sql connection
-
-//    string query = "SELECT ProductID, ProdName " +
-//                   "FROM Products " +
-//                   "ORDER BY ProductID"; // sql statment to get products
-
-//    SqlCommand command = new SqlCommand(query, connection);
-
-//    List<Products> productList = new List<Products>(); // start with an empty list
-
-//    try
-//    {
-//        connection.Open(); // Open the connection
-//        SqlDataReader reader = command.ExecuteReader();
-
-//        if (reader.Read())
-//        {
-//            product = new Products((int) reader ["ProductID"], (string) reader ["ProdName"]);
-//            productList.Add(product); // return the list of products
-//        }
-//    }
-//    catch (SqlException ex)
-//    {
-//        throw ex;
-//    }
-//    finally
-//    {
-//        connection.Close();
-//    }
-
-//    return productList;
-//}
