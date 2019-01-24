@@ -10,7 +10,6 @@ using Query;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Travel_Experts
 {
     public partial class ProductControl : UserControl
@@ -52,6 +51,7 @@ namespace Travel_Experts
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
                 && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
+
                 int productId = Convert.ToInt32(txtProdID.Text);
                 this.GetProductId(productId);
                 if (product == null)
@@ -61,7 +61,7 @@ namespace Travel_Experts
                     this.ClearControls();
                 }
                 else
-                    this.DisplayProduct();
+
             }
         }
 
