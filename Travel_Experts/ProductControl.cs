@@ -33,26 +33,26 @@ namespace Travel_Experts
 
         private void GetProductID(int productId)
         {
-                try { product = ProductsDB.GetProductID(productId); }
+            try { product = ProductsDB.GetProductID(productId); }
 
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
 
-                }
+            }
         }
 
         private void InsertProduct(Products products)
         {
             product.ProductId = Convert.ToInt32(txtProdID.Text);
             product.ProductName = txtProdName.Text;
-
         }
 
-        private void btnProdSearch_Click(object sender, EventArgs e)
+
+        private void btnProdSearch_Click_1(object sender, EventArgs e) // search button to populate the Prod ID and Nameaw
         {
             if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
-                && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
+             && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
             {
                 int productId = Convert.ToInt32(txtProdID.Text);
                 this.GetProductID(productId);
@@ -64,13 +64,10 @@ namespace Travel_Experts
                     this.ClearControls();
                 }
                 else
-                {
-                    this.DisplayProduct();
-                }
 
+                    this.DisplayProduct();
             }
         }
-
 
         private void ClearControls()
         {
@@ -106,7 +103,7 @@ namespace Travel_Experts
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
-            
+
             else if (rdbDelete.Checked == true)
             {
                 DialogResult result = MessageBox.Show("Delete " + product.ProductName + "?",
@@ -167,6 +164,8 @@ namespace Travel_Experts
 
             }
 
-            
+
         }
-    } }
+
+    }
+}

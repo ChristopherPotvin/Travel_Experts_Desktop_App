@@ -39,9 +39,9 @@
             this.lblProdId = new System.Windows.Forms.Label();
             this.lblProdName = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbAdd = new System.Windows.Forms.RadioButton();
-            this.rdbDelete = new System.Windows.Forms.RadioButton();
             this.rdbUpdate = new System.Windows.Forms.RadioButton();
+            this.rdbDelete = new System.Windows.Forms.RadioButton();
+            this.rdbAdd = new System.Windows.Forms.RadioButton();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             this.btnProdSearch.TabIndex = 28;
             this.btnProdSearch.Text = "Search";
             this.btnProdSearch.UseVisualStyleBackColor = true;
+            this.btnProdSearch.Click += new System.EventHandler(this.btnProdSearch_Click_1);
             // 
             // txtProdID
             // 
@@ -148,16 +149,16 @@
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             // 
-            // rdbAdd
+            // rdbUpdate
             // 
-            this.rdbAdd.AutoSize = true;
-            this.rdbAdd.Location = new System.Drawing.Point(25, 19);
-            this.rdbAdd.Name = "rdbAdd";
-            this.rdbAdd.Size = new System.Drawing.Size(44, 17);
-            this.rdbAdd.TabIndex = 0;
-            this.rdbAdd.TabStop = true;
-            this.rdbAdd.Text = "Add";
-            this.rdbAdd.UseVisualStyleBackColor = true;
+            this.rdbUpdate.AutoSize = true;
+            this.rdbUpdate.Location = new System.Drawing.Point(146, 19);
+            this.rdbUpdate.Name = "rdbUpdate";
+            this.rdbUpdate.Size = new System.Drawing.Size(60, 17);
+            this.rdbUpdate.TabIndex = 2;
+            this.rdbUpdate.TabStop = true;
+            this.rdbUpdate.Text = "Update";
+            this.rdbUpdate.UseVisualStyleBackColor = true;
             // 
             // rdbDelete
             // 
@@ -170,16 +171,16 @@
             this.rdbDelete.Text = "Delete";
             this.rdbDelete.UseVisualStyleBackColor = true;
             // 
-            // rdbUpdate
+            // rdbAdd
             // 
-            this.rdbUpdate.AutoSize = true;
-            this.rdbUpdate.Location = new System.Drawing.Point(146, 19);
-            this.rdbUpdate.Name = "rdbUpdate";
-            this.rdbUpdate.Size = new System.Drawing.Size(60, 17);
-            this.rdbUpdate.TabIndex = 2;
-            this.rdbUpdate.TabStop = true;
-            this.rdbUpdate.Text = "Update";
-            this.rdbUpdate.UseVisualStyleBackColor = true;
+            this.rdbAdd.AutoSize = true;
+            this.rdbAdd.Location = new System.Drawing.Point(25, 19);
+            this.rdbAdd.Name = "rdbAdd";
+            this.rdbAdd.Size = new System.Drawing.Size(44, 17);
+            this.rdbAdd.TabIndex = 0;
+            this.rdbAdd.TabStop = true;
+            this.rdbAdd.Text = "Add";
+            this.rdbAdd.UseVisualStyleBackColor = true;
             // 
             // btnSubmit
             // 

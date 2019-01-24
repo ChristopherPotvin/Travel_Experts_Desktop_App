@@ -13,15 +13,13 @@ namespace Query
     {
         public static Products GetProductID(int productID)
         {
-            Products product = null;
-
             SqlConnection connection = Connection.GetConnection(); // instantiate the sql connection
 
-            string query = "SELECT ProductID, ProdName " +
+            string selectStatement = "SELECT ProductID, ProdName " +
                            "FROM Products " +
                            "WHERE ProductID = @ProductID"; // sql statment to get productID
 
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new SqlCommand(selectStatement, connection);
 
             command.Parameters.AddWithValue("@ProductID", productID); // value comes from the method's argument
                    
@@ -29,19 +27,24 @@ namespace Query
 
             {
                 connection.Open(); // Open the connection
-                SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.SingleRow);
 
                 if (reader.Read())
                 {
 
-                    product = new Products();
-                    product.ProductId = (int)reader["ProductID"];
-                    product.ProductName = reader["ProdName"].ToString();
+                    Products prod = new Products();
+                    prod.ProductId = (int)reader["ProductID"];
+                    prod.ProductName = (string)reader["ProdName"].ToString();
 
-
-                    
+                    return prod;
                 }
+                else
+                {
+                    return null;
+                }
+                
             }
+
             catch (SqlException ex)
             {
                 throw ex;
@@ -50,8 +53,6 @@ namespace Query
             {
                 connection.Close();
             }
-
-            return product;
         }
 
         public static int InsertProduct(Products product) // method for adding a new product to the DB

@@ -28,15 +28,14 @@ namespace Model
 
         public string ProductName { get => ProdName; set => ProdName = value; } // setting and getting the product name
 
-        public Products(int productId, string productName) // the custom constructor passing the var product ID and product Name as parameters
-
-        {
-            ProductId = productId;
-            ProductName = productName;
-        }
-
         // This needs a default constructor
         public Products() { }
+
+        public Products(int productId, string ProdName)
+        {
+            ProductId = productId;
+            ProductName = ProdName;
+        }
 
     }
 }
