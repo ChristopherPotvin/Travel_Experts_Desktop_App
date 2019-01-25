@@ -51,6 +51,7 @@
             this.lblPackage = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.radioSearch = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,12 +67,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioSearch);
             this.groupBox1.Controls.Add(this.radDelete);
             this.groupBox1.Controls.Add(this.radUpdate);
             this.groupBox1.Controls.Add(this.radAdd);
-            this.groupBox1.Location = new System.Drawing.Point(82, 35);
+            this.groupBox1.Location = new System.Drawing.Point(134, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 55);
+            this.groupBox1.Size = new System.Drawing.Size(315, 55);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Packages";
@@ -86,11 +88,12 @@
             this.radDelete.TabStop = true;
             this.radDelete.Text = "Delete";
             this.radDelete.UseVisualStyleBackColor = true;
+            this.radDelete.CheckedChanged += new System.EventHandler(this.radDelete_CheckedChanged);
             // 
             // radUpdate
             // 
             this.radUpdate.AutoSize = true;
-            this.radUpdate.Location = new System.Drawing.Point(103, 21);
+            this.radUpdate.Location = new System.Drawing.Point(89, 21);
             this.radUpdate.Name = "radUpdate";
             this.radUpdate.Size = new System.Drawing.Size(60, 17);
             this.radUpdate.TabIndex = 1;
@@ -102,7 +105,7 @@
             // radAdd
             // 
             this.radAdd.AutoSize = true;
-            this.radAdd.Location = new System.Drawing.Point(33, 21);
+            this.radAdd.Location = new System.Drawing.Point(16, 21);
             this.radAdd.Name = "radAdd";
             this.radAdd.Size = new System.Drawing.Size(44, 17);
             this.radAdd.TabIndex = 0;
@@ -113,7 +116,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(66, 128);
+            this.txtName.Location = new System.Drawing.Point(76, 103);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 20);
             this.txtName.TabIndex = 2;
@@ -121,7 +124,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(20, 131);
+            this.lblName.Location = new System.Drawing.Point(30, 106);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(38, 13);
             this.lblName.TabIndex = 3;
@@ -130,7 +133,7 @@
             // lblCommission
             // 
             this.lblCommission.AutoSize = true;
-            this.lblCommission.Location = new System.Drawing.Point(292, 163);
+            this.lblCommission.Location = new System.Drawing.Point(3, 163);
             this.lblCommission.Name = "lblCommission";
             this.lblCommission.Size = new System.Drawing.Size(68, 13);
             this.lblCommission.TabIndex = 5;
@@ -139,15 +142,15 @@
             // txtCommission
             // 
             this.txtCommission.Enabled = false;
-            this.txtCommission.Location = new System.Drawing.Point(366, 160);
+            this.txtCommission.Location = new System.Drawing.Point(77, 160);
             this.txtCommission.Name = "txtCommission";
-            this.txtCommission.Size = new System.Drawing.Size(148, 20);
+            this.txtCommission.Size = new System.Drawing.Size(125, 20);
             this.txtCommission.TabIndex = 4;
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(24, 163);
+            this.lblPrice.Location = new System.Drawing.Point(35, 138);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(34, 13);
             this.lblPrice.TabIndex = 7;
@@ -156,7 +159,7 @@
             // txtPrice
             // 
             this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(66, 160);
+            this.txtPrice.Location = new System.Drawing.Point(77, 135);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(125, 20);
             this.txtPrice.TabIndex = 6;
@@ -164,7 +167,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(325, 102);
+            this.lblId.Location = new System.Drawing.Point(305, 102);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(21, 13);
             this.lblId.TabIndex = 9;
@@ -172,18 +175,18 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(352, 99);
+            this.txtID.Location = new System.Drawing.Point(332, 99);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(148, 20);
             this.txtID.TabIndex = 8;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(366, 125);
+            this.btnSearch.Location = new System.Drawing.Point(336, 125);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(110, 23);
+            this.btnSearch.Size = new System.Drawing.Size(140, 23);
             this.btnSearch.TabIndex = 10;
-            this.btnSearch.Text = "Search for Package";
+            this.btnSearch.Text = "Search for Package By ID";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -255,21 +258,35 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(352, 42);
+            this.btnUpdate.Location = new System.Drawing.Point(301, 125);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(162, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(211, 23);
             this.btnUpdate.TabIndex = 19;
-            this.btnUpdate.Text = "Enter Package ID to Update";
+            this.btnUpdate.Text = "Enter Package ID to Update Then Click";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(352, 67);
+            this.btnDelete.Location = new System.Drawing.Point(301, 125);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(162, 23);
+            this.btnDelete.Size = new System.Drawing.Size(207, 23);
             this.btnDelete.TabIndex = 20;
-            this.btnDelete.Text = "Enter Package ID to Delete";
+            this.btnDelete.Text = "Enter Package ID to Delete Then Click";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // radioSearch
+            // 
+            this.radioSearch.AutoSize = true;
+            this.radioSearch.Location = new System.Drawing.Point(246, 22);
+            this.radioSearch.Name = "radioSearch";
+            this.radioSearch.Size = new System.Drawing.Size(59, 17);
+            this.radioSearch.TabIndex = 3;
+            this.radioSearch.TabStop = true;
+            this.radioSearch.Text = "Search";
+            this.radioSearch.UseVisualStyleBackColor = true;
+            this.radioSearch.CheckedChanged += new System.EventHandler(this.radioSearch_CheckedChanged);
             // 
             // PackagesControl
             // 
@@ -296,7 +313,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "PackagesControl";
-            this.Size = new System.Drawing.Size(569, 399);
+            this.Size = new System.Drawing.Size(617, 399);
             this.Load += new System.EventHandler(this.PackagesControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -330,5 +347,6 @@
         private System.Windows.Forms.Label lblPackage;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.RadioButton radioSearch;
     }
 }

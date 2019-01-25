@@ -29,6 +29,11 @@ namespace Travel_Experts
             dateStart.Enabled = false;
             dateEnd.Enabled = false;
             richTxtDescription.Enabled = false;
+            btnDelete.Visible = false;
+            btnUpdate.Visible = false;
+            btnSearch.Visible = false;
+            txtID.Visible = false;
+            lblId.Visible = false;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -96,14 +101,16 @@ namespace Travel_Experts
                         }
                         else
                         {
-                            DialogResult result = MessageBox.Show("Confirm Adding New Package?",
-                            "Confirm Please", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            DialogResult result = MessageBox.Show("Add " + package.PkgName + "?",
+                            "Confirm Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes)
                             {
                                 this.PutPackageData(package);
                                 package.PackageId = PackagesDB.AddPackage(package);
                             }
                         }
+                        MessageBox.Show(package.PkgName + " added successfully");
+                        this.ClearControls();
                     }
                 }
                 catch (Exception ex)
@@ -161,6 +168,11 @@ namespace Travel_Experts
                                 package = newPackage;
                             }
                         }
+                        {
+                            MessageBox.Show(package.PkgName + " Updated successfully");
+                            this.ClearControls();
+                        }
+                        
                     }
                 }
                 catch (Exception ex)
@@ -190,7 +202,11 @@ namespace Travel_Experts
                             }
                         }
                         else
+                        {
+                            MessageBox.Show(package.PkgName + " deleted successfully");
                             this.ClearControls();
+                        }
+                            
                     }
                     catch(Exception ex)
                     {
@@ -215,7 +231,9 @@ namespace Travel_Experts
         {
             txtID.Visible = false;
             lblId.Visible = false;
+            btnDelete.Visible = false;
             btnSearch.Visible = false;
+            btnUpdate.Visible = false;
             txtName.Enabled = true;
             txtPrice.Enabled = true;
             txtCommission.Enabled = true;
@@ -245,6 +263,73 @@ namespace Travel_Experts
             richTxtDescription.Enabled = true;
             btnDelete.Visible = false;
             btnUpdate.Visible = true;
+            txtID.Visible = true;
+            lblId.Visible = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (Validator1.IsProvided(txtID, "Package ID") &&
+                 Validator1.IsNonNegativeInt(txtID, "Package ID"))
+            {
+                int packageID = Convert.ToInt32(txtID.Text);
+                GetPackage(packageID);
+
+                if (package == null)
+                {
+                    MessageBox.Show("No Package found with this ID. " +
+                        "Please try again.", "Package Not Found");
+                }
+                else
+                    this.DisplayPackages();
+            }
+        }
+
+        private void radDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            txtName.Enabled = false;
+            txtPrice.Enabled = false;
+            txtCommission.Enabled = false;
+            dateStart.Enabled = false;
+            dateEnd.Enabled = false;
+            richTxtDescription.Enabled = false;
+            btnDelete.Visible = true;
+            btnUpdate.Visible = false;
+            txtID.Visible = true;
+            lblId.Visible = true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (Validator1.IsProvided(txtID, "Package ID") &&
+     Validator1.IsNonNegativeInt(txtID, "Package ID"))
+            {
+                int packageID = Convert.ToInt32(txtID.Text);
+                GetPackage(packageID);
+
+                if (package == null)
+                {
+                    MessageBox.Show("No Package found with this ID. " +
+                        "Please try again.", "Package Not Found");
+                }
+                else
+                    this.DisplayPackages();
+            }
+        }
+
+        private void radioSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            txtName.Enabled = false;
+            txtPrice.Enabled = false;
+            txtCommission.Enabled = false;
+            dateStart.Enabled = false;
+            dateEnd.Enabled = false;
+            richTxtDescription.Enabled = false;
+            btnDelete.Visible = false;
+            btnUpdate.Visible = false;
+            btnSearch.Visible = true;
+            txtID.Visible = true;
+            lblId.Visible = true;
         }
     }
 }
