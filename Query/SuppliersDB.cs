@@ -83,7 +83,6 @@ namespace Query
                 {
                     case 2627:
                         throw new DuplicateKeyException(string.Format("Duplicate ID entry, please enter a different ID and try again {0}", supplier.SupplierId));
-                        break;
                     default:
                         throw;
                 }

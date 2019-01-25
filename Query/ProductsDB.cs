@@ -11,6 +11,44 @@ namespace Query
 {
     public class ProductsDB
     {
+
+        public static List<Products> GetProducts()
+        {
+            Products product = null;
+
+            SqlConnection conn = Connection.GetConnection();
+
+            string query = "SELECT ProductId, ProdName " +
+                    "FROM Products " +
+                    "ORDER BY ProdName;";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            List<Products> productList = new List<Products>();
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    product = new Products((int)reader["ProductId"], (string)reader["ProdName"]);
+
+                    productList.Add(product); // Add to return list
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return productList;
+        }
+
         public static Products GetProductID(int productID)
         {
             SqlConnection connection = Connection.GetConnection(); // instantiate the sql connection
@@ -57,6 +95,7 @@ namespace Query
 
         public static int InsertProduct(Products product) // method for adding a new product to the DB
         {
+
             SqlConnection connection = Connection.GetConnection();
             string insertStatement = "INSERT INTO Products (ProdName) " +
                                     "VALUES(@ProdName)";
@@ -74,9 +113,18 @@ namespace Query
 
                 return productID;
             }
-            catch (SqlException ex)
+            catch (SqlException e)
             {
-
+                switch (e.Number)
+                {
+                    case 2627:
+                        throw new DuplicateKeyException(string.Format("Duplicate ID entry, please enter a different ID and try again {0}", product.ProductId));
+                    default:
+                        throw;
+                }
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
@@ -90,11 +138,11 @@ namespace Query
         {
             SqlConnection connection = Connection.GetConnection();
             string deleteStatement = "DELETE FROM Products " +
-                                     "WHERE ProductID = @ProductID " +
-                                     "AND ProdName = @ProdName";
+                                     "WHERE ProdName = @ProdName;";
+
 
             SqlCommand command = new SqlCommand(deleteStatement, connection);
-            command.Parameters.AddWithValue("@ProductID", product.ProductId);
+            //command.Parameters.AddWithValue("@ProductID", product.ProductId);
             command.Parameters.AddWithValue("@ProdName", product.ProductName);
 
             try
@@ -147,6 +195,13 @@ namespace Query
                 connection.Close();
             }
                    
+        }
+        public class DuplicateKeyException : Exception
+        {
+            public DuplicateKeyException(string message)
+               : base(message)
+            {
+            }
         }
     }
 }

@@ -23,7 +23,13 @@ namespace Model
         public int SupplierId { get => supplierId; set => supplierId = value; }
 
         // Constructors
-        public Products_Suppliers(int psId, int pId, int sId)
+        public Products_Suppliers(int pId, int sId)
+        {
+            ProductId = pId;
+            SupplierId = sId;
+        }
+
+        public Products_Suppliers(int psId,int pId, int sId)
         {
             ProductSupplierId = psId;
             ProductId = pId;

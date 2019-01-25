@@ -9,163 +9,273 @@ using Model;
 using Query;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Query.ProductsDB;
 
 namespace Travel_Experts
 {
     public partial class ProductControl : UserControl
     {
-        private Products product;
+
 
         public ProductControl()
         {
             InitializeComponent();
         }
 
-        private string GetProductName()
+        private void ProductControl_Load(object sender, EventArgs e)
         {
-            if (Validator.IsString(txtProdName, lblProdName) && Validator.IsProvided(txtProdName, lblProdName))
+
+            // Alter visibility
+            btnSubmit.Visible = false;
+
+            lblSupName.Visible = false;
+            lblPnameTxt.Visible = false;
+            lblSupName.Visible = false;
+            lblPnameCb.Visible = false;
+            
+
+            txtProdName.Visible = false;
+            cbProdName.Visible = false;
+            cbSupplier.Visible = false;
+
+            repopulate();
+        }
+
+
+        /// <summary>
+        /// Populate the cb's
+        /// </summary>
+        private void repopulate()
+        {
+            cbProdName.Items.Clear();
+            cbSupplier.Items.Clear();
+
+            List<Products> newProductList = ProductsDB.GetProducts();
+
+            var newProductLinq = from prod in newProductList
+                                  select new
+                                  {
+                                      prod.ProductName
+                                  };
+
+            foreach (var item in newProductLinq)
             {
-                return Convert.ToString(txtProdName.Text);
+                cbProdName.Items.Add(item.ProductName);
             }
 
-            return null;
-        }
+            List<Suppliers> newSuppliersList = SuppliersDB.GetSuppliers();
+            var newSupplierLinq = from sup in newSuppliersList
+                                  select new
+                                  {
+                                      sup.SupName
+                                  };
 
-        private void GetProductID(int productId)
-        {
-            try { product = ProductsDB.GetProductID(productId); }
-
-            catch (Exception ex)
+            foreach (var item in newSupplierLinq)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-
+                cbSupplier.Items.Add(item.SupName);
             }
         }
 
-        private void InsertProduct(Products products)
-        {
-            product.ProductId = Convert.ToInt32(txtProdID.Text);
-            product.ProductName = txtProdName.Text;
-        }
-
-
-        private void btnProdSearch_Click_1(object sender, EventArgs e) // search button to populate the Prod ID and Nameaw
-        {
-            if (Validator.IsNonNegativeInt(txtProdID, lblProdId) && Validator.IsProvided(txtProdID, lblProdId) && Validator.IsNonNegativeDouble(txtProdID, lblProdName)
-             && Validator.IsNonNegativeDecimal(txtProdID, lblProdId))
-            {
-                int productId = Convert.ToInt32(txtProdID.Text);
-                this.GetProductID(productId);
-
-                if (product == null)
-                {
-                    MessageBox.Show("There was no product found with this ID. " +
-                         "Please try again.", "Product was not found");
-                    this.ClearControls();
-                }
-                else
-
-                    this.DisplayProduct();
-            }
-        }
-
-        private void ClearControls()
-        {
-            txtProdID.Text = "";
-            txtProdName.Text = "";
-            btnProdSearch.Enabled = false;
-            txtProdID.Select();
-        }
-
-        private void DisplayProduct()
-        {
-            txtProdName.Text = product.ProductName;
-            btnProdSearch.Enabled = true;
-        }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (rdbAdd.Checked == true)
-            {
-                try
-                {
-                    this.InsertProduct(product);
-                    DialogResult result = MessageBox.Show("Confirm Adding a New Product?",
-                        "Confirm Please", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        this.InsertProduct(product);
-                        product.ProductId = ProductsDB.InsertProduct(product);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-            }
 
-            else if (rdbDelete.Checked == true)
+            List<Products> productList = ProductsDB.GetProducts();
+
+            List<Suppliers> suppliersList = SuppliersDB.GetSuppliers();
+
+            var checkedButton = gbOptions.Controls.OfType<RadioButton>()
+                                .FirstOrDefault(r => r.Checked);
+
+
+            switch (checkedButton.Name)
             {
-                DialogResult result = MessageBox.Show("Delete " + product.ProductName + "?",
-                  "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
+                case "rbAdd":
+                    // Insert new product and product supplier
+                    // Sans validation
                     try
                     {
-                        if (!ProductsDB.DeleteProduct(product))
-                        {
-                            MessageBox.Show("Another user has updated or deleted " + "that package.",
-                                "Database Error");
-                            this.GetProductID(product.ProductId);
-                            if (product != null)
-                                this.DisplayProduct();
-                            else
-                            {
-                                this.ClearControls();
-                            }
-                        }
-                        else
-                            this.ClearControls();
+                        // Insert the product
+                        Products prod = new Products(txtProdName.Text);
+
+                        // Get the inserted ID
+                        int insertedId = ProductsDB.InsertProduct(prod);
+
+                        // Get the supplier id for the selected supplier in the combo box                      
+                        var supI = (from sup in suppliersList
+                                                   where sup.SupName == cbSupplier.Text
+                                                   select sup.SupplierId).First();
+
+                        // Insert the product supplier
+                        Products_Suppliers pS = new Products_Suppliers(insertedId, supI);
+                        bool insertPs = Product_SuppliersDB.Insert(pS);
+
+                        OperationStatus(insertPs); //Display message to user
+
                     }
-                    catch (Exception ex)
+                    catch (DuplicateKeyException ex)
                     {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        lblStatus.Visible = true;
+                        lblStatus.BackColor = Color.Red;
+                        lblStatus.Text = ex.Message;
                     }
-                }
-            }
-            else
-            {
-                Products newProduct = new Products();
-                product.ProductId = Convert.ToInt32(txtProdID.Text);
-                product.ProductName = txtProdName.Text;
+                    break;
 
-                try
-                {
-                    DialogResult result = MessageBox.Show("Delete " + product.ProductName + "?",
-                  "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                case "rbUpdate":
+                    // Update existing product and product_supplier (change product name or product_supplier)
+                    // Sans validation
+
+                    // How do i get the old SupplierId????????
+
+                    Products newProd = new Products(txtProdName.Text);
+
+                    var oldProd = (from x in productList where x.ProductName == cbProdName.Text select x).First();
+                   
+
+                    bool update = ProductsDB.UpdateProduct(oldProd, newProd);
+
+                    // Get the supplier id for the selected supplier in the combo box                      
+                    var supId = (from sup in suppliersList
+                                 where sup.SupName == cbSupplier.Text
+                                 select sup.SupplierId).First();
+
+                    Products_Suppliers newPs = new Products_Suppliers(oldProd.ProductId,supId);
+
+                    //Products_Suppliers oldPs = new Products_Suppliers(oldProd.ProductId, oldSupId);
+
+                    //bool update = Product_SuppliersDB.Update(oldPs, newPs);
+
+                    //OperationStatus(update); //Display message to user
+
+                    break;
+
+                case "rbDelete":
+                    // Delete existing supplier
+                    // Sans validation
+
+                    // Get the supplier id for the selected supplier in the combo box                      
+                    var prd = (from pr in productList
+                                where pr.ProductName == cbProdName.Text
+                                select pr.ProductId).First();
+
+                    List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
+
+                    foreach (Products_Suppliers item in psList)
                     {
-                        if (!ProductsDB.UpdateProduct(product, newProduct))
+                        if (item.ProductId == prd)
                         {
-                            MessageBox.Show("Another user has updated or " +
-                                 "deleted that package.", "Database Error");
-                        }
-                        else
-                        {
-                            product = newProduct;
+                            Product_SuppliersDB.Delete(item.ProductId);
                         }
                     }
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
 
+                    Products delProd = new Products(cbProdName.Text);
+
+                    bool delete = ProductsDB.DeleteProduct(delProd);
+
+                    OperationStatus(delete); //Display message to user
+
+                    break;
             }
+
+            repopulate();
 
 
         }
 
+        private void OperationStatus(bool result)
+        {
+
+            lblStatus.Visible = true;
+
+            if (result)
+            {
+                lblStatus.BackColor = Color.LawnGreen;
+                lblStatus.Text = "Operation successfull";
+                btnSubmit.Visible = true;
+            }
+            else
+            {
+                lblStatus.BackColor = Color.Red;
+                lblStatus.Text = "Operation not successfull";
+            }
+
+        }
+
+
+
+        private void cbProdName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Products> productList = ProductsDB.GetProducts();
+
+            if (cbProdName.SelectedIndex != -1)
+            {
+                var sup = (from x in productList where x.ProductName == cbProdName.Text select x).First();
+
+                txtProdName.Text = sup.ProductName.ToString();
+
+            }
+        }
+
+        private void rbAdd_CheckedChanged(object sender, EventArgs e)
+        {
+
+            // Alter visibility
+            lblPnameTxt.Visible = true;
+            lblSupName.Visible = true;
+
+            txtProdName.Visible = true;
+            cbSupplier.Visible = true;
+
+            lblPnameCb.Visible = false;
+            cbProdName.Visible = false;
+
+            btnSubmit.Visible = true;
+
+            // Remove Contents
+            txtProdName.Text = null;
+            cbSupplier.SelectedIndex = -1;
+        }
+
+        private void rbUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            // Alter visibility
+            
+            lblPnameCb.Visible = true;
+            lblPnameTxt.Visible = true;
+            lblSupName.Visible = true;
+
+            txtProdName.Visible = true;
+            cbProdName.Visible = true;
+            cbSupplier.Visible = true;
+
+            btnSubmit.Visible = true;
+
+            // Remove Contents
+            txtProdName.Text = null;
+            cbProdName.SelectedIndex = -1;
+            cbSupplier.SelectedIndex = -1;
+        }
+
+        private void rbDelete_CheckedChanged(object sender, EventArgs e)
+        {
+            // Alter visibility
+
+            lblPnameCb.Visible = true;
+            lblPnameTxt.Visible = false;
+            lblSupName.Visible = false; ;
+
+            txtProdName.Visible = false;
+            cbProdName.Visible = true;
+            cbSupplier.Visible = false;
+
+            btnSubmit.Visible = true;
+
+            // Remove Contents
+            txtProdName.Text = null;
+            cbProdName.SelectedIndex = -1;
+            cbSupplier.SelectedIndex = -1;
+
+        }
     }
 }

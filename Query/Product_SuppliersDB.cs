@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Query
 {
-    class Product_SuppliersDB
+    public class Product_SuppliersDB
     {
         public static List<Products_Suppliers> GetSuppliers()
         {
@@ -35,7 +35,7 @@ namespace Query
 
                 while (reader.Read())
                 {
-                    pSupplier = new Products_Suppliers((int)reader["ProductSupplierId"],(int)reader["ProductId"], (int)reader["SupplierId"]);
+                    pSupplier = new Products_Suppliers((int)reader["ProductId"], (int)reader["SupplierId"]);
                     psList.Add(pSupplier); // Add to return list
                 }
             }
@@ -62,22 +62,24 @@ namespace Query
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "INSERT INTO Products_Suppliers (ProductSupplierId, ProductId, SupplierId) values (@psId, @pId, @sId)";
+                cmd.CommandText = "INSERT INTO Products_Suppliers (ProductId, SupplierId) values (@pId, @sId)";
 
                 // ProductSupplierId Paramater
-                SqlParameter psIdPar = new SqlParameter("@psId", SqlDbType.Int);
-                psIdPar.Value = pSupplier.ProductSupplierId;
-                cmd.Parameters.Add(psIdPar);
+                //SqlParameter psIdPar = new SqlParameter("@psId", SqlDbType.Int);
+                //psIdPar.Value = pSupplier.ProductSupplierId;
+                //cmd.Parameters.Add(psIdPar);
 
                 // ProductId Paramater
                 SqlParameter pIdPar = new SqlParameter("@pId", SqlDbType.Int);
-                pIdPar.Value = pSupplier.ProductSupplierId;
+                pIdPar.Value = pSupplier.ProductId;
                 cmd.Parameters.Add(pIdPar);
 
                 // SupplierId Paramater
                 SqlParameter sIdPar = new SqlParameter("@sId", SqlDbType.Int);
-                sIdPar.Value = pSupplier.ProductSupplierId;
+                sIdPar.Value = pSupplier.SupplierId;
                 cmd.Parameters.Add(sIdPar);
+
+                cmd.ExecuteNonQuery();
 
                 result = true;
             }
@@ -85,6 +87,7 @@ namespace Query
             {
                 switch (e.Number)
                 {
+
                     case 2627:
                         throw new DuplicateKeyException(string.Format("Duplicate ID entry, please enter a different ID and try again {0}", pSupplier.SupplierId));
                     default:
@@ -114,12 +117,12 @@ namespace Query
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE Products_Suppliers SET ProductSupplierId = @newPsId, ProductId = @newPid, SupplierId = @newSid Where ProductSupplierId = @oldPsId";
+                cmd.CommandText = "UPDATE Products_Suppliers SET ProductId = @newPid, SupplierId = @newSid Where ProductSupplierId = @oldPsId";
 
                 // new ProductSupplierId Paramater
-                SqlParameter newpsIdPar = new SqlParameter("@newPsId", SqlDbType.Int);
-                newpsIdPar.Value = newPsupplier.ProductSupplierId;
-                cmd.Parameters.Add(newpsIdPar);
+                //SqlParameter newpsIdPar = new SqlParameter("@newPsId", SqlDbType.Int);
+                //newpsIdPar.Value = newPsupplier.ProductSupplierId;
+                //cmd.Parameters.Add(newpsIdPar);
 
                 // new ProductId Paramater
                 SqlParameter newPidPar = new SqlParameter("@newPid", SqlDbType.Int);
@@ -132,9 +135,9 @@ namespace Query
                 cmd.Parameters.Add(newSidPar);
 
                 // old Product Supplier ID Paramater
-                SqlParameter oldPsIdPar = new SqlParameter("@oldPsId", SqlDbType.Int);
-                oldPsIdPar.Value = oldPsupplier.ProductSupplierId;
-                cmd.Parameters.Add(oldPsIdPar);
+                //SqlParameter oldPsIdPar = new SqlParameter("@oldPsId", SqlDbType.Int);
+                //oldPsIdPar.Value = oldPsupplier.ProductSupplierId;
+                //cmd.Parameters.Add(oldPsIdPar);
 
                 cmd.ExecuteNonQuery();
 
@@ -169,7 +172,7 @@ namespace Query
 
                 // Primary Key Paramater
                 SqlParameter idPar = new SqlParameter("@id", SqlDbType.Int);
-                idPar.Value = pSupplier.ProductSupplierId;
+                //idPar.Value = pSupplier.ProductSupplierId;
                 cmd.Parameters.Add(idPar);
 
                 cmd.ExecuteNonQuery();
@@ -187,6 +190,39 @@ namespace Query
             return result;
         }
 
+        public static bool Delete(int prodId)
+        {
+            bool result = false;
+            SqlConnection con = Connection.GetConnection();
+
+            try
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+
+                cmd.CommandText = "DELETE FROM Products_Suppliers WHERE ProductId = @id";
+
+                // Primary Key Paramater
+                SqlParameter idPar = new SqlParameter("@id", SqlDbType.Int);
+                idPar.Value = prodId;
+                cmd.Parameters.Add(idPar);
+
+                cmd.ExecuteNonQuery();
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return result;
+        }
 
         public class DuplicateKeyException : Exception
         {
@@ -195,5 +231,7 @@ namespace Query
             {
             }
         }
+
+
     }
 }
