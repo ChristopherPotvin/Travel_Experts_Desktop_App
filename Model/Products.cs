@@ -37,5 +37,10 @@ namespace Model
             ProductName = ProdName;
         }
 
+        public Products(string ProdName)
+        {
+            ProductName = ProdName;
+        }
+
     }
 }
