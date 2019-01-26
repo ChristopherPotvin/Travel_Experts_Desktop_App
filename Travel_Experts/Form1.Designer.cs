@@ -77,7 +77,7 @@ namespace Travel_Experts
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(158, 495);
+            this.panel1.Size = new System.Drawing.Size(158, 572);
             this.panel1.TabIndex = 0;
             // 
             // txtTime
@@ -218,7 +218,7 @@ namespace Travel_Experts
             this.panel2.Controls.Add(this.pictureBoxInsta);
             this.panel2.Location = new System.Drawing.Point(158, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 71);
+            this.panel2.Size = new System.Drawing.Size(691, 71);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -308,9 +308,9 @@ namespace Travel_Experts
             // 
             // packagesControl1
             // 
-            this.packagesControl1.Location = new System.Drawing.Point(226, 102);
+            this.packagesControl1.Location = new System.Drawing.Point(164, 77);
             this.packagesControl1.Name = "packagesControl1";
-            this.packagesControl1.Size = new System.Drawing.Size(517, 367);
+            this.packagesControl1.Size = new System.Drawing.Size(601, 457);
             this.packagesControl1.TabIndex = 35;
             // 
             // printControl1
@@ -347,18 +347,18 @@ namespace Travel_Experts
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(790, 495);
-            this.Controls.Add(this.suppliersControl1);
+            this.ClientSize = new System.Drawing.Size(847, 572);
             this.Controls.Add(this.pbShutdown);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.previewControl1);
-            this.Controls.Add(this.productControl1);
-            this.Controls.Add(this.printControl1);
             this.Controls.Add(this.packagesControl1);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.administratorControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.suppliersControl1);
+            this.Controls.Add(this.previewControl1);
+            this.Controls.Add(this.productControl1);
+            this.Controls.Add(this.printControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
