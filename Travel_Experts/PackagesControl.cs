@@ -93,13 +93,8 @@ namespace Travel_Experts
                         package.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
                         package.PkgDesc = richTxtDescription.Text;
 
-                        if (package.PkgBasePrice < package.PkgAgencyCommission ||
-                           package.PkgEndDate < package.PkgStartDate)
-                        {
-                            MessageBox.Show("Base Price must be greater than Commission Price or " +
-                                "End Date must be later than Start Date");
-                        }
-                        else
+                        if (package.PkgBasePrice > package.PkgAgencyCommission &&
+                           package.PkgEndDate > package.PkgStartDate)
                         {
                             DialogResult result = MessageBox.Show("Add " + package.PkgName + "?",
                             "Confirm Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -108,8 +103,15 @@ namespace Travel_Experts
                                 this.PutPackageData(package);
                                 package.PackageId = PackagesDB.AddPackage(package);
                             }
+                            MessageBox.Show(package.PkgName + " added successfully");
                         }
-                        MessageBox.Show(package.PkgName + " added successfully");
+                        else
+                        {
+                            MessageBox.Show("Base Price must be greater than Commission Price or " +
+                               "End Date must be later than Start Date");
+                           
+                        }
+
                         this.ClearControls();
                     }
                 }
@@ -117,8 +119,6 @@ namespace Travel_Experts
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
-
-                
             }
             else if (radUpdate.Checked == true)
             {
@@ -146,16 +146,11 @@ namespace Travel_Experts
                   newPackage.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
                   newPackage.PkgDesc = richTxtDescription.Text;
 
-                  if (newPackage.PkgBasePrice < newPackage.PkgAgencyCommission ||
-                        newPackage.PkgEndDate < newPackage.PkgStartDate)
-                    {
-                        MessageBox.Show("Base Price must be greater than Commission Price or " +
-                           "End Date must be later than Start Date");
-                    }
-                    else
+                  if (newPackage.PkgBasePrice > newPackage.PkgAgencyCommission &&
+                        newPackage.PkgEndDate > newPackage.PkgStartDate)
                     {
                         DialogResult result = MessageBox.Show("Update " + package.PkgName + "?",
-                        "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                              "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
                             if (!PackagesDB.UpdatePackage(package, newPackage))
@@ -168,11 +163,14 @@ namespace Travel_Experts
                                 package = newPackage;
                             }
                         }
-                        {
-                            MessageBox.Show(package.PkgName + " Updated successfully");
+                            MessageBox.Show(package.PkgName + " added successfully");
                             this.ClearControls();
-                        }
-                        
+                    }
+                    else
+                    {
+                      
+                        MessageBox.Show("Base Price must be greater than Commission Price or " +
+                          "End Date must be later than Start Date");
                     }
                 }
                 catch (Exception ex)
