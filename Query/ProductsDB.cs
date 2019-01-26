@@ -168,9 +168,9 @@ namespace Query
         {
             SqlConnection connection = Connection.GetConnection();
             string updateStatement = "UPDATE Products " +
-                                     "SET Name = @NewProdName " +
-                                     "WHERE ProductID = @OldProductID " + // this identifies which record needs to be updated
-                                     "AND Name = @OldProdName ";
+                                     "SET ProdName = @NewProdName " +
+                                     "WHERE ProductId = @OldProductID " + // this identifies which record needs to be updated
+                                     "AND ProdName = @OldProdName ";
 
             SqlCommand command = new SqlCommand(updateStatement, connection);
             command.Parameters.AddWithValue("@NewProdName", newProduct.ProductName);

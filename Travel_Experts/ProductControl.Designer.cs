@@ -43,6 +43,8 @@
             this.lblSupName = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblPnameCb = new System.Windows.Forms.Label();
+            this.lblNewSup = new System.Windows.Forms.Label();
+            this.cbNewSup = new System.Windows.Forms.ComboBox();
             this.gbOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,17 +193,36 @@
             this.lblPnameCb.TabIndex = 24;
             this.lblPnameCb.Text = "Product Name :";
             // 
+            // lblNewSup
+            // 
+            this.lblNewSup.AutoSize = true;
+            this.lblNewSup.Location = new System.Drawing.Point(295, 242);
+            this.lblNewSup.Name = "lblNewSup";
+            this.lblNewSup.Size = new System.Drawing.Size(82, 13);
+            this.lblNewSup.TabIndex = 24;
+            this.lblNewSup.Text = "Supplier Name :";
+            // 
+            // cbNewSup
+            // 
+            this.cbNewSup.FormattingEnabled = true;
+            this.cbNewSup.Location = new System.Drawing.Point(392, 239);
+            this.cbNewSup.Name = "cbNewSup";
+            this.cbNewSup.Size = new System.Drawing.Size(121, 21);
+            this.cbNewSup.TabIndex = 36;
+            // 
             // ProductControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.cbNewSup);
             this.Controls.Add(this.cbSupplier);
             this.Controls.Add(this.cbProdName);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.gbOptions);
             this.Controls.Add(this.btnProdClear);
             this.Controls.Add(this.txtProdName);
+            this.Controls.Add(this.lblNewSup);
             this.Controls.Add(this.lblSupName);
             this.Controls.Add(this.lblPnameCb);
             this.Controls.Add(this.lblPnameTxt);
@@ -233,5 +254,7 @@
         private System.Windows.Forms.Label lblSupName;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblPnameCb;
+        private System.Windows.Forms.Label lblNewSup;
+        private System.Windows.Forms.ComboBox cbNewSup;
     }
 }

@@ -73,6 +73,9 @@ namespace Travel_Experts
             foreach (var item in newSupplierLinq)
             {
                 cbSupplier.Items.Add(item.SupName);
+
+                // For update
+                cbNewSup.Items.Add(item.SupName);
             }
         }
 
@@ -125,27 +128,31 @@ namespace Travel_Experts
                     // Update existing product and product_supplier (change product name or product_supplier)
                     // Sans validation
 
-                    // How do i get the old SupplierId????????
-
                     Products newProd = new Products(txtProdName.Text);
 
                     var oldProd = (from x in productList where x.ProductName == cbProdName.Text select x).First();
-                   
+                  
+                    bool updateP = ProductsDB.UpdateProduct(oldProd, newProd);
 
-                    bool update = ProductsDB.UpdateProduct(oldProd, newProd);
-
-                    // Get the supplier id for the selected supplier in the combo box                      
-                    var supId = (from sup in suppliersList
+                    // Get the old supplier id for the selected supplier in the combo box                      
+                    var oldSupId = (from sup in suppliersList
                                  where sup.SupName == cbSupplier.Text
                                  select sup.SupplierId).First();
 
-                    Products_Suppliers newPs = new Products_Suppliers(oldProd.ProductId,supId);
 
-                    //Products_Suppliers oldPs = new Products_Suppliers(oldProd.ProductId, oldSupId);
+                    // Get the new supplier id for the selected supplier in the lower CB
+                    var newSupId = (from sup in suppliersList
+                                    where sup.SupName == cbNewSup.Text
+                                    select sup.SupplierId).First();
 
-                    //bool update = Product_SuppliersDB.Update(oldPs, newPs);
 
-                    //OperationStatus(update); //Display message to user
+                    // Old and new Products_Suppliers objects
+                    Products_Suppliers oldPs = new Products_Suppliers(oldProd.ProductId, oldSupId);
+                    Products_Suppliers newPs = new Products_Suppliers(oldProd.ProductId, newSupId);
+                  
+                    bool updatePS = Product_SuppliersDB.Update(oldPs, newPs);
+
+                    OperationStatus(updatePS); //Display message to user
 
                     break;
 
@@ -177,7 +184,7 @@ namespace Travel_Experts
 
                     break;
             }
-
+            
             repopulate();
 
 
@@ -239,8 +246,7 @@ namespace Travel_Experts
 
         private void rbUpdate_CheckedChanged(object sender, EventArgs e)
         {
-            // Alter visibility
-            
+            // Alter visibility           
             lblPnameCb.Visible = true;
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
@@ -255,6 +261,7 @@ namespace Travel_Experts
             txtProdName.Text = null;
             cbProdName.SelectedIndex = -1;
             cbSupplier.SelectedIndex = -1;
+
         }
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)

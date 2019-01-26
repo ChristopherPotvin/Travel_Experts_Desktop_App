@@ -358,7 +358,7 @@ namespace Travel_Experts
             this.Controls.Add(this.packagesControl1);
             this.Controls.Add(this.homeControl1);
             this.Controls.Add(this.administratorControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
