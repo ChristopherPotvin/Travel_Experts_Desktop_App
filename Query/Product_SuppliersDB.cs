@@ -136,7 +136,7 @@ namespace Query
 
                 // Old ProductID Paramater
                 SqlParameter oldPIdPar = new SqlParameter("@oldPid", SqlDbType.Int);
-                oldPIdPar.Value = oldPsupplier.ProductSupplierId;
+                oldPIdPar.Value = oldPsupplier.ProductId;
                 cmd.Parameters.Add(oldPIdPar);
 
                 cmd.ExecuteNonQuery();

@@ -59,7 +59,7 @@
             // 
             // btnProdClear
             // 
-            this.btnProdClear.Location = new System.Drawing.Point(438, 318);
+            this.btnProdClear.Location = new System.Drawing.Point(348, 304);
             this.btnProdClear.Name = "btnProdClear";
             this.btnProdClear.Size = new System.Drawing.Size(75, 23);
             this.btnProdClear.TabIndex = 29;
@@ -68,7 +68,7 @@
             // 
             // txtProdName
             // 
-            this.txtProdName.Location = new System.Drawing.Point(144, 235);
+            this.txtProdName.Location = new System.Drawing.Point(168, 234);
             this.txtProdName.Name = "txtProdName";
             this.txtProdName.Size = new System.Drawing.Size(125, 20);
             this.txtProdName.TabIndex = 26;
@@ -76,17 +76,17 @@
             // lblPnameTxt
             // 
             this.lblPnameTxt.AutoSize = true;
-            this.lblPnameTxt.Location = new System.Drawing.Point(51, 238);
+            this.lblPnameTxt.Location = new System.Drawing.Point(50, 237);
             this.lblPnameTxt.Name = "lblPnameTxt";
-            this.lblPnameTxt.Size = new System.Drawing.Size(81, 13);
+            this.lblPnameTxt.Size = new System.Drawing.Size(106, 13);
             this.lblPnameTxt.TabIndex = 24;
-            this.lblPnameTxt.Text = "Product Name :";
+            this.lblPnameTxt.Text = "New Product Name :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(157, 59);
+            this.label4.Location = new System.Drawing.Point(179, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(217, 25);
             this.label4.TabIndex = 22;
@@ -97,9 +97,9 @@
             this.gbOptions.Controls.Add(this.rbUpdate);
             this.gbOptions.Controls.Add(this.rbDelete);
             this.gbOptions.Controls.Add(this.rbAdd);
-            this.gbOptions.Location = new System.Drawing.Point(144, 103);
+            this.gbOptions.Location = new System.Drawing.Point(184, 92);
             this.gbOptions.Name = "gbOptions";
-            this.gbOptions.Size = new System.Drawing.Size(212, 54);
+            this.gbOptions.Size = new System.Drawing.Size(212, 55);
             this.gbOptions.TabIndex = 33;
             this.gbOptions.TabStop = false;
             // 
@@ -141,7 +141,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(438, 280);
+            this.btnSubmit.Location = new System.Drawing.Point(448, 304);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 34;
@@ -152,7 +152,7 @@
             // cbProdName
             // 
             this.cbProdName.FormattingEnabled = true;
-            this.cbProdName.Location = new System.Drawing.Point(144, 185);
+            this.cbProdName.Location = new System.Drawing.Point(168, 184);
             this.cbProdName.Name = "cbProdName";
             this.cbProdName.Size = new System.Drawing.Size(121, 21);
             this.cbProdName.TabIndex = 35;
@@ -161,7 +161,7 @@
             // cbSupplier
             // 
             this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(392, 185);
+            this.cbSupplier.Location = new System.Drawing.Point(429, 184);
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(121, 21);
             this.cbSupplier.TabIndex = 36;
@@ -169,7 +169,7 @@
             // lblSupName
             // 
             this.lblSupName.AutoSize = true;
-            this.lblSupName.Location = new System.Drawing.Point(295, 188);
+            this.lblSupName.Location = new System.Drawing.Point(332, 187);
             this.lblSupName.Name = "lblSupName";
             this.lblSupName.Size = new System.Drawing.Size(82, 13);
             this.lblSupName.TabIndex = 24;
@@ -178,16 +178,16 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(178, 301);
+            this.lblStatus.Location = new System.Drawing.Point(230, 309);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.Size = new System.Drawing.Size(49, 13);
             this.lblStatus.TabIndex = 37;
-            this.lblStatus.Text = "label7";
+            this.lblStatus.Text = "message";
             // 
             // lblPnameCb
             // 
             this.lblPnameCb.AutoSize = true;
-            this.lblPnameCb.Location = new System.Drawing.Point(51, 188);
+            this.lblPnameCb.Location = new System.Drawing.Point(75, 187);
             this.lblPnameCb.Name = "lblPnameCb";
             this.lblPnameCb.Size = new System.Drawing.Size(81, 13);
             this.lblPnameCb.TabIndex = 24;
@@ -196,16 +196,16 @@
             // lblNewSup
             // 
             this.lblNewSup.AutoSize = true;
-            this.lblNewSup.Location = new System.Drawing.Point(295, 242);
+            this.lblNewSup.Location = new System.Drawing.Point(316, 241);
             this.lblNewSup.Name = "lblNewSup";
-            this.lblNewSup.Size = new System.Drawing.Size(82, 13);
+            this.lblNewSup.Size = new System.Drawing.Size(107, 13);
             this.lblNewSup.TabIndex = 24;
-            this.lblNewSup.Text = "Supplier Name :";
+            this.lblNewSup.Text = "New Supplier Name :";
             // 
             // cbNewSup
             // 
             this.cbNewSup.FormattingEnabled = true;
-            this.cbNewSup.Location = new System.Drawing.Point(392, 239);
+            this.cbNewSup.Location = new System.Drawing.Point(429, 238);
             this.cbNewSup.Name = "cbNewSup";
             this.cbNewSup.Size = new System.Drawing.Size(121, 21);
             this.cbNewSup.TabIndex = 36;
@@ -229,7 +229,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "ProductControl";
-            this.Size = new System.Drawing.Size(623, 425);
+            this.Size = new System.Drawing.Size(577, 380);
             this.Load += new System.EventHandler(this.ProductControl_Load);
             this.gbOptions.ResumeLayout(false);
             this.gbOptions.PerformLayout();

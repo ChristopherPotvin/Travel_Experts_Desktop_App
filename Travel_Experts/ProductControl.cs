@@ -16,7 +16,6 @@ namespace Travel_Experts
     public partial class ProductControl : UserControl
     {
 
-
         public ProductControl()
         {
             InitializeComponent();
@@ -27,16 +26,19 @@ namespace Travel_Experts
 
             // Alter visibility
             btnSubmit.Visible = false;
+            btnProdClear.Visible = false;
 
             lblSupName.Visible = false;
             lblPnameTxt.Visible = false;
             lblSupName.Visible = false;
             lblPnameCb.Visible = false;
+            lblNewSup.Visible = false;
             
 
             txtProdName.Visible = false;
             cbProdName.Visible = false;
             cbSupplier.Visible = false;
+            cbNewSup.Visible = false;
 
             repopulate();
         }
@@ -187,7 +189,6 @@ namespace Travel_Experts
             
             repopulate();
 
-
         }
 
         private void OperationStatus(bool result)
@@ -230,14 +231,16 @@ namespace Travel_Experts
             // Alter visibility
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
+            lblPnameCb.Visible = false;
+            lblNewSup.Visible = false;
 
             txtProdName.Visible = true;
-            cbSupplier.Visible = true;
-
-            lblPnameCb.Visible = false;
+            cbSupplier.Visible = true;           
             cbProdName.Visible = false;
+            cbNewSup.Visible = false;
 
             btnSubmit.Visible = true;
+            btnProdClear.Visible = true;
 
             // Remove Contents
             txtProdName.Text = null;
@@ -250,38 +253,45 @@ namespace Travel_Experts
             lblPnameCb.Visible = true;
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
+            lblNewSup.Visible = true;
 
             txtProdName.Visible = true;
             cbProdName.Visible = true;
             cbSupplier.Visible = true;
+            cbNewSup.Visible = true;
 
             btnSubmit.Visible = true;
+            btnProdClear.Visible = true;
 
             // Remove Contents
             txtProdName.Text = null;
             cbProdName.SelectedIndex = -1;
             cbSupplier.SelectedIndex = -1;
+            cbNewSup.SelectedIndex = -1;
 
         }
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
         {
             // Alter visibility
-
             lblPnameCb.Visible = true;
             lblPnameTxt.Visible = false;
-            lblSupName.Visible = false; ;
+            lblSupName.Visible = false;
+            lblNewSup.Visible = false;
 
             txtProdName.Visible = false;
             cbProdName.Visible = true;
             cbSupplier.Visible = false;
+            cbNewSup.Visible = false;
 
             btnSubmit.Visible = true;
+            btnProdClear.Visible = true;
 
             // Remove Contents
             txtProdName.Text = null;
             cbProdName.SelectedIndex = -1;
             cbSupplier.SelectedIndex = -1;
+            cbNewSup.SelectedIndex = -1;
 
         }
     }
