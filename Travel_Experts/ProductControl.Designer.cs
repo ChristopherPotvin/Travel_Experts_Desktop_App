@@ -41,8 +41,8 @@
             this.cbProdName = new System.Windows.Forms.ComboBox();
             this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.lblSupName = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.lblPnameCb = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.gbOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             this.btnProdClear.TabIndex = 29;
             this.btnProdClear.Text = "Clear";
             this.btnProdClear.UseVisualStyleBackColor = true;
+            this.btnProdClear.Click += new System.EventHandler(this.btnProdClear_Click);
             // 
             // txtProdName
             // 
@@ -173,15 +174,6 @@
             this.lblSupName.TabIndex = 24;
             this.lblSupName.Text = "Supplier Name :";
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(178, 301);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(35, 13);
-            this.lblStatus.TabIndex = 37;
-            this.lblStatus.Text = "label7";
-            // 
             // lblPnameCb
             // 
             this.lblPnameCb.AutoSize = true;
@@ -190,6 +182,15 @@
             this.lblPnameCb.Size = new System.Drawing.Size(81, 13);
             this.lblPnameCb.TabIndex = 24;
             this.lblPnameCb.Text = "Product Name :";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(178, 301);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(35, 13);
+            this.lblStatus.TabIndex = 37;
+            this.lblStatus.Text = "label7";
             // 
             // ProductControl
             // 
@@ -231,7 +232,7 @@
         private System.Windows.Forms.ComboBox cbProdName;
         private System.Windows.Forms.ComboBox cbSupplier;
         private System.Windows.Forms.Label lblSupName;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblPnameCb;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

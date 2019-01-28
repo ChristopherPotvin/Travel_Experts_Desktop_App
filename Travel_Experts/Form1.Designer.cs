@@ -52,6 +52,22 @@ namespace Travel_Experts
             this.productControl1 = new Travel_Experts.ProductControl();
             this.previewControl1 = new Travel_Experts.PreviewControl();
             this.suppliersControl1 = new Travel_Experts.SuppliersControl();
+            this.adminControlPdct1 = new Travel_Experts.AdminControlPdct();
+            this.adminControlSup1 = new Travel_Experts.AdminControlSup();
+            this.homeControl2 = new Travel_Experts.HomeControl();
+            this.previewControl2 = new Travel_Experts.PreviewControl();
+            this.packagesControl2 = new Travel_Experts.PackagesControl();
+            this.packagesControl3 = new Travel_Experts.PackagesControl();
+            this.homeControl3 = new Travel_Experts.HomeControl();
+            this.packagesControl4 = new Travel_Experts.PackagesControl();
+            this.previewControl3 = new Travel_Experts.PreviewControl();
+            this.packagesControl5 = new Travel_Experts.PackagesControl();
+            this.homeControl4 = new Travel_Experts.HomeControl();
+            this.packagesControl6 = new Travel_Experts.PackagesControl();
+            this.previewControl4 = new Travel_Experts.PreviewControl();
+            this.packagesControl7 = new Travel_Experts.PackagesControl();
+            this.previewControl5 = new Travel_Experts.PreviewControl();
+            this.homeControl5 = new Travel_Experts.HomeControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -209,16 +225,16 @@ namespace Travel_Experts
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.picBoxFB);
             this.panel2.Controls.Add(this.pictureBoxLinkdn);
             this.panel2.Controls.Add(this.pictureBoxTwitter);
             this.panel2.Controls.Add(this.pictureBoxInsta);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(158, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(634, 71);
+            this.panel2.Size = new System.Drawing.Size(632, 71);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -337,10 +353,136 @@ namespace Travel_Experts
             // suppliersControl1
             // 
             this.suppliersControl1.BackColor = System.Drawing.Color.White;
-            this.suppliersControl1.Location = new System.Drawing.Point(177, 86);
+            this.suppliersControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.suppliersControl1.Location = new System.Drawing.Point(158, 71);
             this.suppliersControl1.Name = "suppliersControl1";
-            this.suppliersControl1.Size = new System.Drawing.Size(601, 382);
+            this.suppliersControl1.Size = new System.Drawing.Size(632, 424);
             this.suppliersControl1.TabIndex = 40;
+            // 
+            // adminControlPdct1
+            // 
+            this.adminControlPdct1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminControlPdct1.Location = new System.Drawing.Point(158, 71);
+            this.adminControlPdct1.Name = "adminControlPdct1";
+            this.adminControlPdct1.Size = new System.Drawing.Size(632, 424);
+            this.adminControlPdct1.TabIndex = 5;
+            // 
+            // adminControlSup1
+            // 
+            this.adminControlSup1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminControlSup1.Location = new System.Drawing.Point(158, 71);
+            this.adminControlSup1.Name = "adminControlSup1";
+            this.adminControlSup1.Size = new System.Drawing.Size(632, 424);
+            this.adminControlSup1.TabIndex = 41;
+            // 
+            // homeControl2
+            // 
+            this.homeControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeControl2.Location = new System.Drawing.Point(158, 71);
+            this.homeControl2.Name = "homeControl2";
+            this.homeControl2.Size = new System.Drawing.Size(632, 424);
+            this.homeControl2.TabIndex = 42;
+            // 
+            // previewControl2
+            // 
+            this.previewControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.previewControl2.Location = new System.Drawing.Point(158, 71);
+            this.previewControl2.Name = "previewControl2";
+            this.previewControl2.Size = new System.Drawing.Size(632, 424);
+            this.previewControl2.TabIndex = 43;
+            // 
+            // packagesControl2
+            // 
+            this.packagesControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesControl2.Location = new System.Drawing.Point(158, 71);
+            this.packagesControl2.Name = "packagesControl2";
+            this.packagesControl2.Size = new System.Drawing.Size(632, 424);
+            this.packagesControl2.TabIndex = 44;
+            // 
+            // packagesControl3
+            // 
+            this.packagesControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesControl3.Location = new System.Drawing.Point(158, 71);
+            this.packagesControl3.Name = "packagesControl3";
+            this.packagesControl3.Size = new System.Drawing.Size(632, 424);
+            this.packagesControl3.TabIndex = 45;
+            // 
+            // homeControl3
+            // 
+            this.homeControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeControl3.Location = new System.Drawing.Point(158, 71);
+            this.homeControl3.Name = "homeControl3";
+            this.homeControl3.Size = new System.Drawing.Size(632, 424);
+            this.homeControl3.TabIndex = 46;
+            // 
+            // packagesControl4
+            // 
+            this.packagesControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesControl4.Location = new System.Drawing.Point(158, 71);
+            this.packagesControl4.Name = "packagesControl4";
+            this.packagesControl4.Size = new System.Drawing.Size(632, 424);
+            this.packagesControl4.TabIndex = 47;
+            // 
+            // previewControl3
+            // 
+            this.previewControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.previewControl3.Location = new System.Drawing.Point(158, 71);
+            this.previewControl3.Name = "previewControl3";
+            this.previewControl3.Size = new System.Drawing.Size(632, 424);
+            this.previewControl3.TabIndex = 48;
+            // 
+            // packagesControl5
+            // 
+            this.packagesControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesControl5.Location = new System.Drawing.Point(158, 71);
+            this.packagesControl5.Name = "packagesControl5";
+            this.packagesControl5.Size = new System.Drawing.Size(632, 424);
+            this.packagesControl5.TabIndex = 49;
+            // 
+            // homeControl4
+            // 
+            this.homeControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homeControl4.Location = new System.Drawing.Point(158, 71);
+            this.homeControl4.Name = "homeControl4";
+            this.homeControl4.Size = new System.Drawing.Size(632, 424);
+            this.homeControl4.TabIndex = 50;
+            // 
+            // packagesControl6
+            // 
+            this.packagesControl6.Location = new System.Drawing.Point(166, 79);
+            this.packagesControl6.Name = "packagesControl6";
+            this.packagesControl6.Size = new System.Drawing.Size(617, 399);
+            this.packagesControl6.TabIndex = 51;
+            // 
+            // previewControl4
+            // 
+            this.previewControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.previewControl4.Location = new System.Drawing.Point(158, 71);
+            this.previewControl4.Name = "previewControl4";
+            this.previewControl4.Size = new System.Drawing.Size(632, 424);
+            this.previewControl4.TabIndex = 52;
+            // 
+            // packagesControl7
+            // 
+            this.packagesControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagesControl7.Location = new System.Drawing.Point(158, 71);
+            this.packagesControl7.Name = "packagesControl7";
+            this.packagesControl7.Size = new System.Drawing.Size(632, 424);
+            this.packagesControl7.TabIndex = 53;
+            // 
+            // previewControl5
+            // 
+            this.previewControl5.Location = new System.Drawing.Point(166, 79);
+            this.previewControl5.Name = "previewControl5";
+            this.previewControl5.Size = new System.Drawing.Size(553, 376);
+            this.previewControl5.TabIndex = 54;
+            // 
+            // homeControl5
+            // 
+            this.homeControl5.Location = new System.Drawing.Point(174, 87);
+            this.homeControl5.Name = "homeControl5";
+            this.homeControl5.Size = new System.Drawing.Size(602, 400);
+            this.homeControl5.TabIndex = 55;
             // 
             // Form1
             // 
@@ -348,6 +490,22 @@ namespace Travel_Experts
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(790, 495);
+            this.Controls.Add(this.homeControl5);
+            this.Controls.Add(this.previewControl5);
+            this.Controls.Add(this.packagesControl7);
+            this.Controls.Add(this.previewControl4);
+            this.Controls.Add(this.packagesControl6);
+            this.Controls.Add(this.homeControl4);
+            this.Controls.Add(this.packagesControl5);
+            this.Controls.Add(this.previewControl3);
+            this.Controls.Add(this.packagesControl4);
+            this.Controls.Add(this.homeControl3);
+            this.Controls.Add(this.packagesControl3);
+            this.Controls.Add(this.packagesControl2);
+            this.Controls.Add(this.previewControl2);
+            this.Controls.Add(this.homeControl2);
+            this.Controls.Add(this.adminControlSup1);
+            this.Controls.Add(this.adminControlPdct1);
             this.Controls.Add(this.suppliersControl1);
             this.Controls.Add(this.pbShutdown);
             this.Controls.Add(this.panel2);
@@ -402,6 +560,22 @@ namespace Travel_Experts
         private ProductControl productControl1;
         private PreviewControl previewControl1;
         private SuppliersControl suppliersControl1;
+        private AdminControlPdct adminControlPdct1;
+        private AdminControlSup adminControlSup1;
+        private HomeControl homeControl2;
+        private PreviewControl previewControl2;
+        private PackagesControl packagesControl2;
+        private PackagesControl packagesControl3;
+        private HomeControl homeControl3;
+        private PackagesControl packagesControl4;
+        private PreviewControl previewControl3;
+        private PackagesControl packagesControl5;
+        private HomeControl homeControl4;
+        private PackagesControl packagesControl6;
+        private PreviewControl previewControl4;
+        private PackagesControl packagesControl7;
+        private PreviewControl previewControl5;
+        private HomeControl homeControl5;
     }
 }
 

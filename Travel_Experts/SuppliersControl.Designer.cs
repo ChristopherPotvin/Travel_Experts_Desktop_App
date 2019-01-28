@@ -37,9 +37,9 @@
             this.btnApply = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbSupName = new System.Windows.Forms.ComboBox();
+            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtSupName = new System.Windows.Forms.TextBox();
             this.txtSupId = new System.Windows.Forms.TextBox();
-            this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSupNameDD = new System.Windows.Forms.Label();
             this.lblSupName = new System.Windows.Forms.Label();
             this.lblSupId = new System.Windows.Forms.Label();
@@ -131,6 +131,10 @@
             this.cbSupName.TabIndex = 14;
             this.cbSupName.SelectedIndexChanged += new System.EventHandler(this.supNameComboBox_SelectedIndexChanged);
             // 
+            // suppliersBindingSource
+            // 
+            this.suppliersBindingSource.DataSource = typeof(Model.Suppliers);
+            // 
             // txtSupName
             // 
             this.txtSupName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.suppliersBindingSource, "SupName", true));
@@ -146,10 +150,6 @@
             this.txtSupId.Name = "txtSupId";
             this.txtSupId.Size = new System.Drawing.Size(210, 20);
             this.txtSupId.TabIndex = 18;
-            // 
-            // suppliersBindingSource
-            // 
-            this.suppliersBindingSource.DataSource = typeof(Model.Suppliers);
             // 
             // lblSupNameDD
             // 

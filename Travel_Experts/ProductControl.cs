@@ -277,5 +277,10 @@ namespace Travel_Experts
             cbSupplier.SelectedIndex = -1;
 
         }
+
+        private void btnProdClear_Click(object sender, EventArgs e)
+        {
+            txtProdName.Text = "";
+        }
     }
 }

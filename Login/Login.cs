@@ -10,29 +10,37 @@ namespace Login
     public class Login
     {
         //Properties 
-        public string Username { get; set; }
-        public int Userpassword { get; set; }
+        public int AgentID { get; set; }
+        public string AgentName { get; set; }
+        public string AgentPassword { get; set; }
 
         // Constructor 
-        public Login(string user, int pass)
+        public Login(int user, string name, string password)
         {
-            this.Username = user;
-            this.Userpassword = pass;
+            this.AgentID = user;
+            this.AgentName = name;
+            this.AgentPassword = password;
         }
        
         // Determine if entered login information is valid
-        public bool EvaluateLogIn(string user, int pass)
+        public bool EvaluateLogIn(int user, string name, string password)
         {
            //Check if username is correct
-            if (Username != user)
+            if (AgentID != user)
             {
                 return false;
             }      
             //check password is correct 
-            else if (Userpassword != pass)
+            else if (AgentPassword != password)
             {
                 return false;
             }
+
+            else if(AgentName != name)
+            {
+                return false;
+            }
+
             else
             {
                 return true;
