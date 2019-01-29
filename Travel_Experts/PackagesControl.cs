@@ -102,8 +102,8 @@ namespace Travel_Experts
                             {
                                 this.PutPackageData(package);
                                 package.PackageId = PackagesDB.AddPackage(package);
+                                MessageBox.Show(package.PkgName + " added successfully");
                             }
-                            MessageBox.Show(package.PkgName + " added successfully");
                             this.ClearControls();
                         }
                         else
@@ -118,6 +118,7 @@ namespace Travel_Experts
                                 MessageBox.Show("End Date must be later than Start Date");
                                 dateStart.Focus();
                             }
+
                         }
                     }
                 }
@@ -164,15 +165,15 @@ namespace Travel_Experts
                                 else
                                 {
                                     package = newPackage;
+                                    MessageBox.Show(package.PkgName + " updated successfully");
                                 }
                             }
-                            MessageBox.Show(package.PkgName + " updated successfully");
                             this.ClearControls();
                         }
                         else
                         {
 
-                            if (package.PkgBasePrice < package.PkgAgencyCommission)
+                            if (newPackage.PkgBasePrice < newPackage.PkgAgencyCommission)
                             {
                                 MessageBox.Show("Base Price must be greater than Commission Price");
                                 txtPrice.Focus();
