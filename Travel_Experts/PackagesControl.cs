@@ -94,7 +94,7 @@ namespace Travel_Experts
                         package.PkgDesc = richTxtDescription.Text;
 
                         if (package.PkgBasePrice > package.PkgAgencyCommission &&
-                           package.PkgEndDate > package.PkgStartDate)
+                        package.PkgEndDate > package.PkgStartDate)
                         {
                             DialogResult result = MessageBox.Show("Add " + package.PkgName + "?",
                             "Confirm Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -104,15 +104,21 @@ namespace Travel_Experts
                                 package.PackageId = PackagesDB.AddPackage(package);
                             }
                             MessageBox.Show(package.PkgName + " added successfully");
+                            this.ClearControls();
                         }
                         else
                         {
-                            MessageBox.Show("Base Price must be greater than Commission Price or " +
-                               "End Date must be later than Start Date");
-                           
+                            if (package.PkgBasePrice < package.PkgAgencyCommission)
+                            {
+                                MessageBox.Show("Base Price must be greater than Commission Price");
+                                txtPrice.Focus();
+                            }
+                            else
+                            {
+                                MessageBox.Show("End Date must be later than Start Date");
+                                dateStart.Focus();
+                            }
                         }
-
-                        this.ClearControls();
                     }
                 }
                 catch (Exception ex)
@@ -134,43 +140,49 @@ namespace Travel_Experts
                        Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
                        Validator1.IsProvided(richTxtDescription, "Description"))
                     {
+                        Packages newPackage = new Packages();
+                        newPackage.PackageId = Convert.ToInt32(txtID.Text);
+                        newPackage.PkgName = txtName.Text;
+                        newPackage.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
+                        newPackage.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
+                        newPackage.PkgStartDate = Convert.ToDateTime(dateStart.Text);
+                        newPackage.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
+                        newPackage.PkgDesc = richTxtDescription.Text;
 
-                    }
-
-                  Packages newPackage = new Packages();
-                  newPackage.PackageId = Convert.ToInt32(txtID.Text);
-                  newPackage.PkgName = txtName.Text;
-                  newPackage.PkgBasePrice = Convert.ToDecimal(txtPrice.Text);
-                  newPackage.PkgAgencyCommission = Convert.ToDecimal(txtCommission.Text);
-                  newPackage.PkgStartDate = Convert.ToDateTime(dateStart.Text);
-                  newPackage.PkgEndDate = Convert.ToDateTime(dateEnd.Text);
-                  newPackage.PkgDesc = richTxtDescription.Text;
-
-                  if (newPackage.PkgBasePrice > newPackage.PkgAgencyCommission &&
-                        newPackage.PkgEndDate > newPackage.PkgStartDate)
-                    {
-                        DialogResult result = MessageBox.Show("Update " + package.PkgName + "?",
-                                              "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
+                        if (newPackage.PkgBasePrice > newPackage.PkgAgencyCommission &&
+                              newPackage.PkgEndDate > newPackage.PkgStartDate)
                         {
-                            if (!PackagesDB.UpdatePackage(package, newPackage))
+                            DialogResult result = MessageBox.Show("Update " + package.PkgName + "?",
+                                                  "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
                             {
-                                MessageBox.Show("Another user has updated or " +
-                                     "deleted that package.", "Database Error");
+                                if (!PackagesDB.UpdatePackage(package, newPackage))
+                                {
+                                    MessageBox.Show("Another user has updated or " +
+                                         "deleted that package.", "Database Error");
+                                }
+                                else
+                                {
+                                    package = newPackage;
+                                }
+                            }
+                            MessageBox.Show(package.PkgName + " updated successfully");
+                            this.ClearControls();
+                        }
+                        else
+                        {
+
+                            if (package.PkgBasePrice < package.PkgAgencyCommission)
+                            {
+                                MessageBox.Show("Base Price must be greater than Commission Price");
+                                txtPrice.Focus();
                             }
                             else
                             {
-                                package = newPackage;
+                                MessageBox.Show("End Date must be later than Start Date");
+                                dateStart.Focus();
                             }
                         }
-                            MessageBox.Show(package.PkgName + " added successfully");
-                            this.ClearControls();
-                    }
-                    else
-                    {
-                      
-                        MessageBox.Show("Base Price must be greater than Commission Price or " +
-                          "End Date must be later than Start Date");
                     }
                 }
                 catch (Exception ex)
