@@ -23,29 +23,29 @@ namespace Login
         }
        
         // Determine if entered login information is valid
-        public bool EvaluateLogIn(int user, string name, string password)
-        {
-           //Check if username is correct
-            if (AgentID != user)
-            {
-                return false;
-            }      
-            //check password is correct 
-            else if (AgentPassword != password)
-            {
-                return false;
-            }
+        //public bool EvaluateLogIn(int user, string name, string password)
+        //{
+        //   //Check if username is correct
+        //    if (AgentID != user)
+        //    {
+        //        return false;
+        //    }      
+        //    //check password is correct 
+        //    else if (AgentPassword != password)
+        //    {
+        //        return false;
+        //    }
 
-            else if(AgentName != name)
-            {
-                return false;
-            }
+        //    else if(AgentName != name)
+        //    {
+        //        return false;
+        //    }
 
-            else
-            {
-                return true;
-            }          
-        }
+        //    else
+        //    {
+        //        return true;
+        //    }          
+        //}
     }
 }
 
