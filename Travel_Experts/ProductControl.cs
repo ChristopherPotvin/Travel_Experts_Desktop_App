@@ -24,21 +24,7 @@ namespace Travel_Experts
         private void ProductControl_Load(object sender, EventArgs e)
         {
 
-            // Alter visibility
-            btnSubmit.Visible = false;
-            btnProdClear.Visible = false;
-
-            lblSupName.Visible = false;
-            lblPnameTxt.Visible = false;
-            lblSupName.Visible = false;
-            lblPnameCb.Visible = false;
-            lblNewSup.Visible = false;
-            
-
-            txtProdName.Visible = false;
-            cbProdName.Visible = false;
-            cbSupplier.Visible = false;
-            cbNewSup.Visible = false;
+            HideAll();
 
             repopulate();
         }
@@ -48,8 +34,6 @@ namespace Travel_Experts
         /// </summary>
         private void repopulate()
         {
-            //cbProdName.Items.Clear();
-            //cbSupplier.Items.Clear();
 
             List<Products> newProductList = ProductsDB.GetProducts();
             List<Suppliers> newSuppliersList = SuppliersDB.GetSuppliers();
@@ -71,14 +55,7 @@ namespace Travel_Experts
             cbNewSup.DisplayMember = "SupName";
             cbNewSup.DataSource = newSuppliersList;
 
-
-            cbProdName.ResetText();
-            cbSupplier.ResetText();
-            cbNewSup.ResetText();
-
-            cbProdName.SelectedIndex = -1;
-            cbSupplier.SelectedIndex = -1;
-            cbNewSup.SelectedIndex = -1;
+            ClearAll();
 
         }
 
@@ -202,42 +179,38 @@ namespace Travel_Experts
 
             if (cbProdName.SelectedIndex != -1)
             {
-
                 int currentProductId = Convert.ToInt32(cbProdName.SelectedValue);
-
                 var prd = (from x in productList where x.ProductId == currentProductId select x).Single();
-
                 txtProdName.Text = prd.ProductName.ToString();
-
             }
         }
 
         private void rbAdd_CheckedChanged(object sender, EventArgs e)
         {
 
-            // Alter visibility
+            HideAll();
+
+            // Enable controls that are needed
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
-            lblPnameCb.Visible = false;
-            lblNewSup.Visible = false;
 
             txtProdName.Visible = true;
             cbSupplier.Visible = true;           
-            cbProdName.Visible = false;
-            cbNewSup.Visible = false;
+
 
             btnSubmit.Visible = true;
             btnProdClear.Visible = true;
 
             // Remove Contents
             txtProdName.Text = null;
-            cbSupplier.ResetText();
-            cbSupplier.SelectedIndex = -1;
+            ClearAll();
         }
 
         private void rbUpdate_CheckedChanged(object sender, EventArgs e)
         {
-            // Alter visibility           
+            HideAll();
+
+            // Enable controls that are needed          
             lblPnameCb.Visible = true;
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
@@ -252,36 +225,31 @@ namespace Travel_Experts
             btnProdClear.Visible = true;
 
             // Remove Contents
-            txtProdName.Text = null;
-            cbProdName.ResetText();
-            cbSupplier.ResetText();
-            cbNewSup.ResetText();
-
-            cbProdName.SelectedIndex = -1;
-            cbSupplier.SelectedIndex = -1;
-            cbNewSup.SelectedIndex = -1;
+            ClearAll();
 
 
         }
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
         {
-            // Alter visibility
+            
+            HideAll();
+
+            // Enable controls that are needed
             lblPnameCb.Visible = true;
-            lblPnameTxt.Visible = false;
-            lblSupName.Visible = false;
-            lblNewSup.Visible = false;
-
-            txtProdName.Visible = false;
             cbProdName.Visible = true;
-            cbSupplier.Visible = false;
-            cbNewSup.Visible = false;
-
             btnSubmit.Visible = true;
             btnProdClear.Visible = true;
 
             // Remove Contents
-            txtProdName.Text = null;
+            ClearAll();
+
+        }
+
+        private void ClearAll()
+        {
+            // Clear user controls
+
             cbProdName.ResetText();
             cbSupplier.ResetText();
             cbNewSup.ResetText();
@@ -290,6 +258,27 @@ namespace Travel_Experts
             cbSupplier.SelectedIndex = -1;
             cbNewSup.SelectedIndex = -1;
 
+            txtProdName.Text = null;
+        }
+
+        private void HideAll()
+        {
+            // Alter visibility
+
+            btnSubmit.Visible = false;
+            btnProdClear.Visible = false;
+
+            lblSupName.Visible = false;
+            lblPnameTxt.Visible = false;
+            lblSupName.Visible = false;
+            lblPnameCb.Visible = false;
+            lblNewSup.Visible = false;
+
+
+            txtProdName.Visible = false;
+            cbProdName.Visible = false;
+            cbSupplier.Visible = false;
+            cbNewSup.Visible = false;
         }
     }
 }

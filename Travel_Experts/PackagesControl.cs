@@ -361,6 +361,9 @@ namespace Travel_Experts
             // Testing method. We need to create entries for products_suppliers and then Packages_Products_Suppliers 
             // based on the selections made in this datagrid view 
 
+  
+            // Need to make Products_Suppliers(s) for the package, these will have a ProductSupplierId. Use this to create entries int Packages_Products_Suppliers
+
 
             Int32 selectedCellCount =
                     dgPS.GetCellCount(DataGridViewElementStates.Selected);
