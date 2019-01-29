@@ -44,15 +44,14 @@ namespace Travel_Experts
                 txtUname.Focus();
                 return;
             }
+
             try
             {
-
-                SqlConnection conn = Connection.GetConnection();
-
-                conn = new SqlConnection();
-
                 string selectPassword = "SELECT AgentID, AgentName, AgentPassword FROM AgentLogin WHERE AgentID = @AgentID AND AgentName = @AgentName AND AgentPassword = @AgentPassword";
 
+                SqlConnection conn = Connection.GetConnection();
+                //conn = new SqlConnection();
+                
                 SqlCommand cmd = new SqlCommand(selectPassword, conn);
 
                 SqlParameter AgentID = new SqlParameter("@AgentID", SqlDbType.Int);
@@ -68,13 +67,14 @@ namespace Travel_Experts
                 cmd.Parameters.Add(AgentName);
                 cmd.Parameters.Add(AgentPassword);
 
-                cmd.Connection.Open();
+                //cmd.Connection.Open();
+                conn.Open();
 
-                SqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader myReader = cmd.ExecuteReader();
 
                 if (myReader.Read() == true)
                 {
-                    MessageBox.Show("You have logged in successfully " + txtAgentID.Text);
+                    MessageBox.Show("You are now logged in." + txtAgentID.Text);
                     //Hide the login form
                     this.Hide();
                 }
@@ -91,13 +91,16 @@ namespace Travel_Experts
                 }
                 if (conn.State == ConnectionState.Open)
                 {
-                    conn.Dispose();
+                    conn.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
+            
+            
         }
 
     }
