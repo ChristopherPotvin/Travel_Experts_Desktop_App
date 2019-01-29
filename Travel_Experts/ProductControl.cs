@@ -24,63 +24,40 @@ namespace Travel_Experts
         private void ProductControl_Load(object sender, EventArgs e)
         {
 
-            // Alter visibility
-            btnSubmit.Visible = false;
-            btnProdClear.Visible = false;
-
-            lblSupName.Visible = false;
-            lblPnameTxt.Visible = false;
-            lblSupName.Visible = false;
-            lblPnameCb.Visible = false;
-            lblNewSup.Visible = false;
-            
-
-            txtProdName.Visible = false;
-            cbProdName.Visible = false;
-            cbSupplier.Visible = false;
-            cbNewSup.Visible = false;
+            HideAll();
 
             repopulate();
         }
-
 
         /// <summary>
         /// Populate the cb's
         /// </summary>
         private void repopulate()
         {
-            cbProdName.Items.Clear();
-            cbSupplier.Items.Clear();
 
             List<Products> newProductList = ProductsDB.GetProducts();
-
-            var newProductLinq = from prod in newProductList
-                                  select new
-                                  {
-                                      prod.ProductName
-                                  };
-
-            foreach (var item in newProductLinq)
-            {
-                cbProdName.Items.Add(item.ProductName);
-            }
-
             List<Suppliers> newSuppliersList = SuppliersDB.GetSuppliers();
-            var newSupplierLinq = from sup in newSuppliersList
-                                  select new
-                                  {
-                                      sup.SupName
-                                  };
 
-            foreach (var item in newSupplierLinq)
-            {
-                cbSupplier.Items.Add(item.SupName);
 
-                // For update
-                cbNewSup.Items.Add(item.SupName);
-            }
+            // Product List Box
+            cbProdName.ValueMember = "ProductId";
+            cbProdName.DisplayMember = "ProductName";
+            cbProdName.DataSource = newProductList;
+
+
+            // Supplier List Box 
+            cbSupplier.ValueMember = "SupplierId";
+            cbSupplier.DisplayMember = "SupName";
+            cbSupplier.DataSource = newSuppliersList;
+
+            // New Supplier List Box
+            cbNewSup.ValueMember = "SupplierId";
+            cbNewSup.DisplayMember = "SupName";
+            cbNewSup.DataSource = newSuppliersList;
+
+            ClearAll();
+
         }
-
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -106,13 +83,10 @@ namespace Travel_Experts
                         // Get the inserted ID
                         int insertedId = ProductsDB.InsertProduct(prod);
 
-                        // Get the supplier id for the selected supplier in the combo box                      
-                        var supI = (from sup in suppliersList
-                                                   where sup.SupName == cbSupplier.Text
-                                                   select sup.SupplierId).First();
+                        var sup = (from x in suppliersList where x.SupplierId == Convert.ToInt32(cbSupplier.SelectedValue) select x).Single();
 
                         // Insert the product supplier
-                        Products_Suppliers pS = new Products_Suppliers(insertedId, supI);
+                        Products_Suppliers pS = new Products_Suppliers(insertedId, sup.SupplierId);
                         bool insertPs = Product_SuppliersDB.Insert(pS);
 
                         OperationStatus(insertPs); //Display message to user
@@ -136,17 +110,10 @@ namespace Travel_Experts
                   
                     bool updateP = ProductsDB.UpdateProduct(oldProd, newProd);
 
-                    // Get the old supplier id for the selected supplier in the combo box                      
-                    var oldSupId = (from sup in suppliersList
-                                 where sup.SupName == cbSupplier.Text
-                                 select sup.SupplierId).First();
-
+                    var oldSupId = (from x in suppliersList where x.SupplierId == Convert.ToInt32(cbSupplier.SelectedValue) select x.SupplierId).Single();
 
                     // Get the new supplier id for the selected supplier in the lower CB
-                    var newSupId = (from sup in suppliersList
-                                    where sup.SupName == cbNewSup.Text
-                                    select sup.SupplierId).First();
-
+                    var newSupId = (from x in suppliersList where x.SupplierId == Convert.ToInt32(cbNewSup.SelectedValue) select x.SupplierId).Single();
 
                     // Old and new Products_Suppliers objects
                     Products_Suppliers oldPs = new Products_Suppliers(oldProd.ProductId, oldSupId);
@@ -162,21 +129,17 @@ namespace Travel_Experts
                     // Delete existing supplier
                     // Sans validation
 
-                    // Get the supplier id for the selected supplier in the combo box                      
-                    var prd = (from pr in productList
-                                where pr.ProductName == cbProdName.Text
-                                select pr.ProductId).First();
+                    var prd = (from x in productList where x.ProductId == Convert.ToInt32(cbProdName.SelectedValue) select x).Single();
 
                     List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
 
                     foreach (Products_Suppliers item in psList)
                     {
-                        if (item.ProductId == prd)
+                        if (item.ProductId == prd.ProductId)
                         {
-                            Product_SuppliersDB.Delete(item.ProductId);
+                            Product_SuppliersDB.Delete(prd.ProductId);
                         }
                     }
-
 
                     Products delProd = new Products(cbProdName.Text);
 
@@ -210,46 +173,44 @@ namespace Travel_Experts
 
         }
 
-
-
         private void cbProdName_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Products> productList = ProductsDB.GetProducts();
 
             if (cbProdName.SelectedIndex != -1)
             {
-                var sup = (from x in productList where x.ProductName == cbProdName.Text select x).First();
-
-                txtProdName.Text = sup.ProductName.ToString();
-
+                int currentProductId = Convert.ToInt32(cbProdName.SelectedValue);
+                var prd = (from x in productList where x.ProductId == currentProductId select x).Single();
+                txtProdName.Text = prd.ProductName.ToString();
             }
         }
 
         private void rbAdd_CheckedChanged(object sender, EventArgs e)
         {
 
-            // Alter visibility
+            HideAll();
+
+            // Enable controls that are needed
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
-            lblPnameCb.Visible = false;
-            lblNewSup.Visible = false;
 
             txtProdName.Visible = true;
             cbSupplier.Visible = true;           
-            cbProdName.Visible = false;
-            cbNewSup.Visible = false;
+
 
             btnSubmit.Visible = true;
             btnProdClear.Visible = true;
 
             // Remove Contents
             txtProdName.Text = null;
-            cbSupplier.SelectedIndex = -1;
+            ClearAll();
         }
 
         private void rbUpdate_CheckedChanged(object sender, EventArgs e)
         {
-            // Alter visibility           
+            HideAll();
+
+            // Enable controls that are needed          
             lblPnameCb.Visible = true;
             lblPnameTxt.Visible = true;
             lblSupName.Visible = true;
@@ -264,35 +225,60 @@ namespace Travel_Experts
             btnProdClear.Visible = true;
 
             // Remove Contents
-            txtProdName.Text = null;
-            cbProdName.SelectedIndex = -1;
-            cbSupplier.SelectedIndex = -1;
-            cbNewSup.SelectedIndex = -1;
+            ClearAll();
+
 
         }
 
         private void rbDelete_CheckedChanged(object sender, EventArgs e)
         {
-            // Alter visibility
+            
+            HideAll();
+
+            // Enable controls that are needed
             lblPnameCb.Visible = true;
-            lblPnameTxt.Visible = false;
-            lblSupName.Visible = false;
-            lblNewSup.Visible = false;
-
-            txtProdName.Visible = false;
             cbProdName.Visible = true;
-            cbSupplier.Visible = false;
-            cbNewSup.Visible = false;
-
             btnSubmit.Visible = true;
             btnProdClear.Visible = true;
 
             // Remove Contents
-            txtProdName.Text = null;
+            ClearAll();
+
+        }
+
+        private void ClearAll()
+        {
+            // Clear user controls
+
+            cbProdName.ResetText();
+            cbSupplier.ResetText();
+            cbNewSup.ResetText();
+
             cbProdName.SelectedIndex = -1;
             cbSupplier.SelectedIndex = -1;
             cbNewSup.SelectedIndex = -1;
 
+            txtProdName.Text = null;
+        }
+
+        private void HideAll()
+        {
+            // Alter visibility
+
+            btnSubmit.Visible = false;
+            btnProdClear.Visible = false;
+
+            lblSupName.Visible = false;
+            lblPnameTxt.Visible = false;
+            lblSupName.Visible = false;
+            lblPnameCb.Visible = false;
+            lblNewSup.Visible = false;
+
+
+            txtProdName.Visible = false;
+            cbProdName.Visible = false;
+            cbSupplier.Visible = false;
+            cbNewSup.Visible = false;
         }
     }
 }
