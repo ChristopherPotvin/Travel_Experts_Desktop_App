@@ -117,27 +117,27 @@ namespace Query
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = con;
-                cmd.CommandText = "UPDATE Products_Suppliers SET ProductId = @newPid, SupplierId = @newSid Where ProductSupplierId = @oldPsId";
+                cmd.CommandText = "UPDATE Products_Suppliers SET SupplierId = @newSid WHERE SupplierId = @oldSid AND ProductId = @oldPid";
 
-                // new ProductSupplierId Paramater
-                //SqlParameter newpsIdPar = new SqlParameter("@newPsId", SqlDbType.Int);
-                //newpsIdPar.Value = newPsupplier.ProductSupplierId;
-                //cmd.Parameters.Add(newpsIdPar);
-
-                // new ProductId Paramater
-                SqlParameter newPidPar = new SqlParameter("@newPid", SqlDbType.Int);
-                newPidPar.Value = newPsupplier.ProductId;
-                cmd.Parameters.Add(newPidPar);
-
-                // new SupplierId Paramater
+                // New SupplierId Paramater
                 SqlParameter newSidPar = new SqlParameter("@newSid", SqlDbType.Int);
                 newSidPar.Value = newPsupplier.SupplierId;
                 cmd.Parameters.Add(newSidPar);
 
-                // old Product Supplier ID Paramater
-                //SqlParameter oldPsIdPar = new SqlParameter("@oldPsId", SqlDbType.Int);
-                //oldPsIdPar.Value = oldPsupplier.ProductSupplierId;
-                //cmd.Parameters.Add(oldPsIdPar);
+                // New ProductId Paramater
+                //SqlParameter newPidPar = new SqlParameter("@newPid", SqlDbType.Int);
+                //newPidPar.Value = newPsupplier.ProductId;
+                //cmd.Parameters.Add(newPidPar);
+
+                // Old SupplierId Paramater
+                SqlParameter oldSidPar = new SqlParameter("@oldSid", SqlDbType.Int);
+                oldSidPar.Value = oldPsupplier.SupplierId;
+                cmd.Parameters.Add(oldSidPar);
+
+                // Old ProductID Paramater
+                SqlParameter oldPIdPar = new SqlParameter("@oldPid", SqlDbType.Int);
+                oldPIdPar.Value = oldPsupplier.ProductId;
+                cmd.Parameters.Add(oldPIdPar);
 
                 cmd.ExecuteNonQuery();
 

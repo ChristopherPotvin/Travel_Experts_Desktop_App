@@ -21,6 +21,27 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
+
+        private void populateDg()
+        {
+
+            List<Products> productsList = ProductsDB.GetProducts();
+            List<Suppliers> suppliersList = SuppliersDB.GetSuppliers();
+            List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
+
+
+            var listings = from ps in psList
+                           join product in productsList on ps.ProductId equals product.ProductId
+                           join supplier in suppliersList on ps.SupplierId equals supplier.SupplierId
+                           select new { product.ProductName, supplier.SupName };
+
+
+            dgPS.DataSource = listings.ToList();
+
+
+
+        }
+
         private void PackagesControl_Load(object sender, EventArgs e)
         {
             txtName.Enabled = false;
@@ -34,11 +55,13 @@ namespace Travel_Experts
             btnSearch.Visible = false;
             txtID.Visible = false;
             lblId.Visible = false;
+
+            populateDg();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (Validator1.IsProvided(txtID, "Package ID") && 
+            if (Validator1.IsProvided(txtID, "Package ID") &&
                 Validator1.IsNonNegativeInt(txtID, "Package ID"))
             {
                 int packageID = Convert.ToInt32(txtID.Text);
@@ -52,9 +75,9 @@ namespace Travel_Experts
                 else
                     this.DisplayPackages();
             }
-           
+
         }
-        
+
         private void GetPackage(int packageID)
         {
             package = PackagesDB.GetPackages(packageID);
@@ -77,12 +100,12 @@ namespace Travel_Experts
             {
                 try
                 {
-                if (Validator1.IsProvided(txtName, "Package Name") &&
-                    Validator1.IsProvided(txtPrice, "Base Price") &&
-                    Validator1.IsNonNegativeDecimal(txtPrice, "Base Price") &&
-                    Validator1.IsProvided(txtCommission, "Agency Commission") &&
-                    Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
-                    Validator1.IsProvided(richTxtDescription, "Description"))
+                    if (Validator1.IsProvided(txtName, "Package Name") &&
+                        Validator1.IsProvided(txtPrice, "Base Price") &&
+                        Validator1.IsNonNegativeDecimal(txtPrice, "Base Price") &&
+                        Validator1.IsProvided(txtCommission, "Agency Commission") &&
+                        Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
+                        Validator1.IsProvided(richTxtDescription, "Description"))
                     {
                         Packages package = new Packages();
 
@@ -126,13 +149,15 @@ namespace Travel_Experts
                 {
                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
+
+
             }
             else if (radUpdate.Checked == true)
             {
                 try
                 {
 
-                    if(Validator1.IsProvided(txtID, "PackageID") &&
+                    if (Validator1.IsProvided(txtID, "PackageID") &&
                        Validator1.IsNonNegativeInt(txtID, "PackageID") &&
                        Validator1.IsProvided(txtName, "Package Name") &&
                        Validator1.IsProvided(txtPrice, "Base Price") &&
@@ -217,14 +242,14 @@ namespace Travel_Experts
                             MessageBox.Show(package.PkgName + " deleted successfully");
                             this.ClearControls();
                         }
-                            
+
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, ex.GetType().ToString());
                     }
                 }
-                
+
             }
         }
 
@@ -341,6 +366,48 @@ namespace Travel_Experts
             btnSearch.Visible = true;
             txtID.Visible = true;
             lblId.Visible = true;
+        }
+
+        private void btnSelected_Click(object sender, EventArgs e)
+        {
+
+            // Testing method. We need to create entries for products_suppliers and then Packages_Products_Suppliers
+            // based on the selections made in this datagrid view
+
+
+            // Need to make Products_Suppliers(s) for the package, these will have a ProductSupplierId. Use this to create entries int Packages_Products_Suppliers
+
+
+            Int32 selectedCellCount =
+                    dgPS.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellCount > 0)
+            {
+                if (dgPS.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("All cells are selected", "Selected Cells");
+                }
+                else
+                {
+                    System.Text.StringBuilder sb =
+                        new System.Text.StringBuilder();
+
+                    for (int i = 0;
+                        i < selectedCellCount; i++)
+                    {
+                        int rowIndex = dgPS.SelectedCells[i].RowIndex;
+                        int colIndex = dgPS.SelectedCells[i].ColumnIndex;
+
+                        string myvalue = dgPS.Rows[rowIndex].Cells[colIndex].Value.ToString();
+
+                        sb.Append(myvalue);
+                        sb.Append(Environment.NewLine);
+
+                    }
+
+                    sb.Append("Total: " + selectedCellCount.ToString());
+                    MessageBox.Show(sb.ToString(), "Selected Cells");
+                }
+            }
         }
     }
 }

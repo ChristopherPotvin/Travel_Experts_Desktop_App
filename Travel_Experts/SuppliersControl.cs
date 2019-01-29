@@ -26,16 +26,12 @@ namespace Travel_Experts
         {
             List<Suppliers> newSuppliersList = SuppliersDB.GetSuppliers();
 
-            var newSupplierLinq = from sup in newSuppliersList
-                               select new
-                               {
-                                   sup.SupName
-                               };
+            cbSupName.ValueMember = "SupplierId";
 
-            foreach (var item in newSupplierLinq)
-            {
-                cbSupName.Items.Add(item.SupName);
-            }
+            cbSupName.DisplayMember = "SupName";
+
+            cbSupName.DataSource = newSuppliersList;
+
         }
 
         private void SuppliersControl_Load(object sender, EventArgs e)
@@ -70,7 +66,9 @@ namespace Travel_Experts
 
             if (cbSupName.SelectedIndex != -1)
             {
-                var sup = (from x in suppliersList where x.SupName == cbSupName.Text select x).First();
+                
+                var sup = (from x in suppliersList where x.SupplierId == Convert.ToInt32(cbSupName.SelectedValue) select new { x.SupplierId, x.SupName }).Single();
+
                 txtSupName.Text = sup.SupName;
                 txtSupId.Text = sup.SupplierId.ToString();
             }
@@ -109,7 +107,8 @@ namespace Travel_Experts
                     // Update existing supplier
                     // Sans validation
                     Suppliers newSup = new Suppliers(Convert.ToInt32(txtSupId.Text), txtSupName.Text);
-                    var oldSup = (from x in suppliersList where x.SupName == cbSupName.Text select x).First();
+                    var oldSup = (from x in suppliersList where x.SupplierId == Convert.ToInt32(cbSupName.SelectedValue) select x).Single();
+                    //var oldSup = (from x in suppliersList where x.SupName == cbSupName.Text select x).First();
                     bool update = SuppliersDB.Update(oldSup,newSup);
                     OperationStatus(update); //Display message to user
                     break;
