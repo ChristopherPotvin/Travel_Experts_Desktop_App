@@ -44,24 +44,25 @@ namespace Travel_Experts
                
                 return;
             }
+
+            if (txtAgentID.Text == "1") // hardcoding the Agent ID for now.
+
             try
             {
-                string selectPassword = "SELECT AgentID, AgentName, AgentPassword FROM AgentLogin WHERE AgentID = @AgentID AND AgentName = @AgentName AND AgentPassword = @AgentPassword";
+                string selectPassword = "SELECT AgentID, AgentName, AgentPassword FROM AgentLogin WHERE AgentID = 1 AND AgentName = @AgentName AND AgentPassword = @AgentPassword";
 
                 SqlConnection conn = Connection.GetConnection();
                 //conn = new SqlConnection();
                 
                 SqlCommand cmd = new SqlCommand(selectPassword, conn);
 
-                SqlParameter AgentID = new SqlParameter("@AgentID", SqlDbType.Int);
+                SqlParameter AgentID = new SqlParameter("1", SqlDbType.Int);
                 SqlParameter AgentName = new SqlParameter("@AgentName", SqlDbType.VarChar);
                 SqlParameter AgentPassword = new SqlParameter("@AgentPassword", SqlDbType.VarChar);
                 
                 AgentID.Value = txtAgentID.Text;
                 AgentName.Value = txtUname.Text;
                 AgentPassword.Value = txtPword.Text;
-                
-
                 
                 cmd.Parameters.Add(AgentID);
                 cmd.Parameters.Add(AgentName);
@@ -75,21 +76,19 @@ namespace Travel_Experts
                 if (myReader.Read() == true)
                 {
                     MessageBox.Show("You are now logged in " + txtUname.Text + "!!! ");
-                    //Hide the login form
-                    this.Hide();
-                    Form1 mainForm = (Form1)this.Parent; //Access the parent form and enable the side navigation
-                    mainForm.Navigation(true);
-                    
+                        //Hide the login form
+
+                    label1.Visible = true; // Disable the visibility of the label
                     gbLogin.Visible = false; // Disable the visibility of the login groupbox
+
+                        Form1 mainForm = (Form1)this.Parent; //Access the parent form and enable the side navigation
+                    mainForm.Navigation(true);
+
                 }
 
                 else
                 {
                     MessageBox.Show("Login Failed, please try again", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    txtAgentID.Clear();
-                    txtUname.Clear();
-                    txtPword.Focus();
                 }
 
                 if (conn.State == ConnectionState.Open)
@@ -101,7 +100,59 @@ namespace Travel_Experts
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
+            else {
+
+                try // admin password
+                {
+                    string selectAdminPassword = "SELECT AgentID, AgentName, AgentPassword FROM AgentLogin WHERE AgentID = 2 AND AgentName = @AdminName AND AgentPassword = @AdminPassword";
+                    SqlConnection conn = Connection.GetConnection();
+                    SqlCommand cmd = new SqlCommand(selectAdminPassword, conn);
+
+                    SqlParameter AdminID = new SqlParameter("@AdminID", SqlDbType.Int);
+                    SqlParameter AdminName = new SqlParameter("@AdminName", SqlDbType.VarChar);
+                    SqlParameter AdminPassword = new SqlParameter("@AdminPassword", SqlDbType.VarChar);
+
+                    AdminID.Value = txtAgentID.Text;
+                    AdminName.Value = txtUname.Text;
+                    AdminPassword.Value = txtPword.Text;
+
+                    cmd.Parameters.Add(AdminID);
+                    cmd.Parameters.Add(AdminName);
+                    cmd.Parameters.Add(AdminPassword);
+
+                    conn.Open();
+
+                    SqlDataReader myReader = cmd.ExecuteReader();
+
+                    if (myReader.Read() == true)
+                    {
+                        MessageBox.Show("You are now logged in as an Administrator ");
+                        //Hide the login form
+                       
+                        Form1 mainForm = (Form1)this.Parent; //Access the parent form and enable the side navigation
+                        mainForm.Navigation(true);
+
+                        label1.Visible = true; // Disable the visibility of the label
+                        gbLogin.Visible = false; // Disable the visibility of the login groupbox
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login Failed, please try again", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+     
         }
 
     }

@@ -1,27 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Login
 {
-    public class Login
+    class AdminLogin
     {
         //Properties for Agent
-        public int AgentID { get; set; } // 1
-        public string AgentName { get; set; } // Miley Cyrus
-        public string AgentPassword { get; set; } // Travel123
+        public int AdminID { get; set; } // 2
+        public string AdminName { get; set; } // Mo Sagnia
+        public string AdminPassword { get; set; } // Chelsea Sucks
 
         // Constructor 
-        public Login(int user, string name, string pass)
+        public AdminLogin(int user, string name, string pass)
         {
 
-            this.AgentID = user;
-            this.AgentName = name;
-            this.AgentPassword = GetHashCode(pass); // call the method and set it as the Agent Password
+            this.AdminID = user;
+            this.AdminName = name;
+            this.AdminPassword = GetHashCode(pass); // call the method and set it as the Agent Password
         }
 
         private string GetHashCode(string pass) // Method for retrieving the hashed password
