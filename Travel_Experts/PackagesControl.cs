@@ -21,29 +21,10 @@ namespace Travel_Experts
             InitializeComponent();
         }
 
-
-        private void populateDg()
-        {
-
-            List<Products> productsList = ProductsDB.GetProducts();
-            List<Suppliers> suppliersList = SuppliersDB.GetSuppliers();
-            List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
-
-
-            var listings = from ps in psList
-                           join product in productsList on ps.ProductId equals product.ProductId
-                           join supplier in suppliersList on ps.SupplierId equals supplier.SupplierId
-                           select new { product.ProductName, supplier.SupName };
-
-
-            dgPS.DataSource = listings.ToList();
-
-
-
-        }
-
         private void PackagesControl_Load(object sender, EventArgs e)
         {
+            populateDg();
+
             txtName.Enabled = false;
             txtPrice.Enabled = false;
             txtCommission.Enabled = false;
@@ -56,7 +37,7 @@ namespace Travel_Experts
             txtID.Visible = false;
             lblId.Visible = false;
 
-            populateDg();
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -107,6 +88,8 @@ namespace Travel_Experts
                         Validator1.IsNonNegativeDecimal(txtCommission, "Agency Commission") &&
                         Validator1.IsProvided(richTxtDescription, "Description"))
                     {
+
+                        // Packages Object
                         Packages package = new Packages();
 
                         package.PkgName = txtName.Text;
@@ -128,8 +111,20 @@ namespace Travel_Experts
                             "Confirm Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes)
                             {
+                                // Add the package
                                 this.PutPackageData(package);
-                                package.PackageId = PackagesDB.AddPackage(package);
+                                int currentID = PackagesDB.AddPackage(package);
+
+                                // Create the Packages_Package_Suppliers
+                                foreach (Products_Suppliers addPS in psAddList)
+                                {
+
+                                    int currentPSID = addPS.ProductSupplierId;
+
+                                    Packages_Products_Suppliers ppsAdd = new Packages_Products_Suppliers(currentID,currentPSID);
+                                    Packages_Products_SuppliersDB.Insert(ppsAdd);
+
+                                }
                             }
                         }
                         MessageBox.Show(package.PkgName + " added successfully");
@@ -325,7 +320,7 @@ namespace Travel_Experts
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (Validator1.IsProvided(txtID, "Package ID") &&
-     Validator1.IsNonNegativeInt(txtID, "Package ID"))
+            Validator1.IsNonNegativeInt(txtID, "Package ID"))
             {
                 int packageID = Convert.ToInt32(txtID.Text);
                 GetPackage(packageID);
@@ -355,46 +350,73 @@ namespace Travel_Experts
             lblId.Visible = true;
         }
 
-        private void btnSelected_Click(object sender, EventArgs e)
+        private void populateDg()
         {
 
-            // Testing method. We need to create entries for products_suppliers and then Packages_Products_Suppliers 
-            // based on the selections made in this datagrid view 
-
+            List<Products> productsList = ProductsDB.GetProducts();
+            List<Suppliers> suppliersList = SuppliersDB.GetSuppliers();
+            List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
+      
+            cbProduct.ValueMember = "ProductId";
+            cbProduct.DisplayMember = "ProductName";
+            cbProduct.DataSource = productsList;
   
-            // Need to make Products_Suppliers(s) for the package, these will have a ProductSupplierId. Use this to create entries int Packages_Products_Suppliers
+        }
 
+        private void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Products> productsList = ProductsDB.GetProducts();
+            List<Suppliers> suppliersList = SuppliersDB.GetSuppliers();
+            List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
 
-            Int32 selectedCellCount =
-                    dgPS.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellCount > 0)
+            int selected = Convert.ToInt32(cbProduct.SelectedValue);
+
+            var listings = from ps in psList
+                            join product in productsList on ps.ProductId equals product.ProductId
+                            join supplier in suppliersList on ps.SupplierId equals supplier.SupplierId
+                            where product.ProductId == selected
+                            select new { product.ProductId, supplier.SupName, supplier.SupplierId };
+
+            List<Products_Suppliers> addList = new List<Products_Suppliers>();
+
+            foreach (var listing in listings)
             {
-                if (dgPS.AreAllCellsSelected(true))
-                {
-                    MessageBox.Show("All cells are selected", "Selected Cells");
-                }
-                else
-                {
-                    System.Text.StringBuilder sb =
-                        new System.Text.StringBuilder();
+                Products_Suppliers newPS = new Products_Suppliers(Convert.ToInt32(listing.ProductId), Convert.ToInt32(listing.SupplierId));
+                addList.Add(newPS);
 
-                    for (int i = 0;
-                        i < selectedCellCount; i++)
-                    {
-                        int rowIndex = dgPS.SelectedCells[i].RowIndex;
-                        int colIndex = dgPS.SelectedCells[i].ColumnIndex;
-
-                        string myvalue = dgPS.Rows[rowIndex].Cells[colIndex].Value.ToString();
-
-                        sb.Append(myvalue);
-                        sb.Append(Environment.NewLine);
-
-                    }
-
-                    sb.Append("Total: " + selectedCellCount.ToString());
-                    MessageBox.Show(sb.ToString(), "Selected Cells");
-                }
             }
+
+            lbPS.DataSource = null;
+            lbPS.Items.Clear();
+
+            // Get the display member to sho as Supplier Name
+            lbPS.ValueMember = "SupplierId";
+            lbPS.DisplayMember = "SupplierId";
+
+            lbPS.DataSource = addList.ToList();
+
+        }
+
+        List<Products_Suppliers> psAddList = new List<Products_Suppliers>();
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            List<Products_Suppliers> psList = Product_SuppliersDB.GetSuppliers();
+
+
+            int selectedPID = Convert.ToInt32(cbProduct.SelectedValue);
+
+            int selectedSupID = Convert.ToInt32(lbPS.SelectedValue);
+
+            var current = from ps in psList where ps.ProductId == Convert.ToInt32(cbProduct.SelectedValue) && ps.SupplierId == Convert.ToInt32(lbPS.SelectedValue) select ps;
+  
+            lbAdded.Items.Add(cbProduct.SelectedItem + " " + lbPS.SelectedItem);
+
+            foreach (var item in current)
+            {
+                Products_Suppliers psAdd = new Products_Suppliers(Convert.ToInt32(item.ProductSupplierId), Convert.ToInt32(item.ProductId), Convert.ToInt32(item.SupplierId));
+                psAddList.Add(psAdd);
+            }
+               
         }
     }
 }

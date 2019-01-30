@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Query
 {
-    class Packages_Products_SuppliersDB
+    public class Packages_Products_SuppliersDB
     {
         public static List<Packages_Products_Suppliers> GetSuppliers()
         {
@@ -74,6 +74,7 @@ namespace Query
                 psIdPar.Value = ppSupplier.ProductSupplierId;
                 cmd.Parameters.Add(psIdPar);
 
+                cmd.ExecuteNonQuery();
 
                 result = true;
             }

@@ -87,9 +87,9 @@ namespace Travel_Experts
 
                         // Insert the product supplier
                         Products_Suppliers pS = new Products_Suppliers(insertedId, sup.SupplierId);
-                        bool insertPs = Product_SuppliersDB.Insert(pS);
+                        Product_SuppliersDB.Insert(pS);
 
-                        OperationStatus(insertPs); //Display message to user
+                        //Display message to user TODO
 
                     }
                     catch (DuplicateKeyException ex)

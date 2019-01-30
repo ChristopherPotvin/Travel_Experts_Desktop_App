@@ -53,10 +53,11 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgPS = new System.Windows.Forms.DataGridView();
-            this.btnSelected = new System.Windows.Forms.Button();
+            this.cbProduct = new System.Windows.Forms.ComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lbPS = new System.Windows.Forms.ListBox();
+            this.lbAdded = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPS)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -246,7 +247,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(514, 406);
+            this.btnSubmit.Location = new System.Drawing.Point(508, 412);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 15;
@@ -301,31 +302,50 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Select the Products and Suppliers:";
             // 
-            // dgPS
+            // cbProduct
             // 
-            this.dgPS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPS.Location = new System.Drawing.Point(33, 298);
-            this.dgPS.Name = "dgPS";
-            this.dgPS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPS.Size = new System.Drawing.Size(302, 121);
-            this.dgPS.TabIndex = 22;
+            this.cbProduct.FormattingEnabled = true;
+            this.cbProduct.Location = new System.Drawing.Point(20, 319);
+            this.cbProduct.Name = "cbProduct";
+            this.cbProduct.Size = new System.Drawing.Size(121, 21);
+            this.cbProduct.TabIndex = 26;
+            this.cbProduct.SelectedIndexChanged += new System.EventHandler(this.cbProduct_SelectedIndexChanged);
             // 
-            // btnSelected
+            // btnAdd
             // 
-            this.btnSelected.Location = new System.Drawing.Point(351, 298);
-            this.btnSelected.Name = "btnSelected";
-            this.btnSelected.Size = new System.Drawing.Size(75, 23);
-            this.btnSelected.TabIndex = 23;
-            this.btnSelected.Text = "Selected";
-            this.btnSelected.UseVisualStyleBackColor = true;
-            this.btnSelected.Click += new System.EventHandler(this.btnSelected_Click);
+            this.btnAdd.Location = new System.Drawing.Point(276, 290);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 27;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lbPS
+            // 
+            this.lbPS.FormattingEnabled = true;
+            this.lbPS.Location = new System.Drawing.Point(156, 319);
+            this.lbPS.Name = "lbPS";
+            this.lbPS.Size = new System.Drawing.Size(195, 95);
+            this.lbPS.TabIndex = 28;
+            // 
+            // lbAdded
+            // 
+            this.lbAdded.Enabled = false;
+            this.lbAdded.FormattingEnabled = true;
+            this.lbAdded.Location = new System.Drawing.Point(379, 290);
+            this.lbAdded.Name = "lbAdded";
+            this.lbAdded.Size = new System.Drawing.Size(215, 95);
+            this.lbAdded.TabIndex = 29;
             // 
             // PackagesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnSelected);
-            this.Controls.Add(this.dgPS);
+            this.Controls.Add(this.lbAdded);
+            this.Controls.Add(this.lbPS);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.cbProduct);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -352,7 +372,6 @@
             this.Load += new System.EventHandler(this.PackagesControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,7 +404,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.RadioButton radioSearch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgPS;
-        private System.Windows.Forms.Button btnSelected;
+        private System.Windows.Forms.ComboBox cbProduct;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ListBox lbPS;
+        private System.Windows.Forms.ListBox lbAdded;
     }
 }

@@ -35,7 +35,7 @@ namespace Query
 
                 while (reader.Read())
                 {
-                    pSupplier = new Products_Suppliers((int)reader["ProductId"], (int)reader["SupplierId"]);
+                    pSupplier = new Products_Suppliers((int)reader["ProductSupplierId"],(int)reader["ProductId"], (int)reader["SupplierId"]);
                     psList.Add(pSupplier); // Add to return list
                 }
             }
@@ -50,9 +50,9 @@ namespace Query
             return psList;
         }
 
-        public static bool Insert(Products_Suppliers pSupplier)
+        public static int Insert(Products_Suppliers pSupplier)
         {
-            bool result = false;
+            int result = -1;
             SqlConnection con = Connection.GetConnection();
 
             try
@@ -62,7 +62,7 @@ namespace Query
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "INSERT INTO Products_Suppliers (ProductId, SupplierId) values (@pId, @sId)";
+                cmd.CommandText = "INSERT INTO Products_Suppliers (ProductId, SupplierId) OUTPUT INSERTED.ProductSupplierId values (@pId, @sId)";
 
                 // ProductSupplierId Paramater
                 //SqlParameter psIdPar = new SqlParameter("@psId", SqlDbType.Int);
@@ -79,9 +79,9 @@ namespace Query
                 sIdPar.Value = pSupplier.SupplierId;
                 cmd.Parameters.Add(sIdPar);
 
-                cmd.ExecuteNonQuery();
+                Int32 newID = (Int32) cmd.ExecuteScalar();
 
-                result = true;
+                result = newID;
             }
             catch (SqlException e)
             {
