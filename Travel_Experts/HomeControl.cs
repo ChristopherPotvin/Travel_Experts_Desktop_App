@@ -29,22 +29,21 @@ namespace Travel_Experts
             if (txtAgentID.Text == "")
             {
                 MessageBox.Show("Please enter a correct Agent ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtAgentID.Focus();
+              
                 return;
             }
             if (txtUname.Text == "")
             {
                 MessageBox.Show("Please enter a username", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUname.Focus();
+                
                 return;
             }
             if (txtPword.Text == "")
             {
                 MessageBox.Show("Please enter a password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUname.Focus();
+               
                 return;
             }
-
             try
             {
                 string selectPassword = "SELECT AgentID, AgentName, AgentPassword FROM AgentLogin WHERE AgentID = @AgentID AND AgentName = @AgentName AND AgentPassword = @AgentPassword";
@@ -61,6 +60,7 @@ namespace Travel_Experts
                 AgentID.Value = txtAgentID.Text;
                 AgentName.Value = txtUname.Text;
                 AgentPassword.Value = txtPword.Text;
+                
 
                 
                 cmd.Parameters.Add(AgentID);
@@ -74,21 +74,24 @@ namespace Travel_Experts
 
                 if (myReader.Read() == true)
                 {
-                    MessageBox.Show("You are now logged in." + txtAgentID.Text);
+                    MessageBox.Show("You are now logged in " + txtUname.Text + "!!! ");
                     //Hide the login form
                     this.Hide();
+                    Form1 mainForm = (Form1)this.Parent; //Access the parent form and enable the side navigation
+                    mainForm.Navigation(true);
+                    
+                    gbLogin.Visible = false; // Disable the visibility of the login groupbox
                 }
-
 
                 else
                 {
-                    MessageBox.Show("Login Failed...Try again !", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Login Failed, please try again", "Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     txtAgentID.Clear();
                     txtUname.Clear();
                     txtPword.Focus();
-
                 }
+
                 if (conn.State == ConnectionState.Open)
                 {
                     conn.Close();
@@ -98,9 +101,7 @@ namespace Travel_Experts
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
-            
-            
+        
         }
 
     }
